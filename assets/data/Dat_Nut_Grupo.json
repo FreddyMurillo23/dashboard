@@ -1,0 +1,18 @@
+{
+    "valores_netos": [
+        {
+            "delgadez": 208,
+            "pesonormal": 1352,
+            "sobrepeso": 1732,
+            "total": 3292
+        }
+    ],
+    "valores_porcentuales": [
+        {
+            "p_delgadez": 6.32,
+            "p_pesonormal": 41.07,
+            "p_sobrepeso": 52.61
+        }
+    ]
+}
+

@@ -1,0 +1,78 @@
+{
+    "historico": [
+        {
+            "id_paciente": 66855,
+            "id_consulta": 18876,
+            "imc": "35.2",
+            "fecha_consulta": "2017-08-03",
+            "motivo_consulta": "sobrepeso ",
+            "enfermedad_actual": "obaesidad 2, + hiperlipidemíaa, peso 89 kg,195.8 lbs"
+        },
+        {
+            "id_paciente": 66855,
+            "id_consulta": 19124,
+            "imc": "34.4",
+            "fecha_consulta": "2017-08-14",
+            "motivo_consulta": "control de sobrepeso",
+            "enfermedad_actual": "obesidad 1, imc 34.4,: peso 87 kg. 191.4 lbs, ha bajado 4.4 lbs"
+        },
+        {
+            "id_paciente": 66855,
+            "id_consulta": 34976,
+            "imc": "34.1",
+            "fecha_consulta": "2018-07-05",
+            "motivo_consulta": "sobrepeso, desea reiniciar el tratamiento",
+            "enfermedad_actual": "obesidad 1, imc 34.1,  peso  90.7 kg. 199.54 lbs"
+        },
+        {
+            "id_paciente": 66855,
+            "id_consulta": 35810,
+            "imc": "32.7",
+            "fecha_consulta": "2018-07-17",
+            "motivo_consulta": "control de sobrepeso",
+            "enfermedad_actual": "obesidad 1,  imc  32.7. peso 87 kg. 191.4 lbs, ha bajado 7.94 lbs"
+        },
+        {
+            "id_paciente": 66855,
+            "id_consulta": 59902,
+            "imc": "35.3",
+            "fecha_consulta": "2019-07-05",
+            "motivo_consulta": "reiniciar el tratamiento para bajar de peso",
+            "enfermedad_actual": "obesidad 1. imc 35.3,  peso 93.9 kg. 206.58 lbs"
+        }
+    ],
+    "datos_personales": [
+        {
+            "id_paciente": 66855,
+            "nombres": "SEGUNDO JORGE",
+            "apellidos": "PAZMIÑO MERO",
+            "fecha_nacimiento": "1996-01-22",
+            "genero": "M",
+            "correo_institucional": "spazmino3625@utm.edu.ec"
+        }
+    ],
+    "antecedentes": [
+        {
+            "id_paciente": 66855,
+            "id_antecedente": 15,
+            "descripcion": "cafeismo +",
+            "nombre_parentesco": "PERSONAL",
+            "antecedente": "OTRO"
+        }
+    ],
+    "datos_nutricionales": [
+        {
+            "id_consulta": 18876,
+            "apetito": "aumentado",
+            "habito_intestinal": "normal",
+            "masticacion": "normal y rápido",
+            "actividad_fisica": "no",
+            "alcohol": "no",
+            "cigarrillo": "no",
+            "suplemento_nutricional": "no",
+            "alimentos_favoritos": "no",
+            "alimentos_rechazados": "leche",
+            "intolerencia": "no"
+        }
+    ]
+}

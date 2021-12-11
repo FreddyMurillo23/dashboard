@@ -1,0 +1,29 @@
+
+{
+    "clasificacion_grupos": [
+        {
+            "cod_clasificacion": 1,
+            "nombre": "ESTUDIANTE"
+        },
+        {
+            "cod_clasificacion": 5,
+            "nombre": "OBRERO"
+        },
+        {
+            "cod_clasificacion": 4,
+            "nombre": "DOCENTE"
+        },
+        {
+            "cod_clasificacion": 3,
+            "nombre": "JUBILADO"
+        },
+        {
+            "cod_clasificacion": 2,
+            "nombre": "EMPLEADO"
+        },
+        {
+            "cod_clasificacion": 6,
+            "nombre": "OTROS"
+        }
+    ]
+}

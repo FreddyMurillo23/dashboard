@@ -1,0 +1,17 @@
+{
+    "valores_netos": [
+        {
+            "delgadez": 12,
+            "pesonormal": 57,
+            "sobrepeso": 97,
+            "total": 166
+        }
+    ],
+    "valores_porcentuales": [
+        {
+            "p_delgadez": 7.23,
+            "p_pesonormal": 34.34,
+            "p_sobrepeso": 58.43
+        }
+    ]
+}

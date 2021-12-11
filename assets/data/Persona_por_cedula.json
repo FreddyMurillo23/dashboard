@@ -1,0 +1,11 @@
+[
+    {
+        "id_paciente": 81960,
+        "cedula": "1315149995",
+        "nombres": "MICHAEL IVAN",
+        "apellidos": "GARCIA CABRERA",
+        "fecha_nacimiento": "1998-05-27",
+        "genero": "M",
+        "correo_institucional": "mgarcia9995@utm.edu.ec"
+    }
+]
