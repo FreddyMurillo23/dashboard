@@ -15,7 +15,7 @@ import 'package:fl_chart/fl_chart.dart' as pie;
 import '../../../constants.dart';
 import 'components/legends_chart.dart';
 import 'components/segment_line_chart.dart';
-import 'components/storage_details.dart';
+import 'components/left dashboard/component.medic_records.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -189,7 +189,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               Container(
                   width: MediaQuery.of(context).size.width * 20 / 100 -
                       defaultPadding,
-                  child: StarageDetails()),
+                  child: MedicRecordsComponent()),
               // SizedBox(width: defaultPadding),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

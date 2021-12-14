@@ -2,12 +2,16 @@ import 'package:admin/constants.dart';
 import 'package:admin/controllers/MenuController.dart';
 import 'package:admin/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:global_configuration/global_configuration.dart';
 
 Future<void> main() async {
-  // await GlobalConfiguration().loadFromAsset("configurations");
+
+  // loads environment variables
+  await dotenv.load(fileName: ".env");
+
   runApp(MyApp());
 }
 
@@ -24,6 +28,8 @@ class MyApp extends StatelessWidget {
             .apply(bodyColor: Colors.black),
         canvasColor: secondaryColor,
       ),
+      navigatorObservers: [FlutterSmartDialog.observer],
+      builder: FlutterSmartDialog.init(),
       home: MultiProvider(
         providers: [
           ChangeNotifierProvider(
