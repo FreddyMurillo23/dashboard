@@ -2,7 +2,6 @@
 //! Endpoint que lista todas las facultades de la utm junto a sus escuelas
 //! http://localhost:8000/api/general/facultades
 
-import 'dart:convert';
 
 class Facultades {
   int? id;

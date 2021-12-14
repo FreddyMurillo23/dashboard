@@ -63,4 +63,33 @@ class APIMedicRecords {
 
     return response;
   }
+
+  /// Fetchs nutritional data from a group
+  Future<Map<String, dynamic>> fetchGroupValues(int id) async {
+    final isProduction = dotenv.env['IS_PRODUCTION'] == "true";
+
+    late final rawResponse;
+
+    // if it's not a production environment then I'll simulate the response
+    if(!isProduction) {
+      rawResponse = await rootBundle.loadString('data/Dat_Nut_Grupo.json');
+    }
+    else {
+      final url = Uri.parse("${dotenv.env['API_HOST']}/salud/datos_nutricionales_grupo/$id");
+      final fetchedData = await http.get(url);
+
+      if(fetchedData.statusCode != 200) {
+        throw new ErrorDescription('Hubo un problema cargando los datos. Recargue o intente más tarde.');
+      }
+
+      rawResponse = fetchedData.body;
+    }
+    
+    final decodedRespone = json.decode(rawResponse);
+
+    // will store the real or simulated response
+    final response = decodedRespone;
+
+    return response;
+  }
 }
