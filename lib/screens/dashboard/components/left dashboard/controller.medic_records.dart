@@ -97,13 +97,14 @@ class MedicRecordsController {
     return filters ?? [];
   }
 
-  Future<Map<String, dynamic>> loadFilterValues(int id) async {
+  Future<Map<String, dynamic>> loadFilterValues(int id, String name) async {
     SmartDialog.showLoading();
 
     Map<String, dynamic>? filterOpts;
     
     try {
       filterOpts = await APIMedicRecords().fetchGroupValues(id);
+      filterOpts.addAll({"name": name});
       medicRecordsSink = filterOpts;
     }catch(e) {
       SmartDialog.showToast(e.toString());

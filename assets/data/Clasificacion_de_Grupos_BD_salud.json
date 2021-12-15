@@ -3,27 +3,39 @@
     "clasificacion_grupos": [
         {
             "cod_clasificacion": 1,
-            "nombre": "ESTUDIANTE"
+            "nombre": "ESTUDIANTE",
+            "cantidad_registros": 3512,
+            "porcentaje": 40.35
         },
         {
             "cod_clasificacion": 5,
-            "nombre": "OBRERO"
+            "nombre": "OBRERO",
+            "cantidad_registros": 212,
+            "porcentaje": 10.00
         },
         {
             "cod_clasificacion": 4,
-            "nombre": "DOCENTE"
+            "nombre": "DOCENTE",
+            "cantidad_registros": 1012,
+            "porcentaje": 20.00
         },
         {
             "cod_clasificacion": 3,
-            "nombre": "JUBILADO"
+            "nombre": "JUBILADO",
+            "cantidad_registros": 3512,
+            "porcentaje": 9.45
         },
         {
             "cod_clasificacion": 2,
-            "nombre": "EMPLEADO"
+            "nombre": "EMPLEADO",
+            "cantidad_registros": 212,
+            "porcentaje": 10.00
         },
         {
             "cod_clasificacion": 6,
-            "nombre": "OTROS"
+            "nombre": "OTROS",
+            "porcentaje": 10.00,    
+            "cantidad_registros": 212
         }
     ]
 }

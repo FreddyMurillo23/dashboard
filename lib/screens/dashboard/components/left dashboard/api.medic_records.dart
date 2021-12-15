@@ -44,7 +44,7 @@ class APIMedicRecords {
 
     }
     else {
-      final url = Uri.parse("${dotenv.env['API_HOST']}/salud/clasificacion_grupo");
+      final url = Uri.parse("${dotenv.env['API_HOST']}salud/clasificacion_grupo");
       final fetchedData = await http.get(url);
 
       if(fetchedData.statusCode != 200) {
@@ -75,7 +75,7 @@ class APIMedicRecords {
       rawResponse = await rootBundle.loadString('data/Dat_Nut_Grupo.json');
     }
     else {
-      final url = Uri.parse("${dotenv.env['API_HOST']}/salud/datos_nutricionales_grupo/$id");
+      final url = Uri.parse("${dotenv.env['API_HOST']}salud/datos_nutricionales_grupo/$id");
       final fetchedData = await http.get(url);
 
       if(fetchedData.statusCode != 200) {

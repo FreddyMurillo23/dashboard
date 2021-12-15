@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
-class Chart extends StatelessWidget {
-  const Chart({
+class CustomPieChart extends StatelessWidget {
+  const CustomPieChart({
     Key? key,
+    required this.paiChartSelectionDatas
   }) : super(key: key);
+
+  final List<PieChartSectionData> paiChartSelectionDatas;
 
   @override
   Widget build(BuildContext context) {
@@ -46,48 +49,3 @@ class Chart extends StatelessWidget {
     );
   }
 }
-
-List<PieChartSectionData> paiChartSelectionDatas = [
-  PieChartSectionData(
-    color: primaryColor,
-    value: 25,
-    showTitle: false,
-    radius: 28,
-  ),
-  PieChartSectionData(
-    color: Color(0xFF26E5FF),
-    value: 20,
-    showTitle: false,
-    radius: 25,
-  ),
-  PieChartSectionData(
-    color: Color(0xFFFFCF26),
-    value: 10,
-    showTitle: false,
-    radius: 23,
-  ),
-  PieChartSectionData(
-    color: Colors.brown,
-    value: 10,
-    showTitle: false,
-    radius: 21,
-  ),
-  PieChartSectionData(
-    color: Colors.lightGreen,
-    value: 10,
-    showTitle: false,
-    radius: 19,
-  ),
-  PieChartSectionData(
-    color: Color(0xFFEE2727),
-    value: 15,
-    showTitle: false,
-    radius: 16,
-  ),
-  PieChartSectionData(
-    color: primaryColor.withOpacity(0.1),
-    value: 25,
-    showTitle: false,
-    radius: 13,
-  ),
-];
