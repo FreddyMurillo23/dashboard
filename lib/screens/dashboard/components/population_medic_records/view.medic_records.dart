@@ -1,14 +1,13 @@
-import 'dart:math';
-
-import 'package:admin/helpers/helper.icons.dart';
-import 'package:admin/screens/dashboard/components/left%20dashboard/controller.medic_records.dart';
-import 'package:admin/screens/dashboard/components/storage_info_card.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
+import 'package:admin/helpers/helper.colors.dart';
+import 'package:admin/helpers/helper.icons.dart';
+import 'package:admin/screens/dashboard/components/storage_info_card.dart';
+
 import '../../../../constants.dart';
-import '../chart.dart';
+import '../charts/chart.pie.dart';
+import 'controller.medic_records.dart';
 
 /// This is the lateral board bar in the main dashboard screen.
 /// This will change dinamically based on some filters defined
@@ -39,39 +38,36 @@ class MedicRecordsComponent extends StatelessWidget {
               offset: Offset(-2, 2)),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // This content is what I'll change based on the filter
-          // the user choose
-          StreamBuilder<dynamic>(
-            stream: _controller.medicRecordsStrm,
-            // initialData: _controller.medicRecordsDataStack.last,
-            builder: (BuildContext context, AsyncSnapshot snapshot) {
-              if(!snapshot.hasData || snapshot.data == null) {
-                return Center(child: CircularProgressIndicator(),);
-              }
+      child: StreamBuilder<dynamic>(
+        stream: _controller.medicRecordsStrm,
+        // initialData: _controller.medicRecordsDataStack.last,
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if(!snapshot.hasData || snapshot.data == null) {
+            return Center(child: CircularProgressIndicator(),);
+          }
 
-              late final List<Widget> elements;
+          late final List<Widget> elements;
 
-              if(snapshot.data! is List<Map<String, dynamic>>) {
-                elements = _getFilters(_controller, snapshot.data!);
-              }
-              else {
-                elements = _getFilterOpt(snapshot.data!);
-              }
+          if(snapshot.data! is List<Map<String, dynamic>>) {
+            elements = _getFilters(_controller, snapshot.data!);
+          }
+          else {
+            elements = _getFilterOpt(_controller, snapshot.data!);
+          }
 
 
-              return Column(
-                children: [
-                  _lateralDashboardHeader(_controller, snapshot),
-                  SizedBox(height: defaultPadding),
-                  ...elements
-                ]
-              );
-            },
-          ),
-        ],
+          return SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                _lateralDashboardHeader(_controller, snapshot),
+                SizedBox(height: defaultPadding),
+                ...elements
+              ]
+            ),
+          );
+        },
       ),
     );
   }
@@ -103,24 +99,17 @@ class MedicRecordsComponent extends StatelessWidget {
   }
 
   /// Returns a list of elements based on the filter the user choose
-  List<Widget> _getFilterOpt(Map<String, dynamic> data) {
+  List<Widget> _getFilterOpt(MedicRecordsController controller, Map<String, dynamic> data) {
 
         // How many colors I should generate for the chart
     final howManyColors = 3;
 
-    List<Color> colors = List.generate(howManyColors, (index) {
-      return Color.fromRGBO(
-        30 + Random().nextInt(200 - 30), 
-        50 + Random().nextInt(100 - 50), 
-        Random().nextInt(50),
-        1.0
-      );
-    });
+    final colors = ColorHelpers().generateColors(howManyColors);
 
     return <Widget>[
       Center(
         child: CustomPieChart(
-          paiChartSelectionDatas: buildDataset(data, colors),
+          paiChartSelectionDatas: controller.buildDataset(data, colors),
         )
       ),
 
@@ -154,14 +143,7 @@ class MedicRecordsComponent extends StatelessWidget {
     // How many colors I should generate for the chart
     final howManyColors = data.length;
 
-    List<Color> colors = List.generate(howManyColors, (index) {
-      return Color.fromRGBO(
-        Random().nextInt(200), 
-        Random().nextInt(150), 
-        Random().nextInt(100),
-        1.0
-      );
-    });
+    List<Color> colors = ColorHelpers().generateColors(howManyColors);
 
     // Since I cannot get an index in the next map process, I'll
     // be using this index
@@ -171,7 +153,7 @@ class MedicRecordsComponent extends StatelessWidget {
 
     return <Widget>[
       Center(child: CustomPieChart(
-        paiChartSelectionDatas: buildDataset(data, colors),
+        paiChartSelectionDatas: controller.buildDataset(data, colors),
       )),
       
       ...List<Widget>.from(data.map((filter) {
@@ -194,64 +176,4 @@ class MedicRecordsComponent extends StatelessWidget {
       }))
     ];
   }
-
-  /// builds a dataset for the pie chart. [data] size needs to be equal to
-  /// [colors] length if [data] is a List, otherwise, the length of [colors]
-  /// should be 3.
-  List<PieChartSectionData> buildDataset(dynamic data, List<Color> colors) {
-
-    final List<PieChartSectionData> elements = [];
-
-    // min max standarization
-    double min = 0.0;
-    double max = 100.0;
-    double minSize = 15.0;
-    double scaleFactor = 25.0;
-
-    if(data is Map<String, dynamic>) {
-      
-      elements.add(PieChartSectionData(
-        color: colors[0],
-        value: data["valores_porcentuales"][0]['p_delgadez'],
-        title: 'Delgadez',
-        radius: minSize + scaleFactor * (data["valores_porcentuales"][0]['p_delgadez'] - min) / (max - min),
-        showTitle: false,
-      ));
-      elements.add(PieChartSectionData(
-        color: colors[1],
-        value: data["valores_porcentuales"][0]['p_pesonormal'],
-        title: 'Peso Normal',
-        radius:  minSize + scaleFactor * (data["valores_porcentuales"][0]['p_pesonormal'] - min) / (max - min),
-        showTitle: false,
-      ));
-      elements.add(PieChartSectionData(
-        color: colors[2],
-        value: data["valores_porcentuales"][0]['p_sobrepeso'],
-        title: 'Sobrepeso',
-        radius:  minSize + scaleFactor * (data["valores_porcentuales"][0]['p_sobrepeso'] - min) / (max - min),
-        showTitle: false,
-      ));
-    }
-    else if(data is List<Map<String, dynamic>>){ // if data is a list
-      
-      int idx = 0;
-
-      data.forEach((item) {
-        
-        elements.add(PieChartSectionData(
-          color: colors[idx++],
-          value: 10.0,
-          title: item['nombre'],
-          showTitle: false,
-          radius: minSize + scaleFactor * ((item["porcentaje"] ?? 1) - min) / (max - min),
-        ));
-
-      });
-      
-    }
-
-    return elements;
-
-  }
-
 }

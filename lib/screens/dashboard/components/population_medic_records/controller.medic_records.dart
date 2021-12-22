@@ -1,8 +1,11 @@
 import 'dart:async';
+import 'dart:math';
 
-import 'package:admin/screens/dashboard/components/left%20dashboard/api.medic_records.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+
+import 'api.medic_records.dart';
 
 /// Singleton controller for the left lateral dashboard
 /// named as medic records dashboard
@@ -115,6 +118,64 @@ class MedicRecordsController {
     return filterOpts ?? <String, dynamic>{};
   }
 
+  
+  /// builds a dataset for the pie chart. [data] size needs to be equal to
+  /// [colors] length if [data] is a List, otherwise, the length of [colors]
+  /// should be 3.
+  List<PieChartSectionData> buildDataset(dynamic data, List<Color> colors) {
 
+    final List<PieChartSectionData> elements = [];
+
+    // min max standarization
+    double min = 0.0;
+    double max = 100.0;
+    double minSize = 15.0;
+    double scaleFactor = 25.0;
+
+    if(data is Map<String, dynamic>) {
+      
+      elements.add(PieChartSectionData(
+        color: colors[0],
+        value: data["valores_porcentuales"][0]['p_delgadez'],
+        title: 'Delgadez',
+        radius: minSize + scaleFactor * (data["valores_porcentuales"][0]['p_delgadez'] - min) / (max - min),
+        showTitle: false,
+      ));
+      elements.add(PieChartSectionData(
+        color: colors[1],
+        value: data["valores_porcentuales"][0]['p_pesonormal'],
+        title: 'Peso Normal',
+        radius:  minSize + scaleFactor * (data["valores_porcentuales"][0]['p_pesonormal'] - min) / (max - min),
+        showTitle: false,
+      ));
+      elements.add(PieChartSectionData(
+        color: colors[2],
+        value: data["valores_porcentuales"][0]['p_sobrepeso'],
+        title: 'Sobrepeso',
+        radius:  minSize + scaleFactor * (data["valores_porcentuales"][0]['p_sobrepeso'] - min) / (max - min),
+        showTitle: false,
+      ));
+    }
+    else if(data is List<Map<String, dynamic>>){ // if data is a list
+      
+      int idx = 0;
+
+      data.forEach((item) {
+        
+        elements.add(PieChartSectionData(
+          color: colors[idx++],
+          value: 10.0,
+          title: item['nombre'],
+          showTitle: false,
+          radius: minSize + scaleFactor * ((item["porcentaje"] ?? 1) - min) / (max - min),
+        ));
+
+      });
+      
+    }
+
+    return elements;
+
+  }
 
 }
