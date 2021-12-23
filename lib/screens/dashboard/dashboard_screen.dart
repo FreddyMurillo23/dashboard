@@ -1,21 +1,15 @@
-import 'package:admin/screens/dashboard/components/gauge_chart.dart';
-import 'package:admin/screens/dashboard/components/gauge_chart.dart';
-import 'package:charts_flutter/flutter.dart';
-import 'package:fl_chart/fl_chart.dart';
+import 'package:admin/screens/dashboard/components/overweight_faculties/view.overweight.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
-import 'components/gauge_chart.dart';
-import 'components/gauge_chart.dart';
-import 'components/gauge_chart.dart';
+import 'components/overweight_faculties/view.overweight.dart';
 import 'components/header.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:fl_chart/fl_chart.dart' as pie;
 
 import '../../../constants.dart';
-import 'components/legends_chart.dart';
+import 'components/population_medic_records/view.medic_records.dart';
 import 'components/segment_line_chart.dart';
-import 'components/left dashboard/component.medic_records.dart';
+import 'components/year_population_IMC/view.icm_by_year.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -182,47 +176,43 @@ class _DashboardScreenState extends State<DashboardScreen> {
         children: [
           Header(),
           SizedBox(height: defaultPadding),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                  width: MediaQuery.of(context).size.width * 20 / 100 -
-                      defaultPadding,
-                  child: MedicRecordsComponent()),
-              // SizedBox(width: defaultPadding),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Row(
-                    children: [
-                      LegendWithMeasures(
-                        _createSampleData(),
-                        animate: true,
-                        h: MediaQuery.of(context).size.height * 35 / 100,
-                        w: (MediaQuery.of(context).size.width * 50 / 100) -
-                            defaultPadding,
-                      ),
-                      SizedBox(
-                        width: defaultPadding,
-                      ),
-                      GaugeChart(),
-                    ],
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 1.0,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: MedicRecordsComponent()
+                ),
+                SizedBox(
+                  width: defaultPadding,
+                ),
+                Expanded(
+                  flex: 6,
+                  child: ICMByYearComponent(
+                    h: MediaQuery.of(context).size.height * 0.7
                   ),
-                  SizedBox(
-                    height: defaultPadding,
-                  ),
-                  SegmentsLineChart(
-                    data,
-                    animate: true,
-                    h: MediaQuery.of(context).size.height * 40 / 100,
-                    w: (MediaQuery.of(context).size.width * 75 / 100) -
-                        defaultPadding,
-                  ),
-                ],
-              ),
-            ],
+                ),
+                SizedBox(
+                  width: defaultPadding,
+                ),
+                Expanded(
+                  flex: 2,
+                  child: GaugeChart()
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: defaultPadding,
+          ),
+          SegmentsLineChart(
+            data,
+            animate: true,
+            h: MediaQuery.of(context).size.height * 40 / 100,
+            w: (MediaQuery.of(context).size.width * 75 / 100) -
+                defaultPadding,
           ),
         ],
       ),
