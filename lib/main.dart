@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 Future<void> main() async {
 
   // loads environment variables
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: "assets/.env");
 
   runApp(MyApp());
 }
