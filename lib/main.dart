@@ -1,5 +1,6 @@
 import 'package:admin/constants.dart';
-import 'package:admin/controllers/MenuController.dart';
+// import 'package:admin/controllers/MenuController.dart';
+import 'package:admin/route_generator.dart';
 import 'package:admin/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -28,16 +29,18 @@ class MyApp extends StatelessWidget {
             .apply(bodyColor: Colors.black),
         canvasColor: secondaryColor,
       ),
+      initialRoute: '/Splash',
+      onGenerateRoute: RouteGenerator.generateRoute,
       navigatorObservers: [FlutterSmartDialog.observer],
       builder: FlutterSmartDialog.init(),
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => MenuController(),
-          ),
-        ],
-        child: MainScreen(),
-      ),
+      // home: MultiProvider(
+      //   providers: [
+      //     ChangeNotifierProvider(
+      //       create: (context) => MenuController(),
+      //     ),
+      //   ],
+      //   child: MainScreen(),
+      // ),
     );
   }
 }
