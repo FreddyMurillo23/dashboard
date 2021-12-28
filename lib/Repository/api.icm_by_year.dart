@@ -53,4 +53,29 @@ class APIICMByYear {
 
     return response;
   }
+
+  Future<Map<String, dynamic>> fetchICMPerYear() async {
+    final isProduction = dotenv.env['IS_PRODUCTION'] == "true";
+
+    late final rawResponse;
+
+    // if it's not a production environment then I'll simulate the response
+    if(!isProduction) {
+      rawResponse = await rootBundle.loadString('data/estadisticasFacultades.json');
+    }
+    else {
+      final url = Uri.parse("${dotenv.env['API_HOST']}salud/estadisticasFacultades");
+      final fetchedData = await http.get(url);
+
+      if(fetchedData.statusCode != 200) {
+        throw new ErrorDescription('Hubo un problema cargando los datos. Recargue');
+      }
+
+      rawResponse = fetchedData.body;
+    }
+    
+    final decodedRespone = Map<String, dynamic>.from(json.decode(rawResponse));
+
+    return decodedRespone;
+  }
 }

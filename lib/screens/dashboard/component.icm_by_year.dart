@@ -3,8 +3,8 @@
 /// to use the customizations, they do not necessary have to be used together in
 /// this way. Choosing [end] as the position does not require the justification
 /// to also be [endDrawArea].
-import 'package:admin/screens/dashboard/components/charts/chart.multibar.dart';
-import 'package:admin/screens/dashboard/components/year_population_IMC/controller.icm_by_year.dart';
+import 'package:admin/components/charts/chart.multibar.dart';
+import 'package:admin/controllers/controller.icm_by_year.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:admin/constants.dart';
@@ -59,9 +59,12 @@ class ICMByYearComponent extends StatelessWidget {
               future: _controller.createSampleData(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 
+                print(snapshot.data);
                 if(!snapshot.hasData) {
                   return const Center(child: CircularProgressIndicator(),);
                 }
+
+                print("Hola");
 
                 return CustomMultibarChart(
                   seriesList: snapshot.data!,

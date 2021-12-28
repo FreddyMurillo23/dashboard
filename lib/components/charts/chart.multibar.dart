@@ -34,7 +34,7 @@ class CustomMultibarChart extends StatelessWidget {
           // For rtl, "start" and "end" will be right and left respectively.
           // Since this example has directionality of ltr, the legend is
           // positioned on the right side of the chart.
-          position: charts.BehaviorPosition.top,
+          position: charts.BehaviorPosition.end,
           // By default, if the position of the chart is on the left or right of
           // the chart, [horizontalFirst] is set to false. This means that the
           // legend entries will grow as new rows first instead of a new column.

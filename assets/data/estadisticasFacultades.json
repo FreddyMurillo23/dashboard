@@ -1,0 +1,1574 @@
+{
+    "2016": [
+        {
+            "idfacultad": 1,
+            "nombre_facultad": "CIENCIAS MATEMÁTICAS FÍSICAS Y QUÍMICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 2,
+                    "pesonormal": 14,
+                    "sobrepeso": 31,
+                    "total": 47
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 4.26,
+                    "p_pesonormal": 29.79,
+                    "p_sobrepeso": 65.96
+                }
+            ],
+            "promedio_imc": 27.51
+        },
+        {
+            "idfacultad": 2,
+            "nombre_facultad": "CIENCIAS INFORMÁTICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 8,
+                    "sobrepeso": 12,
+                    "total": 20
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 40,
+                    "p_sobrepeso": 60
+                }
+            ],
+            "promedio_imc": 27.35
+        },
+        {
+            "idfacultad": 3,
+            "nombre_facultad": "FILOSOFÍA LETRAS Y CIENCIAS DE LA EDUCACIÓN",
+            "valores_netos": [
+                {
+                    "delgadez": 1,
+                    "pesonormal": 6,
+                    "sobrepeso": 18,
+                    "total": 25
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 4,
+                    "p_pesonormal": 24,
+                    "p_sobrepeso": 72
+                }
+            ],
+            "promedio_imc": 26.96
+        },
+        {
+            "idfacultad": 5,
+            "nombre_facultad": "INGENIERÍA AGRONÓMICA",
+            "valores_netos": [
+                {
+                    "delgadez": 1,
+                    "pesonormal": 0,
+                    "sobrepeso": 0,
+                    "total": 1
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 100,
+                    "p_pesonormal": 0,
+                    "p_sobrepeso": 0
+                }
+            ],
+            "promedio_imc": 17.9
+        },
+        {
+            "idfacultad": 7,
+            "nombre_facultad": "CIENCIAS ZOOTÉCNICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 2,
+                    "sobrepeso": 1,
+                    "total": 3
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 66.67,
+                    "p_sobrepeso": 33.33
+                }
+            ],
+            "promedio_imc": 25.2
+        },
+        {
+            "idfacultad": 8,
+            "nombre_facultad": "CIENCIAS ADMINISTRATIVAS Y ECONÓMICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 3,
+                    "pesonormal": 13,
+                    "sobrepeso": 27,
+                    "total": 43
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 6.98,
+                    "p_pesonormal": 30.23,
+                    "p_sobrepeso": 62.79
+                }
+            ],
+            "promedio_imc": 26.51
+        },
+        {
+            "idfacultad": 9,
+            "nombre_facultad": "CIENCIAS DE LA SALUD",
+            "valores_netos": [
+                {
+                    "delgadez": 8,
+                    "pesonormal": 47,
+                    "sobrepeso": 69,
+                    "total": 124
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 6.45,
+                    "p_pesonormal": 37.9,
+                    "p_sobrepeso": 55.65
+                }
+            ],
+            "promedio_imc": 26.19
+        },
+        {
+            "idfacultad": 10,
+            "nombre_facultad": "CIENCIAS HUMANISTICAS Y SOCIALES",
+            "valores_netos": [
+                {
+                    "delgadez": 4,
+                    "pesonormal": 21,
+                    "sobrepeso": 40,
+                    "total": 65
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 6.15,
+                    "p_pesonormal": 32.31,
+                    "p_sobrepeso": 61.54
+                }
+            ],
+            "promedio_imc": 26.88
+        },
+        {
+            "idfacultad": 11,
+            "nombre_facultad": "CIENCIAS VETERINARIAS",
+            "valores_netos": [
+                {
+                    "delgadez": 1,
+                    "pesonormal": 3,
+                    "sobrepeso": 6,
+                    "total": 10
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 10,
+                    "p_pesonormal": 30,
+                    "p_sobrepeso": 60
+                }
+            ],
+            "promedio_imc": 27.73
+        },
+        {
+            "idfacultad": 12,
+            "nombre_facultad": "INGENIERIA AGRÍCOLA",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 0,
+                    "sobrepeso": 1,
+                    "total": 1
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 0,
+                    "p_sobrepeso": 100
+                }
+            ],
+            "promedio_imc": 31.8
+        },
+        {
+            "idfacultad": 13,
+            "nombre_facultad": "INSTITUTO DE CIENCIAS BÁSICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 0,
+                    "sobrepeso": 0,
+                    "total": 0
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 0,
+                    "p_sobrepeso": 0
+                }
+            ],
+            "promedio_imc": 0
+        },
+        {
+            "idfacultad": 16,
+            "nombre_facultad": "POSGRADO",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 3,
+                    "sobrepeso": 15,
+                    "total": 18
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 16.67,
+                    "p_sobrepeso": 83.33
+                }
+            ],
+            "promedio_imc": 28.39
+        },
+        {
+            "idfacultad": 27,
+            "nombre_facultad": "CENTRO DE PROMOCIÓN Y APOYO AL INGRESO",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 8,
+                    "sobrepeso": 7,
+                    "total": 15
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 53.33,
+                    "p_sobrepeso": 46.67
+                }
+            ],
+            "promedio_imc": 25.77
+        }
+    ],
+    "2017": [
+        {
+            "idfacultad": 1,
+            "nombre_facultad": "CIENCIAS MATEMÁTICAS FÍSICAS Y QUÍMICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 8,
+                    "pesonormal": 24,
+                    "sobrepeso": 31,
+                    "total": 63
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 12.7,
+                    "p_pesonormal": 38.1,
+                    "p_sobrepeso": 49.21
+                }
+            ],
+            "promedio_imc": 25.54
+        },
+        {
+            "idfacultad": 2,
+            "nombre_facultad": "CIENCIAS INFORMÁTICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 1,
+                    "pesonormal": 7,
+                    "sobrepeso": 5,
+                    "total": 13
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 7.69,
+                    "p_pesonormal": 53.85,
+                    "p_sobrepeso": 38.46
+                }
+            ],
+            "promedio_imc": 25.04
+        },
+        {
+            "idfacultad": 3,
+            "nombre_facultad": "FILOSOFÍA LETRAS Y CIENCIAS DE LA EDUCACIÓN",
+            "valores_netos": [
+                {
+                    "delgadez": 2,
+                    "pesonormal": 6,
+                    "sobrepeso": 25,
+                    "total": 33
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 6.06,
+                    "p_pesonormal": 18.18,
+                    "p_sobrepeso": 75.76
+                }
+            ],
+            "promedio_imc": 28.8
+        },
+        {
+            "idfacultad": 5,
+            "nombre_facultad": "INGENIERÍA AGRONÓMICA",
+            "valores_netos": [
+                {
+                    "delgadez": 1,
+                    "pesonormal": 4,
+                    "sobrepeso": 9,
+                    "total": 14
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 7.14,
+                    "p_pesonormal": 28.57,
+                    "p_sobrepeso": 64.29
+                }
+            ],
+            "promedio_imc": 26.43
+        },
+        {
+            "idfacultad": 7,
+            "nombre_facultad": "CIENCIAS ZOOTÉCNICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 0,
+                    "sobrepeso": 0,
+                    "total": 0
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 0,
+                    "p_sobrepeso": 0
+                }
+            ],
+            "promedio_imc": 0
+        },
+        {
+            "idfacultad": 8,
+            "nombre_facultad": "CIENCIAS ADMINISTRATIVAS Y ECONÓMICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 9,
+                    "pesonormal": 36,
+                    "sobrepeso": 50,
+                    "total": 95
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 9.47,
+                    "p_pesonormal": 37.89,
+                    "p_sobrepeso": 52.63
+                }
+            ],
+            "promedio_imc": 25.74
+        },
+        {
+            "idfacultad": 9,
+            "nombre_facultad": "CIENCIAS DE LA SALUD",
+            "valores_netos": [
+                {
+                    "delgadez": 14,
+                    "pesonormal": 56,
+                    "sobrepeso": 91,
+                    "total": 161
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 8.7,
+                    "p_pesonormal": 34.78,
+                    "p_sobrepeso": 56.52
+                }
+            ],
+            "promedio_imc": 25.71
+        },
+        {
+            "idfacultad": 10,
+            "nombre_facultad": "CIENCIAS HUMANISTICAS Y SOCIALES",
+            "valores_netos": [
+                {
+                    "delgadez": 6,
+                    "pesonormal": 22,
+                    "sobrepeso": 35,
+                    "total": 63
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 9.52,
+                    "p_pesonormal": 34.92,
+                    "p_sobrepeso": 55.56
+                }
+            ],
+            "promedio_imc": 25.65
+        },
+        {
+            "idfacultad": 11,
+            "nombre_facultad": "CIENCIAS VETERINARIAS",
+            "valores_netos": [
+                {
+                    "delgadez": 1,
+                    "pesonormal": 6,
+                    "sobrepeso": 11,
+                    "total": 18
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 5.56,
+                    "p_pesonormal": 33.33,
+                    "p_sobrepeso": 61.11
+                }
+            ],
+            "promedio_imc": 25.7
+        },
+        {
+            "idfacultad": 12,
+            "nombre_facultad": "INGENIERIA AGRÍCOLA",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 1,
+                    "sobrepeso": 1,
+                    "total": 2
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 50,
+                    "p_sobrepeso": 50
+                }
+            ],
+            "promedio_imc": 27.6
+        },
+        {
+            "idfacultad": 13,
+            "nombre_facultad": "INSTITUTO DE CIENCIAS BÁSICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 0,
+                    "sobrepeso": 0,
+                    "total": 0
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 0,
+                    "p_sobrepeso": 0
+                }
+            ],
+            "promedio_imc": 0
+        },
+        {
+            "idfacultad": 16,
+            "nombre_facultad": "POSGRADO",
+            "valores_netos": [
+                {
+                    "delgadez": 3,
+                    "pesonormal": 8,
+                    "sobrepeso": 8,
+                    "total": 19
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 15.79,
+                    "p_pesonormal": 42.11,
+                    "p_sobrepeso": 42.11
+                }
+            ],
+            "promedio_imc": 25.68
+        },
+        {
+            "idfacultad": 27,
+            "nombre_facultad": "CENTRO DE PROMOCIÓN Y APOYO AL INGRESO",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 7,
+                    "sobrepeso": 8,
+                    "total": 15
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 46.67,
+                    "p_sobrepeso": 53.33
+                }
+            ],
+            "promedio_imc": 25.88
+        }
+    ],
+    "2018": [
+        {
+            "idfacultad": 1,
+            "nombre_facultad": "CIENCIAS MATEMÁTICAS FÍSICAS Y QUÍMICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 7,
+                    "pesonormal": 64,
+                    "sobrepeso": 74,
+                    "total": 145
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 4.83,
+                    "p_pesonormal": 44.14,
+                    "p_sobrepeso": 51.03
+                }
+            ],
+            "promedio_imc": 25.49
+        },
+        {
+            "idfacultad": 2,
+            "nombre_facultad": "CIENCIAS INFORMÁTICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 2,
+                    "pesonormal": 7,
+                    "sobrepeso": 31,
+                    "total": 40
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 5,
+                    "p_pesonormal": 17.5,
+                    "p_sobrepeso": 77.5
+                }
+            ],
+            "promedio_imc": 27.44
+        },
+        {
+            "idfacultad": 3,
+            "nombre_facultad": "FILOSOFÍA LETRAS Y CIENCIAS DE LA EDUCACIÓN",
+            "valores_netos": [
+                {
+                    "delgadez": 8,
+                    "pesonormal": 25,
+                    "sobrepeso": 59,
+                    "total": 92
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 8.7,
+                    "p_pesonormal": 27.17,
+                    "p_sobrepeso": 64.13
+                }
+            ],
+            "promedio_imc": 26.93
+        },
+        {
+            "idfacultad": 5,
+            "nombre_facultad": "INGENIERÍA AGRONÓMICA",
+            "valores_netos": [
+                {
+                    "delgadez": 1,
+                    "pesonormal": 6,
+                    "sobrepeso": 6,
+                    "total": 13
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 7.69,
+                    "p_pesonormal": 46.15,
+                    "p_sobrepeso": 46.15
+                }
+            ],
+            "promedio_imc": 24.78
+        },
+        {
+            "idfacultad": 7,
+            "nombre_facultad": "CIENCIAS ZOOTÉCNICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 1,
+                    "sobrepeso": 0,
+                    "total": 1
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 100,
+                    "p_sobrepeso": 0
+                }
+            ],
+            "promedio_imc": 22.8
+        },
+        {
+            "idfacultad": 8,
+            "nombre_facultad": "CIENCIAS ADMINISTRATIVAS Y ECONÓMICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 10,
+                    "pesonormal": 65,
+                    "sobrepeso": 101,
+                    "total": 176
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 5.68,
+                    "p_pesonormal": 36.93,
+                    "p_sobrepeso": 57.39
+                }
+            ],
+            "promedio_imc": 26.04
+        },
+        {
+            "idfacultad": 9,
+            "nombre_facultad": "CIENCIAS DE LA SALUD",
+            "valores_netos": [
+                {
+                    "delgadez": 23,
+                    "pesonormal": 103,
+                    "sobrepeso": 134,
+                    "total": 260
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 8.85,
+                    "p_pesonormal": 39.62,
+                    "p_sobrepeso": 51.54
+                }
+            ],
+            "promedio_imc": 25.39
+        },
+        {
+            "idfacultad": 10,
+            "nombre_facultad": "CIENCIAS HUMANISTICAS Y SOCIALES",
+            "valores_netos": [
+                {
+                    "delgadez": 21,
+                    "pesonormal": 67,
+                    "sobrepeso": 79,
+                    "total": 167
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 12.57,
+                    "p_pesonormal": 40.12,
+                    "p_sobrepeso": 47.31
+                }
+            ],
+            "promedio_imc": 25.41
+        },
+        {
+            "idfacultad": 11,
+            "nombre_facultad": "CIENCIAS VETERINARIAS",
+            "valores_netos": [
+                {
+                    "delgadez": 5,
+                    "pesonormal": 10,
+                    "sobrepeso": 11,
+                    "total": 26
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 19.23,
+                    "p_pesonormal": 38.46,
+                    "p_sobrepeso": 42.31
+                }
+            ],
+            "promedio_imc": 24.71
+        },
+        {
+            "idfacultad": 12,
+            "nombre_facultad": "INGENIERIA AGRÍCOLA",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 4,
+                    "sobrepeso": 8,
+                    "total": 12
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 33.33,
+                    "p_sobrepeso": 66.67
+                }
+            ],
+            "promedio_imc": 27.53
+        },
+        {
+            "idfacultad": 13,
+            "nombre_facultad": "INSTITUTO DE CIENCIAS BÁSICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 2,
+                    "sobrepeso": 0,
+                    "total": 2
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 100,
+                    "p_sobrepeso": 0
+                }
+            ],
+            "promedio_imc": 21.6
+        },
+        {
+            "idfacultad": 16,
+            "nombre_facultad": "POSGRADO",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 6,
+                    "sobrepeso": 13,
+                    "total": 19
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 31.58,
+                    "p_sobrepeso": 68.42
+                }
+            ],
+            "promedio_imc": 29.07
+        },
+        {
+            "idfacultad": 27,
+            "nombre_facultad": "CENTRO DE PROMOCIÓN Y APOYO AL INGRESO",
+            "valores_netos": [
+                {
+                    "delgadez": 16,
+                    "pesonormal": 71,
+                    "sobrepeso": 77,
+                    "total": 164
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 9.76,
+                    "p_pesonormal": 43.29,
+                    "p_sobrepeso": 46.95
+                }
+            ],
+            "promedio_imc": 24.99
+        }
+    ],
+    "2019": [
+        {
+            "idfacultad": 1,
+            "nombre_facultad": "CIENCIAS MATEMÁTICAS FÍSICAS Y QUÍMICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 8,
+                    "pesonormal": 88,
+                    "sobrepeso": 114,
+                    "total": 210
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 3.81,
+                    "p_pesonormal": 41.9,
+                    "p_sobrepeso": 54.29
+                }
+            ],
+            "promedio_imc": 25.72
+        },
+        {
+            "idfacultad": 2,
+            "nombre_facultad": "CIENCIAS INFORMÁTICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 7,
+                    "pesonormal": 21,
+                    "sobrepeso": 35,
+                    "total": 63
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 11.11,
+                    "p_pesonormal": 33.33,
+                    "p_sobrepeso": 55.56
+                }
+            ],
+            "promedio_imc": 25.16
+        },
+        {
+            "idfacultad": 3,
+            "nombre_facultad": "FILOSOFÍA LETRAS Y CIENCIAS DE LA EDUCACIÓN",
+            "valores_netos": [
+                {
+                    "delgadez": 9,
+                    "pesonormal": 61,
+                    "sobrepeso": 79,
+                    "total": 149
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 6.04,
+                    "p_pesonormal": 40.94,
+                    "p_sobrepeso": 53.02
+                }
+            ],
+            "promedio_imc": 25.43
+        },
+        {
+            "idfacultad": 5,
+            "nombre_facultad": "INGENIERÍA AGRONÓMICA",
+            "valores_netos": [
+                {
+                    "delgadez": 1,
+                    "pesonormal": 15,
+                    "sobrepeso": 12,
+                    "total": 28
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 3.57,
+                    "p_pesonormal": 53.57,
+                    "p_sobrepeso": 42.86
+                }
+            ],
+            "promedio_imc": 24.98
+        },
+        {
+            "idfacultad": 7,
+            "nombre_facultad": "CIENCIAS ZOOTÉCNICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 0,
+                    "sobrepeso": 3,
+                    "total": 3
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 0,
+                    "p_sobrepeso": 100
+                }
+            ],
+            "promedio_imc": 29.7
+        },
+        {
+            "idfacultad": 8,
+            "nombre_facultad": "CIENCIAS ADMINISTRATIVAS Y ECONÓMICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 10,
+                    "pesonormal": 101,
+                    "sobrepeso": 90,
+                    "total": 201
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 4.98,
+                    "p_pesonormal": 50.25,
+                    "p_sobrepeso": 44.78
+                }
+            ],
+            "promedio_imc": 25.27
+        },
+        {
+            "idfacultad": 9,
+            "nombre_facultad": "CIENCIAS DE LA SALUD",
+            "valores_netos": [
+                {
+                    "delgadez": 12,
+                    "pesonormal": 152,
+                    "sobrepeso": 163,
+                    "total": 327
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 3.67,
+                    "p_pesonormal": 46.48,
+                    "p_sobrepeso": 49.85
+                }
+            ],
+            "promedio_imc": 25.37
+        },
+        {
+            "idfacultad": 10,
+            "nombre_facultad": "CIENCIAS HUMANISTICAS Y SOCIALES",
+            "valores_netos": [
+                {
+                    "delgadez": 18,
+                    "pesonormal": 78,
+                    "sobrepeso": 116,
+                    "total": 212
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 8.49,
+                    "p_pesonormal": 36.79,
+                    "p_sobrepeso": 54.72
+                }
+            ],
+            "promedio_imc": 25.65
+        },
+        {
+            "idfacultad": 11,
+            "nombre_facultad": "CIENCIAS VETERINARIAS",
+            "valores_netos": [
+                {
+                    "delgadez": 1,
+                    "pesonormal": 17,
+                    "sobrepeso": 13,
+                    "total": 31
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 3.23,
+                    "p_pesonormal": 54.84,
+                    "p_sobrepeso": 41.94
+                }
+            ],
+            "promedio_imc": 24.98
+        },
+        {
+            "idfacultad": 12,
+            "nombre_facultad": "INGENIERIA AGRÍCOLA",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 6,
+                    "sobrepeso": 8,
+                    "total": 14
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 42.86,
+                    "p_sobrepeso": 57.14
+                }
+            ],
+            "promedio_imc": 26.04
+        },
+        {
+            "idfacultad": 13,
+            "nombre_facultad": "INSTITUTO DE CIENCIAS BÁSICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 0,
+                    "sobrepeso": 0,
+                    "total": 0
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 0,
+                    "p_sobrepeso": 0
+                }
+            ],
+            "promedio_imc": 0
+        },
+        {
+            "idfacultad": 16,
+            "nombre_facultad": "POSGRADO",
+            "valores_netos": [
+                {
+                    "delgadez": 1,
+                    "pesonormal": 10,
+                    "sobrepeso": 31,
+                    "total": 42
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 2.38,
+                    "p_pesonormal": 23.81,
+                    "p_sobrepeso": 73.81
+                }
+            ],
+            "promedio_imc": 28.7
+        },
+        {
+            "idfacultad": 27,
+            "nombre_facultad": "CENTRO DE PROMOCIÓN Y APOYO AL INGRESO",
+            "valores_netos": [
+                {
+                    "delgadez": 15,
+                    "pesonormal": 118,
+                    "sobrepeso": 131,
+                    "total": 264
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 5.68,
+                    "p_pesonormal": 44.7,
+                    "p_sobrepeso": 49.62
+                }
+            ],
+            "promedio_imc": 25.4
+        }
+    ],
+    "2020": [
+        {
+            "idfacultad": 1,
+            "nombre_facultad": "CIENCIAS MATEMÁTICAS FÍSICAS Y QUÍMICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 7,
+                    "pesonormal": 60,
+                    "sobrepeso": 86,
+                    "total": 153
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 4.58,
+                    "p_pesonormal": 39.22,
+                    "p_sobrepeso": 56.21
+                }
+            ],
+            "promedio_imc": 25.93
+        },
+        {
+            "idfacultad": 2,
+            "nombre_facultad": "CIENCIAS INFORMÁTICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 1,
+                    "pesonormal": 14,
+                    "sobrepeso": 23,
+                    "total": 38
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 2.63,
+                    "p_pesonormal": 36.84,
+                    "p_sobrepeso": 60.53
+                }
+            ],
+            "promedio_imc": 25.51
+        },
+        {
+            "idfacultad": 3,
+            "nombre_facultad": "FILOSOFÍA LETRAS Y CIENCIAS DE LA EDUCACIÓN",
+            "valores_netos": [
+                {
+                    "delgadez": 9,
+                    "pesonormal": 64,
+                    "sobrepeso": 81,
+                    "total": 154
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 5.84,
+                    "p_pesonormal": 41.56,
+                    "p_sobrepeso": 52.6
+                }
+            ],
+            "promedio_imc": 25.53
+        },
+        {
+            "idfacultad": 5,
+            "nombre_facultad": "INGENIERÍA AGRONÓMICA",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 4,
+                    "sobrepeso": 0,
+                    "total": 4
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 100,
+                    "p_sobrepeso": 0
+                }
+            ],
+            "promedio_imc": 21.2
+        },
+        {
+            "idfacultad": 7,
+            "nombre_facultad": "CIENCIAS ZOOTÉCNICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 1,
+                    "sobrepeso": 1,
+                    "total": 2
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 50,
+                    "p_sobrepeso": 50
+                }
+            ],
+            "promedio_imc": 23.75
+        },
+        {
+            "idfacultad": 8,
+            "nombre_facultad": "CIENCIAS ADMINISTRATIVAS Y ECONÓMICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 9,
+                    "pesonormal": 47,
+                    "sobrepeso": 72,
+                    "total": 128
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 7.03,
+                    "p_pesonormal": 36.72,
+                    "p_sobrepeso": 56.25
+                }
+            ],
+            "promedio_imc": 25.99
+        },
+        {
+            "idfacultad": 9,
+            "nombre_facultad": "CIENCIAS DE LA SALUD",
+            "valores_netos": [
+                {
+                    "delgadez": 12,
+                    "pesonormal": 117,
+                    "sobrepeso": 101,
+                    "total": 230
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 5.22,
+                    "p_pesonormal": 50.87,
+                    "p_sobrepeso": 43.91
+                }
+            ],
+            "promedio_imc": 25.19
+        },
+        {
+            "idfacultad": 10,
+            "nombre_facultad": "CIENCIAS HUMANISTICAS Y SOCIALES",
+            "valores_netos": [
+                {
+                    "delgadez": 11,
+                    "pesonormal": 74,
+                    "sobrepeso": 94,
+                    "total": 179
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 6.15,
+                    "p_pesonormal": 41.34,
+                    "p_sobrepeso": 52.51
+                }
+            ],
+            "promedio_imc": 26.04
+        },
+        {
+            "idfacultad": 11,
+            "nombre_facultad": "CIENCIAS VETERINARIAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 3,
+                    "sobrepeso": 10,
+                    "total": 13
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 23.08,
+                    "p_sobrepeso": 76.92
+                }
+            ],
+            "promedio_imc": 27.49
+        },
+        {
+            "idfacultad": 12,
+            "nombre_facultad": "INGENIERIA AGRÍCOLA",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 1,
+                    "sobrepeso": 4,
+                    "total": 5
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 20,
+                    "p_sobrepeso": 80
+                }
+            ],
+            "promedio_imc": 29.64
+        },
+        {
+            "idfacultad": 13,
+            "nombre_facultad": "INSTITUTO DE CIENCIAS BÁSICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 1,
+                    "sobrepeso": 1,
+                    "total": 2
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 50,
+                    "p_sobrepeso": 50
+                }
+            ],
+            "promedio_imc": 25.25
+        },
+        {
+            "idfacultad": 16,
+            "nombre_facultad": "POSGRADO",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 9,
+                    "sobrepeso": 25,
+                    "total": 34
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 26.47,
+                    "p_sobrepeso": 73.53
+                }
+            ],
+            "promedio_imc": 28.82
+        },
+        {
+            "idfacultad": 27,
+            "nombre_facultad": "CENTRO DE PROMOCIÓN Y APOYO AL INGRESO",
+            "valores_netos": [
+                {
+                    "delgadez": 23,
+                    "pesonormal": 133,
+                    "sobrepeso": 148,
+                    "total": 304
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 7.57,
+                    "p_pesonormal": 43.75,
+                    "p_sobrepeso": 48.68
+                }
+            ],
+            "promedio_imc": 25.25
+        }
+    ],
+    "2021": [
+        {
+            "idfacultad": 1,
+            "nombre_facultad": "CIENCIAS MATEMÁTICAS FÍSICAS Y QUÍMICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 32,
+                    "sobrepeso": 52,
+                    "total": 84
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 38.1,
+                    "p_sobrepeso": 61.9
+                }
+            ],
+            "promedio_imc": 26.8
+        },
+        {
+            "idfacultad": 2,
+            "nombre_facultad": "CIENCIAS INFORMÁTICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 1,
+                    "pesonormal": 7,
+                    "sobrepeso": 17,
+                    "total": 25
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 4,
+                    "p_pesonormal": 28,
+                    "p_sobrepeso": 68
+                }
+            ],
+            "promedio_imc": 27.11
+        },
+        {
+            "idfacultad": 3,
+            "nombre_facultad": "FILOSOFÍA LETRAS Y CIENCIAS DE LA EDUCACIÓN",
+            "valores_netos": [
+                {
+                    "delgadez": 3,
+                    "pesonormal": 34,
+                    "sobrepeso": 47,
+                    "total": 84
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 3.57,
+                    "p_pesonormal": 40.48,
+                    "p_sobrepeso": 55.95
+                }
+            ],
+            "promedio_imc": 26.16
+        },
+        {
+            "idfacultad": 5,
+            "nombre_facultad": "INGENIERÍA AGRONÓMICA",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 10,
+                    "sobrepeso": 3,
+                    "total": 13
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 76.92,
+                    "p_sobrepeso": 23.08
+                }
+            ],
+            "promedio_imc": 24.13
+        },
+        {
+            "idfacultad": 7,
+            "nombre_facultad": "CIENCIAS ZOOTÉCNICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 4,
+                    "sobrepeso": 3,
+                    "total": 7
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 57.14,
+                    "p_sobrepeso": 42.86
+                }
+            ],
+            "promedio_imc": 23.29
+        },
+        {
+            "idfacultad": 8,
+            "nombre_facultad": "CIENCIAS ADMINISTRATIVAS Y ECONÓMICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 8,
+                    "pesonormal": 42,
+                    "sobrepeso": 49,
+                    "total": 99
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 8.08,
+                    "p_pesonormal": 42.42,
+                    "p_sobrepeso": 49.49
+                }
+            ],
+            "promedio_imc": 25.62
+        },
+        {
+            "idfacultad": 9,
+            "nombre_facultad": "CIENCIAS DE LA SALUD",
+            "valores_netos": [
+                {
+                    "delgadez": 2,
+                    "pesonormal": 64,
+                    "sobrepeso": 74,
+                    "total": 140
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 1.43,
+                    "p_pesonormal": 45.71,
+                    "p_sobrepeso": 52.86
+                }
+            ],
+            "promedio_imc": 26.37
+        },
+        {
+            "idfacultad": 10,
+            "nombre_facultad": "CIENCIAS HUMANISTICAS Y SOCIALES",
+            "valores_netos": [
+                {
+                    "delgadez": 4,
+                    "pesonormal": 50,
+                    "sobrepeso": 68,
+                    "total": 122
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 3.28,
+                    "p_pesonormal": 40.98,
+                    "p_sobrepeso": 55.74
+                }
+            ],
+            "promedio_imc": 26.52
+        },
+        {
+            "idfacultad": 11,
+            "nombre_facultad": "CIENCIAS VETERINARIAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 7,
+                    "sobrepeso": 5,
+                    "total": 12
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 58.33,
+                    "p_sobrepeso": 41.67
+                }
+            ],
+            "promedio_imc": 24.93
+        },
+        {
+            "idfacultad": 12,
+            "nombre_facultad": "INGENIERIA AGRÍCOLA",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 6,
+                    "sobrepeso": 7,
+                    "total": 13
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 46.15,
+                    "p_sobrepeso": 53.85
+                }
+            ],
+            "promedio_imc": 26.52
+        },
+        {
+            "idfacultad": 13,
+            "nombre_facultad": "INSTITUTO DE CIENCIAS BÁSICAS",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 0,
+                    "sobrepeso": 1,
+                    "total": 1
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 0,
+                    "p_sobrepeso": 100
+                }
+            ],
+            "promedio_imc": 27.4
+        },
+        {
+            "idfacultad": 16,
+            "nombre_facultad": "POSGRADO",
+            "valores_netos": [
+                {
+                    "delgadez": 0,
+                    "pesonormal": 5,
+                    "sobrepeso": 21,
+                    "total": 26
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 0,
+                    "p_pesonormal": 19.23,
+                    "p_sobrepeso": 80.77
+                }
+            ],
+            "promedio_imc": 28.67
+        },
+        {
+            "idfacultad": 27,
+            "nombre_facultad": "CENTRO DE PROMOCIÓN Y APOYO AL INGRESO",
+            "valores_netos": [
+                {
+                    "delgadez": 4,
+                    "pesonormal": 78,
+                    "sobrepeso": 94,
+                    "total": 176
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 2.27,
+                    "p_pesonormal": 44.32,
+                    "p_sobrepeso": 53.41
+                }
+            ],
+            "promedio_imc": 25.93
+        }
+    ]
+}

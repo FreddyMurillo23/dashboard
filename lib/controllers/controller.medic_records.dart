@@ -1,11 +1,10 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
-import 'api.medic_records.dart';
+import '../Repository/api.medic_records.dart';
 
 /// Singleton controller for the left lateral dashboard
 /// named as medic records dashboard

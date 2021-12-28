@@ -1,8 +1,7 @@
-import 'package:admin/screens/dashboard/components/year_population_IMC/api.icm_by_year.dart';
+import 'package:admin/Repository/api.icm_by_year.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 class OverweightController {

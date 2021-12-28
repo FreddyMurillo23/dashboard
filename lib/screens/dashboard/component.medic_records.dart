@@ -1,13 +1,13 @@
+import 'package:admin/components/charts/chart.pie.dart';
+import 'package:admin/components/storage_info_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import 'package:admin/helpers/helper.colors.dart';
 import 'package:admin/helpers/helper.icons.dart';
-import 'package:admin/screens/dashboard/components/storage_info_card.dart';
 
-import '../../../../constants.dart';
-import '../charts/chart.pie.dart';
-import 'controller.medic_records.dart';
+import '../../constants.dart';
+import '../../controllers/controller.medic_records.dart';
 
 /// This is the lateral board bar in the main dashboard screen.
 /// This will change dinamically based on some filters defined

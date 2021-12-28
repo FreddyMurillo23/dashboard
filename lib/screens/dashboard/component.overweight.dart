@@ -1,10 +1,10 @@
+import 'package:admin/components/charts/chart.pie.dart';
+import 'package:admin/components/storage_info_card.dart';
 import 'package:admin/helpers/helper.colors.dart';
-import 'package:admin/screens/dashboard/components/charts/chart.pie.dart';
-import 'package:admin/screens/dashboard/components/overweight_faculties/controller.overweight.dart';
-import 'package:admin/screens/dashboard/components/storage_info_card.dart';
+import 'package:admin/controllers/controller.overweight.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../constants.dart';
+import '../../constants.dart';
 
 class GaugeChart extends StatelessWidget {
   
