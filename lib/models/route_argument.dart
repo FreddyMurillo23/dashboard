@@ -5,9 +5,7 @@ class RouteArgument {
   String? heroTag;
   String? param;
   String? image;
-  String? parentId;
-  bool? fromStore;
-  String? fromSlide;
+
   // Cuisine cuisine;
 
   RouteArgument(
@@ -15,8 +13,7 @@ class RouteArgument {
       this.heroTag,
       this.param,
       this.image,
-      this.parentId,
-      this.fromStore, this.fromSlide,
+
       // this.cuisine
       });
 
