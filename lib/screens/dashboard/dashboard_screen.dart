@@ -45,7 +45,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Expanded(
                   flex: 6,
                   child: ICMByYearComponent(
-                    h: MediaQuery.of(context).size.height * 0.7
+                    h: MediaQuery.of(context).size.height * 0.4
                   ),
                 ),
                 SizedBox(
@@ -61,14 +61,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
           SizedBox(
             height: defaultPadding,
           ),
-          // CustomLineChart(
-          //   title: "Porcentaje de Obesidad en la poblacion por semestres",
-          //   size: Size(
-          //     MediaQuery.of(context).size.width * 0.75 - defaultPadding,
-          //     MediaQuery.of(context).size.height * 0.4,
-          //   ),
-          //   seriesList: []
-          // )
+          CustomLineChart(
+            title: "Porcentaje de Obesidad en la poblacion por semestres",
+            size: Size(
+              MediaQuery.of(context).size.width * 0.75 - defaultPadding,
+              MediaQuery.of(context).size.height * 0.4,
+            ),
+            seriesList: []
+          )
         ],
       ),
     );

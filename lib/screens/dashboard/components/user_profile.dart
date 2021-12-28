@@ -1,5 +1,5 @@
+import 'package:admin/components/header.dart';
 import 'package:admin/models/route_argument.dart';
-import 'package:admin/screens/dashboard/components/header.dart';
 import 'package:flutter/material.dart';
 
 class UserProfile extends StatefulWidget {

@@ -1,0 +1,122 @@
+{
+    "2016": [
+        {
+            "valores_netos": [
+                {
+                    "delgadez": 20,
+                    "pesonormal": 113,
+                    "sobrepeso": 249,
+                    "total": 382
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 5.24,
+                    "p_pesonormal": 29.58,
+                    "p_sobrepeso": 65.18
+                }
+            ],
+            "promedio_imc": 27.31
+        }
+    ],
+    "2017": [
+        {
+            "valores_netos": [
+                {
+                    "delgadez": 40,
+                    "pesonormal": 150,
+                    "sobrepeso": 282,
+                    "total": 472
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 8.47,
+                    "p_pesonormal": 31.78,
+                    "p_sobrepeso": 59.75
+                }
+            ],
+            "promedio_imc": 26.38
+        }
+    ],
+    "2018": [
+        {
+            "valores_netos": [
+                {
+                    "delgadez": 74,
+                    "pesonormal": 329,
+                    "sobrepeso": 533,
+                    "total": 936
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 7.91,
+                    "p_pesonormal": 35.15,
+                    "p_sobrepeso": 56.94
+                }
+            ],
+            "promedio_imc": 26.16
+        }
+    ],
+    "2019": [
+        {
+            "valores_netos": [
+                {
+                    "delgadez": 61,
+                    "pesonormal": 504,
+                    "sobrepeso": 682,
+                    "total": 1247
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 4.89,
+                    "p_pesonormal": 40.42,
+                    "p_sobrepeso": 54.69
+                }
+            ],
+            "promedio_imc": 25.89
+        }
+    ],
+    "2020": [
+        {
+            "valores_netos": [
+                {
+                    "delgadez": 49,
+                    "pesonormal": 379,
+                    "sobrepeso": 546,
+                    "total": 974
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 5.03,
+                    "p_pesonormal": 38.91,
+                    "p_sobrepeso": 56.06
+                }
+            ],
+            "promedio_imc": 26.15
+        }
+    ],
+    "2021": [
+        {
+            "valores_netos": [
+                {
+                    "delgadez": 16,
+                    "pesonormal": 263,
+                    "sobrepeso": 396,
+                    "total": 675
+                }
+            ],
+            "valores_porcentuales": [
+                {
+                    "p_delgadez": 2.37,
+                    "p_pesonormal": 38.96,
+                    "p_sobrepeso": 58.67
+                }
+            ],
+            "promedio_imc": 26.66
+        }
+    ]
+}

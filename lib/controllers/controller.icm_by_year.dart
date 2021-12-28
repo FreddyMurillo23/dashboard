@@ -40,50 +40,32 @@ class ICMByYearController {
 
     int initialYear = int.parse(List<String>.from(data.keys).last) - 1;
 
-    // outer level is the year (x-axis value) and inner level is the faculty (each x-axis values)
+    // getting all faculty names
+    final facultyNames = List<String>.from((data[initialYear.toString()] as List).map((e) => e['nombre_facultad']));
+
+    // outer level is the faculty (each x-axis values) and year (x-axis value) is the inner level
     response.addAll(
-      List<charts.Series<Map<String, dynamic>, String>>.from(List<String>.generate(2, (index) {
-        return (initialYear + index).toString();
-      }).map((year) {
-        print(List<Map<String, dynamic>>.from(data[year].forEach(print)));
-        return charts.Series<Map<String, dynamic>, String>(
-          id: '$year',
-          domainFn: (Map<String, dynamic> data, _) => data['name'],
-          measureFn: (Map<String, dynamic> data, _) => data['value'],
-          data: List<Map<String, dynamic>>.from(data[year].map((Map<String, dynamic> faculty) {
-            print(double.parse(faculty['promedio_imc']));
-            return {
-              'name': year + 'jr',
-              'value': double.parse(faculty['promedio_imc'])
-            };
-          }))
-        );
-      }))  
-      
-    //   [
-    //   charts.Series<Map<String, dynamic>, String>(
-    //     id: '$initialYear',
-    //     domainFn: (Map<String, dynamic> data, _) => (data['name'] ?? ""),
-    //     measureFn: (Map<String, dynamic> data, _) => data['value'],
-    //     data: List<Map<String, dynamic>>.from(data[initialYear.toString()].map((item) {
-    //       return {
-    //         'name': item['nombre_facultad'] ?? 'No name',
-    //         'value': item['promedio_imc'] ?? 0.0
-    //       };
-    //     })),
-    //   ),
-    //   charts.Series<Map<String, dynamic>, String>(
-    //     id: '${initialYear + 1}',
-    //     domainFn: (Map<String, dynamic> data, _) => (data['name'] ?? ""),
-    //     measureFn: (Map<String, dynamic> data, _) => data['value'],
-    //      data: List<Map<String, dynamic>>.from(data[(initialYear + 1).toString()].map((item) {
-    //       return {
-    //         'name': item['nombre_facultad'] ?? 'No name',
-    //         'value': item['promedio_imc'] ?? 0.0
-    //       };
-    //     })),
-    //   ),
-    // ]
+      List<charts.Series<Map<String, dynamic>, String>>.from(
+        facultyNames.map((facultyName){
+          return charts.Series<Map<String, dynamic>, String>(
+            id: facultyName,
+            domainFn: (data, _) => data['name'],
+            measureFn: (data, _) => data['value'],
+            data: List<Map<String, dynamic>>.from(
+              List.generate(2, (index) {
+                final faculty = (data['${initialYear + index}'] as List).firstWhere((element) {
+                  return element['nombre_facultad'] == facultyName;
+                });
+
+                return {
+                  'name': (initialYear + index).toString(),
+                  'value': faculty['promedio_imc']
+                };
+              })
+            )
+          );
+        })
+      )
     );
 
     return response;
