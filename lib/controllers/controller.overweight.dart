@@ -1,4 +1,4 @@
-import 'package:admin/Repository/api.icm_by_year.dart';
+import 'package:admin/Repository/api.imc.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +30,7 @@ class OverweightController {
     late final data;
 
     try {
-      data = await APIICMByYear().fetchData();
+      data = await APIIMCB().fetchData();
     }catch(_) {
       SmartDialog.showToast("Error cargando datos, intente más tarde");
       return [];

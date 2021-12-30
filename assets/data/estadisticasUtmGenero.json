@@ -1,0 +1,34 @@
+{
+    "valores_netos_general": [
+        {
+            "delgadez": 16,
+            "pesonormal": 263,
+            "sobrepeso": 396,
+            "total": 675
+        }
+    ],
+    "valores_porcentuales_general": [
+        {
+            "p_delgadez": 2.37,
+            "p_pesonormal": 38.96,
+            "p_sobrepeso": 58.67
+        }
+    ],
+    "valores_netos_masculinos": [
+        {
+            "delgadez_masculino": 4,
+            "pesonormal_masculino": 117,
+            "sobrepeso_masculino": 192,
+            "total": 313
+        }
+    ],
+    "valores_netos_femeninos": [
+        {
+            "delgadez_femenino": 12,
+            "pesonormal_femenino": 146,
+            "sobrepeso_femenino": 204,
+            "total": 362
+        }
+    ],
+    "promedio_imc_general": 26.66
+}

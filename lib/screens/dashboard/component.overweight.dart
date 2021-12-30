@@ -8,7 +8,11 @@ import '../../constants.dart';
 
 class GaugeChart extends StatelessWidget {
   
+  final Size size;
+
   late final OverweightController _controller;
+
+  GaugeChart({Key? key, required this.size}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +20,8 @@ class GaugeChart extends StatelessWidget {
     _controller = OverweightController(context);
 
     return Container(
+      width: size.width,
+      height: size.height,
       padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
         color: secondaryColor,
@@ -67,8 +73,8 @@ class GaugeChart extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
-                        height: MediaQuery.of(context).size.height * 35 / 100,
-                        width: MediaQuery.of(context).size.width * 10 / 100,
+                        // height: MediaQuery.of(context).size.height * 35 / 100,
+                        // width: MediaQuery.of(context).size.width * 10 / 100,
                         child: CustomPieChart(
                           paiChartSelectionDatas: _controller.buildDataset(
                             data, 

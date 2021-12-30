@@ -26,6 +26,7 @@ class CustomLineChart extends StatelessWidget {
 
     
     return Container(
+      width: size.width,
       padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
         color: secondaryColor,
@@ -51,8 +52,7 @@ class CustomLineChart extends StatelessWidget {
             height: defaultPadding,
           ),
           SizedBox(
-            height: size.height * 0.7,
-            width: double.infinity,
+            height: size.height,
             child: charts.LineChart(
               seriesList,
               primaryMeasureAxis: charts.NumericAxisSpec(

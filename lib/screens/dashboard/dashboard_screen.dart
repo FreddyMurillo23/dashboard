@@ -1,7 +1,8 @@
 import 'package:admin/components/charts/chart.line.dart';
 import 'package:admin/components/header.dart';
-import 'package:admin/controllers/controller.icm_by_year.dart';
-import 'package:admin/screens/dashboard/component.icm_by_year2.dart';
+import 'package:admin/controllers/controller.imc.dart';
+import 'package:admin/screens/dashboard/component.gender_imc.dart';
+import 'package:admin/screens/dashboard/component.imc_by_year.dart';
 import 'package:admin/screens/dashboard/component.overweight.dart';
 import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ import 'component.overweight.dart';
 
 import '../../../constants.dart';
 import 'component.medic_records.dart';
-import 'component.icm_by_year.dart';
+import 'component.imc_by_faculty.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -27,6 +28,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    final size = MediaQuery.of(context).size;
+
     return SingleChildScrollView(
       padding: EdgeInsets.all(defaultPadding),
       child: Column(
@@ -38,33 +42,44 @@ class _DashboardScreenState extends State<DashboardScreen> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  flex: 2,
-                  child: MedicRecordsComponent()
+                MedicRecordsComponent(
+                  size: Size(size.width * 0.2, size.height),
                 ),
                 SizedBox(
                   width: defaultPadding,
                 ),
-                Expanded(
-                  flex: 6,
-                  child: ICMByYearComponent(
-                    h: MediaQuery.of(context).size.height * 0.4
-                  ),
+                IMCByFacultyComponent(
+                  size: Size(size.width * 0.55, size.height * 0.7),
                 ),
                 SizedBox(
                   width: defaultPadding,
                 ),
-                Expanded(
-                  flex: 2,
-                  child: GaugeChart()
-                ),
+                GaugeChart(
+                  size: Size(size.width * 0.2, size.height),
+                )
               ],
             ),
           ),
           SizedBox(
             height: defaultPadding,
           ),
-          ICMByYear2Component(size: Size(double.infinity, MediaQuery.of(context).size.height * 0.5),)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GenderIMCComponent(
+                size: Size(
+                  MediaQuery.of(context).size.width * 0.3,
+                  MediaQuery.of(context).size.height * 0.5
+                ),
+              ),
+              IMCByYearComponent(
+                size: Size(
+                  MediaQuery.of(context).size.width * 0.6,
+                  MediaQuery.of(context).size.height * 0.5
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );

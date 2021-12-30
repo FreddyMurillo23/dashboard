@@ -13,8 +13,12 @@ import '../../controllers/controller.medic_records.dart';
 /// This will change dinamically based on some filters defined
 /// later.
 class MedicRecordsComponent extends StatelessWidget {
+
+  final Size size;
+
   const MedicRecordsComponent({
     Key? key,
+    required this.size
   }) : super(key: key);
 
 
@@ -27,6 +31,8 @@ class MedicRecordsComponent extends StatelessWidget {
     _controller.loadFilters();
 
     return Container(
+      width: size.width,
+      height: size.height,
       padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
         color: secondaryColor,

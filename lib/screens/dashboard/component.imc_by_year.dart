@@ -5,7 +5,7 @@
 /// to also be [endDrawArea].
 import 'package:admin/components/charts/chart.line.dart';
 import 'package:admin/components/charts/chart.multibar.dart';
-import 'package:admin/controllers/controller.icm_by_year.dart';
+import 'package:admin/controllers/controller.imc.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:admin/constants.dart';
@@ -14,22 +14,22 @@ import 'package:admin/constants.dart';
 /// when a datum is selected.
 ///
 /// Also shows the option to provide a custom measure formatter.
-class ICMByYear2Component extends StatelessWidget {
+class IMCByYearComponent extends StatelessWidget {
 
   final Size size;
   // final double w;
 
-  late final ICMByYearController _controller;
+  late final IMCController _controller;
 
-  ICMByYear2Component({required this.size});
+  IMCByYearComponent({required this.size});
 
   @override
   Widget build(BuildContext context) {
 
-    _controller = ICMByYearController(context);
+    _controller = IMCController(context);
 
     return FutureBuilder<List<charts.Series<Map<String, dynamic>, int>>>(
-      future: _controller.createICMPerYearData(),
+      future: _controller.createIMCPerYearData(),
       builder: (context, snapshot) {
 
         if(!snapshot.hasData) {
@@ -37,9 +37,9 @@ class ICMByYear2Component extends StatelessWidget {
         }
 
         return CustomLineChart(
-          lowerBound: _controller.lowerICMByYearBound!,
-          upperBound: _controller.upperICMByYearBound!,
-          size: Size(double.infinity, size.height),
+          lowerBound: _controller.lowerIMCByYearBound!,
+          upperBound: _controller.upperIMCByYearBound!,
+          size: size,
           title: "Porcentaje de Obesidad en la poblacion por semestres",
           seriesList: snapshot.data!
         );
