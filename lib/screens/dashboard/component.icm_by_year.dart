@@ -43,7 +43,7 @@ class ICMByYearComponent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "IMC por Año y Población",
+            "IMC por Facultad",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,
@@ -56,15 +56,12 @@ class ICMByYearComponent extends StatelessWidget {
             height: h,
             // width: w,
             child: FutureBuilder<List<charts.Series<Map<String, dynamic>, String>>>(
-              future: _controller.createSampleData(),
+              future: _controller.createICMPerFacultyData(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 
-                print(snapshot.data);
                 if(!snapshot.hasData) {
                   return const Center(child: CircularProgressIndicator(),);
                 }
-
-                print("Hola");
 
                 return CustomMultibarChart(
                   seriesList: snapshot.data!,

@@ -1,6 +1,9 @@
 import 'package:admin/components/charts/chart.line.dart';
 import 'package:admin/components/header.dart';
+import 'package:admin/controllers/controller.icm_by_year.dart';
+import 'package:admin/screens/dashboard/component.icm_by_year2.dart';
 import 'package:admin/screens/dashboard/component.overweight.dart';
+import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
@@ -61,14 +64,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           SizedBox(
             height: defaultPadding,
           ),
-          CustomLineChart(
-            title: "Porcentaje de Obesidad en la poblacion por semestres",
-            size: Size(
-              MediaQuery.of(context).size.width * 0.75 - defaultPadding,
-              MediaQuery.of(context).size.height * 0.4,
-            ),
-            seriesList: []
-          )
+          ICMByYear2Component(size: Size(double.infinity, MediaQuery.of(context).size.height * 0.5),)
         ],
       ),
     );
