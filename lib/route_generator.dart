@@ -14,7 +14,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => DashboardScreen());
       case '/UserProfile':
         return MaterialPageRoute(
-            builder: (_) => UserProfile(routeArgument: args as RouteArgument));
+            builder: (_) => UserProfile(routeArgument: args as RouteArgument?));
       default:
         // If there is no such named route in the switch statement, e.g. /third
         return MaterialPageRoute(

@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             .apply(bodyColor: Colors.black),
         canvasColor: secondaryColor,
       ),
-      initialRoute: '/Splash',
+      initialRoute: '/UserProfile',
       onGenerateRoute: RouteGenerator.generateRoute,
       navigatorObservers: [FlutterSmartDialog.observer],
       builder: FlutterSmartDialog.init(),

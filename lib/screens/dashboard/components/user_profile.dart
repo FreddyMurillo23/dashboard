@@ -1,6 +1,9 @@
 import 'package:admin/components/header.dart';
 import 'package:admin/models/route_argument.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+
+import '../../../constants.dart';
 
 class UserProfile extends StatefulWidget {
   final RouteArgument? routeArgument;
@@ -16,6 +19,7 @@ class _UserProfileState extends State<UserProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        scrollDirection: Axis.horizontal,
         slivers: [
           _header(),
           _content(),
@@ -26,13 +30,18 @@ class _UserProfileState extends State<UserProfile> {
 
   Widget _header() {
     return SliverToBoxAdapter(
-      child: Header(),
+      child: Padding(
+        padding: EdgeInsets.all(defaultPadding),
+        child: Header(),
+      ),
     );
   }
 
   _content() {
     return SliverToBoxAdapter(
-      child: Container(),
+      child: Column(
+        children: [],
+      ),
     );
   }
 }
