@@ -1,851 +1,848 @@
-{
-    "data":
-    [
-        {
-            "id": 1,
-            "nombre": "CIENCIAS MATEMÁTICAS FÍSICAS Y QUÍMICAS                                                             ",
-            "escuelas": [
-                {
-                    "id": 3,
-                    "nombre": "INGENIERIA CIVIL",
-                    "mallas": [
-                        {
-                            "id": 61,
-                            "nombre": "INGENIERIA CIVIL 2016 - ORIGINAL"
-                        },
-                        {
-                            "id": 2,
-                            "nombre": "INGENIERIA CIVIL 2008"
-                        },
-                        {
-                            "id": 351,
-                            "nombre": "INGENIERIA CIVIL 2016 (REDISEÑO 2019)"
-                        }
-                    ]
-                },
-                {
-                    "id": 41,
-                    "nombre": "INGENIERIA QUIMICA",
-                    "mallas": [
-                        {
-                            "id": 358,
-                            "nombre": "INGENIERIA QUIMICA 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 73,
-                            "nombre": "INGENIERIA QUIMICA 2016 - ORIGINAL"
-                        },
-                        {
-                            "id": 16,
-                            "nombre": "INGENIERIA QUIMICA 2008"
-                        }
-                    ]
-                },
-                {
-                    "id": 49,
-                    "nombre": "INGENIERIA ELECTRICA",
-                    "mallas": [
-                        {
-                            "id": 23,
-                            "nombre": "INGENIERIA ELECTRICA 2008"
-                        },
-                        {
-                            "id": 76,
-                            "nombre": "ELECTRICIDAD 2017 - ORIGINAL"
-                        },
-                        {
-                            "id": 361,
-                            "nombre": "ELECTRICIDAD 2017 (REDISEÑO 2019)"
-                        }
-                    ]
-                },
-                {
-                    "id": 50,
-                    "nombre": "INGENIERIA INDUSTRIAL",
-                    "mallas": [
-                        {
-                            "id": 91,
-                            "nombre": "INGENIERIA INDUSTRIAL 2017 - ORIGINAL"
-                        },
-                        {
-                            "id": 24,
-                            "nombre": "INGENIERIA INDUSTRIAL 2008"
-                        },
-                        {
-                            "id": 374,
-                            "nombre": "INGENIERIA INDUSTRIAL 2017 (REDISEÑO 2019)"
-                        }
-                    ]
-                },
-                {
-                    "id": 51,
-                    "nombre": "INGENIERIA MECANICA",
-                    "mallas": [
-                        {
-                            "id": 81,
-                            "nombre": "MECANICA 2016 - ORIGINAL"
-                        },
-                        {
-                            "id": 366,
-                            "nombre": "MECANICA 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 25,
-                            "nombre": "INGENIERIA MECANICA 2008"
-                        }
-                    ]
-                },
-                {
-                    "id": 141,
-                    "nombre": "ALIMENTOS",
-                    "mallas": [
-                        {
-                            "id": 622,
-                            "nombre": "ALIMENTOS 2020"
-                        }
-                    ]
-                },
-                {
-                    "id": 144,
-                    "nombre": "ARQUITECTURA",
-                    "mallas": [
-                        {
-                            "id": 695,
-                            "nombre": "ARQUITECTURA 2021"
-                        }
-                    ]
-                },
-                {
-                    "id": 149,
-                    "nombre": "ELECTRÓNICA Y AUTOMATIZACIÓN",
-                    "mallas": [
-                        {
-                            "id": 698,
-                            "nombre": "ELECTRONICA Y AUTOMATIZACION 2021"
-                        }
-                    ]
-                },
-                {
-                    "id": 151,
-                    "nombre": "BIOTECNOLOGÍA",
-                    "mallas": [
-                        {
-                            "id": 694,
-                            "nombre": "BIOTECNOLOGIA 2021"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "nombre": "CIENCIAS INFORMÁTICAS                                                                               ",
-            "escuelas": [
-                {
-                    "id": 1,
-                    "nombre": "INGENIERIA DE SISTEMAS INFORMATICOS",
-                    "mallas": [
-                        {
-                            "id": 371,
-                            "nombre": "SISTEMAS DE INFORMACION 2017 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 1,
-                            "nombre": "INGENIERIA DE SISTEMAS INFORMATICAS 2008"
-                        },
-                        {
-                            "id": 88,
-                            "nombre": "SISTEMAS DE INFORMACION 2017 - ORIGINAL"
-                        }
-                    ]
-                },
-                {
-                    "id": 97,
-                    "nombre": "TECNOLOGIAS DE LA INFORMACION",
-                    "mallas": [
-                        {
-                            "id": 503,
-                            "nombre": "TECNOLOGIA DE LA INFORMACION 2019 (EN LINEA)"
-                        },
-                        {
-                            "id": 379,
-                            "nombre": "TECNOLOGIAS DE LA INFORMACION 2018 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 96,
-                            "nombre": "TECNOLOGIAS DE LA INFORMACION 2018 - ORIGINAL"
-                        },
-                        {
-                            "id": 616,
-                            "nombre": "TECNOLOGIA DE LA INFORMACION 2019 (EN LINEA) (REDISEÑO 2020)"
-                        }
-                    ]
-                },
-                {
-                    "id": 148,
-                    "nombre": "TELECOMUNICACIONES",
-                    "mallas": [
-                        {
-                            "id": 699,
-                            "nombre": "TELECOMUNICACIONES 2021"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "nombre": "FILOSOFÍA LETRAS Y CIENCIAS DE LA EDUCACIÓN                                                         ",
-            "escuelas": [
-                {
-                    "id": 7,
-                    "nombre": "FISICA Y MATEMATICAS",
-                    "mallas": [
-                        {
-                            "id": 89,
-                            "nombre": "PEDAGOGÍA DE LAS CIENCIAS EXPERIMENTALES (MATEMÁTICAS Y FÍSICA) 2017 - ORIGINAL"
-                        },
-                        {
-                            "id": 372,
-                            "nombre": "PEDAGOGÍA DE LAS CIENCIAS EXPERIMENTALES (MATEMÁTICAS Y FÍSICA) 2017 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 3,
-                            "nombre": "FISICA Y MATEMATICAS 2009"
-                        }
-                    ]
-                },
-                {
-                    "id": 9,
-                    "nombre": "EDUCACION ARTISTICA",
-                    "mallas": [
-                        {
-                            "id": 4,
-                            "nombre": "EDUCACION ARTISTICA 2009 ( PEDAGOGIA MUSICAL)"
-                        }
-                    ]
-                },
-                {
-                    "id": 10,
-                    "nombre": "QUIMICA Y BIOLOGIA",
-                    "mallas": [
-                        {
-                            "id": 364,
-                            "nombre": "PEDAGOGIA DE LA QUIMICA Y BIOLOGIA 2017 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 5,
-                            "nombre": "QUIMICA Y BIOLOGIA 2009"
-                        },
-                        {
-                            "id": 79,
-                            "nombre": "PEDAGOGIA DE LA QUIMICA Y BIOLOGIA 2017 - ORIGINAL"
-                        }
-                    ]
-                },
-                {
-                    "id": 14,
-                    "nombre": "EDUCACION FISICA, DEPORTES Y RECREACION",
-                    "mallas": [
-                        {
-                            "id": 6,
-                            "nombre": "EDUCACION FISICA 2009"
-                        },
-                        {
-                            "id": 363,
-                            "nombre": "PEDAGOGIA EN ACTIVIDAD FISICA Y DEPORTE 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 78,
-                            "nombre": "PEDAGOGIA EN ACTIVIDAD FISICA Y DEPORTE 2016 - ORIGINAL"
-                        }
-                    ]
-                },
-                {
-                    "id": 15,
-                    "nombre": "PSICOLOGIA EDUCATIVA Y ORIENTACION VOCACIONAL",
-                    "mallas": [
-                        {
-                            "id": 7,
-                            "nombre": "PSICOLOGIA Y ORIENTACION VOCACIONAL 2009"
-                        }
-                    ]
-                },
-                {
-                    "id": 42,
-                    "nombre": "EDUCACION GENERAL BASICA",
-                    "mallas": [
-                        {
-                            "id": 36,
-                            "nombre": "EDUCACION GENERAL BASICA 2012"
-                        },
-                        {
-                            "id": 498,
-                            "nombre": "EDUCACION BASICA 2019 (EN LINEA)"
-                        },
-                        {
-                            "id": 67,
-                            "nombre": "EDUCACION BASICA 2016 - ORIGINAL"
-                        },
-                        {
-                            "id": 611,
-                            "nombre": "EDUCACION BASICA 2019 (EN LINEA) (REDISEÑO 2020)"
-                        },
-                        {
-                            "id": 357,
-                            "nombre": "EDUCACION BASICA 2016 (REDISEÑO 2019)"
-                        }
-                    ]
-                },
-                {
-                    "id": 52,
-                    "nombre": "CONTABILIDAD COMPUTARIZADA",
-                    "mallas": [
-                        {
-                            "id": 26,
-                            "nombre": "CONTABILIDAD COMPUTARIZADA 2009"
-                        }
-                    ]
-                },
-                {
-                    "id": 55,
-                    "nombre": "EDUCACION PARVULARIA",
-                    "mallas": [
-                        {
-                            "id": 500,
-                            "nombre": "EDUCACION INICIAL 2019 (EN LINEA)"
-                        },
-                        {
-                            "id": 369,
-                            "nombre": "EDUCACION INICIAL 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 613,
-                            "nombre": "EDUCACION INICIAL 2019 (EN LINEA) (REDISEÑO 2020)"
-                        },
-                        {
-                            "id": 38,
-                            "nombre": "EDUCACION PARVULARIA 2012"
-                        },
-                        {
-                            "id": 84,
-                            "nombre": "EDUCACION INICIAL 2016 - ORIGINAL"
-                        }
-                    ]
-                },
-                {
-                    "id": 56,
-                    "nombre": "IDIOMAS Y LINGUISTICA MENCION INGLES IDIOMA ELECTIVO Y ESPAÑOL",
-                    "mallas": [
-                        {
-                            "id": 29,
-                            "nombre": "IDIOMAS Y LINGUISTICA MENCION INGLES-ESPAÑOL 2009"
-                        },
-                        {
-                            "id": 85,
-                            "nombre": "PEDAGOGIA DEL IDIOMA NACIONALES Y EXTRANJEROS 2016 - ORIGINAL"
-                        },
-                        {
-                            "id": 370,
-                            "nombre": "PEDAGOGIA DEL IDIOMA NACIONALES Y EXTRANJEROS 2016 (REDISEÑO 2019)"
-                        }
-                    ]
-                },
-                {
-                    "id": 94,
-                    "nombre": "EDUCACION GENERAL BASICA - SEMIPRESENCIAL",
-                    "mallas": [
-                        {
-                            "id": 43,
-                            "nombre": "EDUCACION BASICA CES"
-                        }
-                    ]
-                },
-                {
-                    "id": 1009,
-                    "nombre": "PEDAGOGIA MUSICAL",
-                    "mallas": [
-                        {
-                            "id": 627,
-                            "nombre": "PEDAGOGIA MUSICAL 2020"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "nombre": "INGENIERÍA AGRONÓMICA                                                                               ",
-            "escuelas": [
-                {
-                    "id": 17,
-                    "nombre": "INGENIERIA AGRONOMICA (LODANA)",
-                    "mallas": [
-                        {
-                            "id": 367,
-                            "nombre": "AGRONOMÍA (LODANA) 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 8,
-                            "nombre": "INGENIERIA AGRONOMICA (LODANA) 2009"
-                        },
-                        {
-                            "id": 82,
-                            "nombre": "AGRONOMÍA (LODANA) 2016 - ORIGINAL"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 7,
-            "nombre": "CIENCIAS ZOOTÉCNICAS                                                                                ",
-            "escuelas": [
-                {
-                    "id": 19,
-                    "nombre": "INGENIERIA ZOOTECNICA (CHONE)",
-                    "mallas": [
-                        {
-                            "id": 9,
-                            "nombre": "INGENIERIA ZOOTECNICA (CHONE) 2009"
-                        },
-                        {
-                            "id": 368,
-                            "nombre": "INGENIERIA ZOOTECNICA (CHONE) 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 83,
-                            "nombre": "INGENIERIA ZOOTECNICA (CHONE) 2016 - ORIGINAL"
-                        }
-                    ]
-                },
-                {
-                    "id": 20,
-                    "nombre": "INGENIERIA EN INDUSTRIAS AGROPECUARIAS (CHONE)",
-                    "mallas": [
-                        {
-                            "id": 365,
-                            "nombre": "INGENIERIA EN AGROINDUSTRIAS (CHONE) 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 80,
-                            "nombre": "INGENIERIA EN AGROINDUSTRIAS (CHONE) 2016 - ORIGINAL"
-                        },
-                        {
-                            "id": 10,
-                            "nombre": "INGENIERIA EN INDUSTRIAS AGROPECUARIAS (CHONE) 2009"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 8,
-            "nombre": "CIENCIAS ADMINISTRATIVAS Y ECONÓMICAS                                                               ",
-            "escuelas": [
-                {
-                    "id": 25,
-                    "nombre": "ADMINISTRACION DE EMPRESAS",
-                    "mallas": [
-                        {
-                            "id": 354,
-                            "nombre": "ADMINISTRACION DE EMPRESAS 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 64,
-                            "nombre": "ADMINISTRACION DE EMPRESAS 2016 - ORIGINAL"
-                        },
-                        {
-                            "id": 41,
-                            "nombre": "ADMINISTRACION DE EMPRESAS 2009"
-                        }
-                    ]
-                },
-                {
-                    "id": 44,
-                    "nombre": "CONTABILIDAD Y AUDITORIA",
-                    "mallas": [
-                        {
-                            "id": 352,
-                            "nombre": "CONTABILIDAD Y AUDITORIA 2016(REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 40,
-                            "nombre": "CONTABILIDAD Y AUDITORIA 2009"
-                        },
-                        {
-                            "id": 62,
-                            "nombre": "CONTABILIDAD Y AUDITORIA 2016 - ORIGINAL"
-                        }
-                    ]
-                },
-                {
-                    "id": 45,
-                    "nombre": "ECONOMIA",
-                    "mallas": [
-                        {
-                            "id": 39,
-                            "nombre": "ECONOMIA 2009"
-                        },
-                        {
-                            "id": 60,
-                            "nombre": "ECONOMIA 2016 - ORIGINAL"
-                        },
-                        {
-                            "id": 497,
-                            "nombre": "ECONOMIA 2019 (EN LINEA)"
-                        },
-                        {
-                            "id": 610,
-                            "nombre": "ECONOMIA 2019 (EN LINEA) (REDISEÑO 2020)"
-                        },
-                        {
-                            "id": 350,
-                            "nombre": "ECONOMIA 2016 (REDISEÑO 2019)"
-                        }
-                    ]
-                },
-                {
-                    "id": 98,
-                    "nombre": "TURISMO",
-                    "mallas": [
-                        {
-                            "id": 615,
-                            "nombre": "TURISMO 2019 (EN LINEA) (REDISEÑO 2020)"
-                        },
-                        {
-                            "id": 502,
-                            "nombre": "TURISMO 2019 (EN LINEA)"
-                        },
-                        {
-                            "id": 97,
-                            "nombre": "TURISMO 2019"
-                        },
-                        {
-                            "id": 608,
-                            "nombre": "TURISMO 2019 (REDISEÑO 2020)"
-                        }
-                    ]
-                },
-                {
-                    "id": 142,
-                    "nombre": "GASTRONOMIA",
-                    "mallas": [
-                        {
-                            "id": 626,
-                            "nombre": "GASTRONOMIA 2020"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 9,
-            "nombre": "CIENCIAS DE LA SALUD                                                                                ",
-            "escuelas": [
-                {
-                    "id": 26,
-                    "nombre": "MEDICINA",
-                    "mallas": [
-                        {
-                            "id": 377,
-                            "nombre": "MEDICINA 2017 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 94,
-                            "nombre": "MEDICINA 2017 - ORIGINAL"
-                        },
-                        {
-                            "id": 13,
-                            "nombre": "MEDICINA 2009 (REFORMA 2015)"
-                        }
-                    ]
-                },
-                {
-                    "id": 27,
-                    "nombre": "ENFERMERIA",
-                    "mallas": [
-                        {
-                            "id": 373,
-                            "nombre": "ENFERMERIA 2017 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 14,
-                            "nombre": "ENFERMERIA 2009 (REFORMA 2012)"
-                        },
-                        {
-                            "id": 90,
-                            "nombre": "ENFERMERIA 2017 - ORIGINAL"
-                        }
-                    ]
-                },
-                {
-                    "id": 90,
-                    "nombre": "LABORATORIO CLINICO",
-                    "mallas": [
-                        {
-                            "id": 376,
-                            "nombre": "LABORATORIO CLINICO 2017 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 93,
-                            "nombre": "LABORATORIO CLINICO 2017 - ORIGINAL"
-                        },
-                        {
-                            "id": 51,
-                            "nombre": "LABORATORIO CLINICO"
-                        }
-                    ]
-                },
-                {
-                    "id": 95,
-                    "nombre": "NUTRICION Y DIETÉTICA",
-                    "mallas": [
-                        {
-                            "id": 50,
-                            "nombre": "NUTRICIÓN Y DIETÉTICA 2013 (REFORMA 2018)"
-                        },
-                        {
-                            "id": 63,
-                            "nombre": "NUTRICIÓN Y DIETÉTICA 2016 - ORIGINAL"
-                        },
-                        {
-                            "id": 353,
-                            "nombre": "NUTRICIÓN Y DIETÉTICA 2016 (REDISEÑO 2019)"
-                        }
-                    ]
-                },
-                {
-                    "id": 96,
-                    "nombre": "OPTOMETRIA",
-                    "mallas": [
-                        {
-                            "id": 49,
-                            "nombre": "OPTOMETRIA 2013"
-                        },
-                        {
-                            "id": 378,
-                            "nombre": "OPTOMETRIA 2018 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 95,
-                            "nombre": "OPTOMETRIA 2018 - ORIGINAL"
-                        }
-                    ]
-                },
-                {
-                    "id": 147,
-                    "nombre": "BIOQUIMICA Y FARMACIA",
-                    "mallas": [
-                        {
-                            "id": 697,
-                            "nombre": "BIOQUIMICA Y FARMACIA 2021"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 10,
-            "nombre": "CIENCIAS HUMANISTICAS Y SOCIALES                                                                    ",
-            "escuelas": [
-                {
-                    "id": 46,
-                    "nombre": "TRABAJO SOCIAL",
-                    "mallas": [
-                        {
-                            "id": 20,
-                            "nombre": "TRABAJO SOCIAL 2009"
-                        },
-                        {
-                            "id": 75,
-                            "nombre": "TRABAJO SOCIAL 2016 - ORIGINAL"
-                        },
-                        {
-                            "id": 360,
-                            "nombre": "TRABAJO SOCIAL 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 501,
-                            "nombre": "TRABAJO SOCIAL 2019 (EN LINEA)"
-                        },
-                        {
-                            "id": 614,
-                            "nombre": "TRABAJO SOCIAL 2019 (EN LINEA) (REDISEÑO 2020)"
-                        }
-                    ]
-                },
-                {
-                    "id": 88,
-                    "nombre": "PSICOLOGIA CLINICA",
-                    "mallas": [
-                        {
-                            "id": 609,
-                            "nombre": "PSICOLOGIA 2019 (EN LINEA) (REDISEÑO 2020)"
-                        },
-                        {
-                            "id": 362,
-                            "nombre": "PSICOLOGIA 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 77,
-                            "nombre": "PSICOLOGIA 2016 - ORIGINAL"
-                        },
-                        {
-                            "id": 33,
-                            "nombre": "PSICOLOGIA CLINICA 2011"
-                        },
-                        {
-                            "id": 496,
-                            "nombre": "PSICOLOGIA 2019 (EN LINEA)"
-                        }
-                    ]
-                },
-                {
-                    "id": 89,
-                    "nombre": "BIBLIOTECOLOGIA Y CIENCIAS DE LA INFORMACION",
-                    "mallas": [
-                        {
-                            "id": 34,
-                            "nombre": "BIBLIOTECOLOGIA Y CIENCIAS DE LA INFORMACIÓN 2011"
-                        },
-                        {
-                            "id": 359,
-                            "nombre": "BIBLIOTECOLOGIA DOCUMENTACION Y ARCHIVO 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 74,
-                            "nombre": "BIBLIOTECOLOGIA DOCUMENTACION Y ARCHIVO 2016 - ORIGINAL"
-                        }
-                    ]
-                },
-                {
-                    "id": 140,
-                    "nombre": "DERECHO",
-                    "mallas": [
-                        {
-                            "id": 499,
-                            "nombre": "DERECHO 2019 (EN LINEA)"
-                        },
-                        {
-                            "id": 612,
-                            "nombre": "DERECHO 2019 (EN LINEA) (REDISEÑO 2020)"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 11,
-            "nombre": "CIENCIAS VETERINARIAS                                                                               ",
-            "escuelas": [
-                {
-                    "id": 48,
-                    "nombre": "MEDICINA VETERINARIA",
-                    "mallas": [
-                        {
-                            "id": 375,
-                            "nombre": "MEDICINA VETERINARIA 2017 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 22,
-                            "nombre": "MEDICINA VETERINARIA 2008"
-                        },
-                        {
-                            "id": 92,
-                            "nombre": "MEDICINA VETERINARIA 2017 - ORIGINAL"
-                        }
-                    ]
-                },
-                {
-                    "id": 84,
-                    "nombre": "ACUICULTURA Y PESQUERIA (BAHIA)",
-                    "mallas": [
-                        {
-                            "id": 31,
-                            "nombre": "INGENIERIA EN ACUICULTURA Y PESQUERIA (BAHIA) 2008"
-                        },
-                        {
-                            "id": 355,
-                            "nombre": "ACUICULTURA (BAHIA) 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 65,
-                            "nombre": "ACUICULTURA (BAHIA) 2016 - ORIGINAL"
-                        }
-                    ]
-                },
-                {
-                    "id": 150,
-                    "nombre": "RECURSOS NATURALES RENOVABLES",
-                    "mallas": [
-                        {
-                            "id": 696,
-                            "nombre": "RECUSOS NATURALES RENOVABLES 2021"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 12,
-            "nombre": "INGENIERIA AGRÍCOLA                                                                                 ",
-            "escuelas": [
-                {
-                    "id": 66,
-                    "nombre": "INGENIERIA AGRICOLA",
-                    "mallas": [
-                        {
-                            "id": 66,
-                            "nombre": "INGENIERIA AGRICOLA 2016 - ORIGINAL"
-                        },
-                        {
-                            "id": 356,
-                            "nombre": "INGENIERIA AGRICOLA 2016 (REDISEÑO 2019)"
-                        },
-                        {
-                            "id": 30,
-                            "nombre": "INGENIERIA AGRICOLA 2009"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 13,
-            "nombre": "INSTITUTO DE CIENCIAS BÁSICAS                                                                       ",
-            "escuelas": [
-                {
-                    "id": 143,
-                    "nombre": "QUIMICA",
-                    "mallas": [
-                        {
-                            "id": 619,
-                            "nombre": "QUIMICA 2020"
-                        }
-                    ]
-                },
-                {
-                    "id": 145,
-                    "nombre": "MATEMÁTICA APLICADA",
-                    "mallas": [
-                        {
-                            "id": 621,
-                            "nombre": "INGENIERIA EN MATEMATICA APLICADA 2020"
-                        }
-                    ]
-                },
-                {
-                    "id": 146,
-                    "nombre": "ESTADISTICA",
-                    "mallas": [
-                        {
-                            "id": 623,
-                            "nombre": "INGENIERIA EN ESTADISTICA 2020"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]    
-}
+[
+    {
+        "id": 1,
+        "nombre": "CIENCIAS MATEMÁTICAS FÍSICAS Y QUÍMICAS                                                             ",
+        "escuelas": [
+            {
+                "id": 3,
+                "nombre": "INGENIERIA CIVIL",
+                "mallas": [
+                    {
+                        "id": 61,
+                        "nombre": "INGENIERIA CIVIL 2016 - ORIGINAL"
+                    },
+                    {
+                        "id": 2,
+                        "nombre": "INGENIERIA CIVIL 2008"
+                    },
+                    {
+                        "id": 351,
+                        "nombre": "INGENIERIA CIVIL 2016 (REDISEÑO 2019)"
+                    }
+                ]
+            },
+            {
+                "id": 41,
+                "nombre": "INGENIERIA QUIMICA",
+                "mallas": [
+                    {
+                        "id": 358,
+                        "nombre": "INGENIERIA QUIMICA 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 73,
+                        "nombre": "INGENIERIA QUIMICA 2016 - ORIGINAL"
+                    },
+                    {
+                        "id": 16,
+                        "nombre": "INGENIERIA QUIMICA 2008"
+                    }
+                ]
+            },
+            {
+                "id": 49,
+                "nombre": "INGENIERIA ELECTRICA",
+                "mallas": [
+                    {
+                        "id": 23,
+                        "nombre": "INGENIERIA ELECTRICA 2008"
+                    },
+                    {
+                        "id": 76,
+                        "nombre": "ELECTRICIDAD 2017 - ORIGINAL"
+                    },
+                    {
+                        "id": 361,
+                        "nombre": "ELECTRICIDAD 2017 (REDISEÑO 2019)"
+                    }
+                ]
+            },
+            {
+                "id": 50,
+                "nombre": "INGENIERIA INDUSTRIAL",
+                "mallas": [
+                    {
+                        "id": 91,
+                        "nombre": "INGENIERIA INDUSTRIAL 2017 - ORIGINAL"
+                    },
+                    {
+                        "id": 24,
+                        "nombre": "INGENIERIA INDUSTRIAL 2008"
+                    },
+                    {
+                        "id": 374,
+                        "nombre": "INGENIERIA INDUSTRIAL 2017 (REDISEÑO 2019)"
+                    }
+                ]
+            },
+            {
+                "id": 51,
+                "nombre": "INGENIERIA MECANICA",
+                "mallas": [
+                    {
+                        "id": 81,
+                        "nombre": "MECANICA 2016 - ORIGINAL"
+                    },
+                    {
+                        "id": 366,
+                        "nombre": "MECANICA 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 25,
+                        "nombre": "INGENIERIA MECANICA 2008"
+                    }
+                ]
+            },
+            {
+                "id": 141,
+                "nombre": "ALIMENTOS",
+                "mallas": [
+                    {
+                        "id": 622,
+                        "nombre": "ALIMENTOS 2020"
+                    }
+                ]
+            },
+            {
+                "id": 144,
+                "nombre": "ARQUITECTURA",
+                "mallas": [
+                    {
+                        "id": 695,
+                        "nombre": "ARQUITECTURA 2021"
+                    }
+                ]
+            },
+            {
+                "id": 149,
+                "nombre": "ELECTRÓNICA Y AUTOMATIZACIÓN",
+                "mallas": [
+                    {
+                        "id": 698,
+                        "nombre": "ELECTRONICA Y AUTOMATIZACION 2021"
+                    }
+                ]
+            },
+            {
+                "id": 151,
+                "nombre": "BIOTECNOLOGÍA",
+                "mallas": [
+                    {
+                        "id": 694,
+                        "nombre": "BIOTECNOLOGIA 2021"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "CIENCIAS INFORMÁTICAS                                                                               ",
+        "escuelas": [
+            {
+                "id": 1,
+                "nombre": "INGENIERIA DE SISTEMAS INFORMATICOS",
+                "mallas": [
+                    {
+                        "id": 371,
+                        "nombre": "SISTEMAS DE INFORMACION 2017 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 1,
+                        "nombre": "INGENIERIA DE SISTEMAS INFORMATICAS 2008"
+                    },
+                    {
+                        "id": 88,
+                        "nombre": "SISTEMAS DE INFORMACION 2017 - ORIGINAL"
+                    }
+                ]
+            },
+            {
+                "id": 97,
+                "nombre": "TECNOLOGIAS DE LA INFORMACION",
+                "mallas": [
+                    {
+                        "id": 503,
+                        "nombre": "TECNOLOGIA DE LA INFORMACION 2019 (EN LINEA)"
+                    },
+                    {
+                        "id": 379,
+                        "nombre": "TECNOLOGIAS DE LA INFORMACION 2018 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 96,
+                        "nombre": "TECNOLOGIAS DE LA INFORMACION 2018 - ORIGINAL"
+                    },
+                    {
+                        "id": 616,
+                        "nombre": "TECNOLOGIA DE LA INFORMACION 2019 (EN LINEA) (REDISEÑO 2020)"
+                    }
+                ]
+            },
+            {
+                "id": 148,
+                "nombre": "TELECOMUNICACIONES",
+                "mallas": [
+                    {
+                        "id": 699,
+                        "nombre": "TELECOMUNICACIONES 2021"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "FILOSOFÍA LETRAS Y CIENCIAS DE LA EDUCACIÓN                                                         ",
+        "escuelas": [
+            {
+                "id": 7,
+                "nombre": "FISICA Y MATEMATICAS",
+                "mallas": [
+                    {
+                        "id": 89,
+                        "nombre": "PEDAGOGÍA DE LAS CIENCIAS EXPERIMENTALES (MATEMÁTICAS Y FÍSICA) 2017 - ORIGINAL"
+                    },
+                    {
+                        "id": 372,
+                        "nombre": "PEDAGOGÍA DE LAS CIENCIAS EXPERIMENTALES (MATEMÁTICAS Y FÍSICA) 2017 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 3,
+                        "nombre": "FISICA Y MATEMATICAS 2009"
+                    }
+                ]
+            },
+            {
+                "id": 9,
+                "nombre": "EDUCACION ARTISTICA",
+                "mallas": [
+                    {
+                        "id": 4,
+                        "nombre": "EDUCACION ARTISTICA 2009 ( PEDAGOGIA MUSICAL)"
+                    }
+                ]
+            },
+            {
+                "id": 10,
+                "nombre": "QUIMICA Y BIOLOGIA",
+                "mallas": [
+                    {
+                        "id": 364,
+                        "nombre": "PEDAGOGIA DE LA QUIMICA Y BIOLOGIA 2017 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 5,
+                        "nombre": "QUIMICA Y BIOLOGIA 2009"
+                    },
+                    {
+                        "id": 79,
+                        "nombre": "PEDAGOGIA DE LA QUIMICA Y BIOLOGIA 2017 - ORIGINAL"
+                    }
+                ]
+            },
+            {
+                "id": 14,
+                "nombre": "EDUCACION FISICA, DEPORTES Y RECREACION",
+                "mallas": [
+                    {
+                        "id": 6,
+                        "nombre": "EDUCACION FISICA 2009"
+                    },
+                    {
+                        "id": 363,
+                        "nombre": "PEDAGOGIA EN ACTIVIDAD FISICA Y DEPORTE 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 78,
+                        "nombre": "PEDAGOGIA EN ACTIVIDAD FISICA Y DEPORTE 2016 - ORIGINAL"
+                    }
+                ]
+            },
+            {
+                "id": 15,
+                "nombre": "PSICOLOGIA EDUCATIVA Y ORIENTACION VOCACIONAL",
+                "mallas": [
+                    {
+                        "id": 7,
+                        "nombre": "PSICOLOGIA Y ORIENTACION VOCACIONAL 2009"
+                    }
+                ]
+            },
+            {
+                "id": 42,
+                "nombre": "EDUCACION GENERAL BASICA",
+                "mallas": [
+                    {
+                        "id": 36,
+                        "nombre": "EDUCACION GENERAL BASICA 2012"
+                    },
+                    {
+                        "id": 498,
+                        "nombre": "EDUCACION BASICA 2019 (EN LINEA)"
+                    },
+                    {
+                        "id": 67,
+                        "nombre": "EDUCACION BASICA 2016 - ORIGINAL"
+                    },
+                    {
+                        "id": 611,
+                        "nombre": "EDUCACION BASICA 2019 (EN LINEA) (REDISEÑO 2020)"
+                    },
+                    {
+                        "id": 357,
+                        "nombre": "EDUCACION BASICA 2016 (REDISEÑO 2019)"
+                    }
+                ]
+            },
+            {
+                "id": 52,
+                "nombre": "CONTABILIDAD COMPUTARIZADA",
+                "mallas": [
+                    {
+                        "id": 26,
+                        "nombre": "CONTABILIDAD COMPUTARIZADA 2009"
+                    }
+                ]
+            },
+            {
+                "id": 55,
+                "nombre": "EDUCACION PARVULARIA",
+                "mallas": [
+                    {
+                        "id": 500,
+                        "nombre": "EDUCACION INICIAL 2019 (EN LINEA)"
+                    },
+                    {
+                        "id": 369,
+                        "nombre": "EDUCACION INICIAL 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 613,
+                        "nombre": "EDUCACION INICIAL 2019 (EN LINEA) (REDISEÑO 2020)"
+                    },
+                    {
+                        "id": 38,
+                        "nombre": "EDUCACION PARVULARIA 2012"
+                    },
+                    {
+                        "id": 84,
+                        "nombre": "EDUCACION INICIAL 2016 - ORIGINAL"
+                    }
+                ]
+            },
+            {
+                "id": 56,
+                "nombre": "IDIOMAS Y LINGUISTICA MENCION INGLES IDIOMA ELECTIVO Y ESPAÑOL",
+                "mallas": [
+                    {
+                        "id": 29,
+                        "nombre": "IDIOMAS Y LINGUISTICA MENCION INGLES-ESPAÑOL 2009"
+                    },
+                    {
+                        "id": 85,
+                        "nombre": "PEDAGOGIA DEL IDIOMA NACIONALES Y EXTRANJEROS 2016 - ORIGINAL"
+                    },
+                    {
+                        "id": 370,
+                        "nombre": "PEDAGOGIA DEL IDIOMA NACIONALES Y EXTRANJEROS 2016 (REDISEÑO 2019)"
+                    }
+                ]
+            },
+            {
+                "id": 94,
+                "nombre": "EDUCACION GENERAL BASICA - SEMIPRESENCIAL",
+                "mallas": [
+                    {
+                        "id": 43,
+                        "nombre": "EDUCACION BASICA CES"
+                    }
+                ]
+            },
+            {
+                "id": 1009,
+                "nombre": "PEDAGOGIA MUSICAL",
+                "mallas": [
+                    {
+                        "id": 627,
+                        "nombre": "PEDAGOGIA MUSICAL 2020"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "INGENIERÍA AGRONÓMICA                                                                               ",
+        "escuelas": [
+            {
+                "id": 17,
+                "nombre": "INGENIERIA AGRONOMICA (LODANA)",
+                "mallas": [
+                    {
+                        "id": 367,
+                        "nombre": "AGRONOMÍA (LODANA) 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 8,
+                        "nombre": "INGENIERIA AGRONOMICA (LODANA) 2009"
+                    },
+                    {
+                        "id": 82,
+                        "nombre": "AGRONOMÍA (LODANA) 2016 - ORIGINAL"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "nombre": "CIENCIAS ZOOTÉCNICAS                                                                                ",
+        "escuelas": [
+            {
+                "id": 19,
+                "nombre": "INGENIERIA ZOOTECNICA (CHONE)",
+                "mallas": [
+                    {
+                        "id": 9,
+                        "nombre": "INGENIERIA ZOOTECNICA (CHONE) 2009"
+                    },
+                    {
+                        "id": 368,
+                        "nombre": "INGENIERIA ZOOTECNICA (CHONE) 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 83,
+                        "nombre": "INGENIERIA ZOOTECNICA (CHONE) 2016 - ORIGINAL"
+                    }
+                ]
+            },
+            {
+                "id": 20,
+                "nombre": "INGENIERIA EN INDUSTRIAS AGROPECUARIAS (CHONE)",
+                "mallas": [
+                    {
+                        "id": 365,
+                        "nombre": "INGENIERIA EN AGROINDUSTRIAS (CHONE) 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 80,
+                        "nombre": "INGENIERIA EN AGROINDUSTRIAS (CHONE) 2016 - ORIGINAL"
+                    },
+                    {
+                        "id": 10,
+                        "nombre": "INGENIERIA EN INDUSTRIAS AGROPECUARIAS (CHONE) 2009"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "nombre": "CIENCIAS ADMINISTRATIVAS Y ECONÓMICAS                                                               ",
+        "escuelas": [
+            {
+                "id": 25,
+                "nombre": "ADMINISTRACION DE EMPRESAS",
+                "mallas": [
+                    {
+                        "id": 354,
+                        "nombre": "ADMINISTRACION DE EMPRESAS 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 64,
+                        "nombre": "ADMINISTRACION DE EMPRESAS 2016 - ORIGINAL"
+                    },
+                    {
+                        "id": 41,
+                        "nombre": "ADMINISTRACION DE EMPRESAS 2009"
+                    }
+                ]
+            },
+            {
+                "id": 44,
+                "nombre": "CONTABILIDAD Y AUDITORIA",
+                "mallas": [
+                    {
+                        "id": 352,
+                        "nombre": "CONTABILIDAD Y AUDITORIA 2016(REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 40,
+                        "nombre": "CONTABILIDAD Y AUDITORIA 2009"
+                    },
+                    {
+                        "id": 62,
+                        "nombre": "CONTABILIDAD Y AUDITORIA 2016 - ORIGINAL"
+                    }
+                ]
+            },
+            {
+                "id": 45,
+                "nombre": "ECONOMIA",
+                "mallas": [
+                    {
+                        "id": 39,
+                        "nombre": "ECONOMIA 2009"
+                    },
+                    {
+                        "id": 60,
+                        "nombre": "ECONOMIA 2016 - ORIGINAL"
+                    },
+                    {
+                        "id": 497,
+                        "nombre": "ECONOMIA 2019 (EN LINEA)"
+                    },
+                    {
+                        "id": 610,
+                        "nombre": "ECONOMIA 2019 (EN LINEA) (REDISEÑO 2020)"
+                    },
+                    {
+                        "id": 350,
+                        "nombre": "ECONOMIA 2016 (REDISEÑO 2019)"
+                    }
+                ]
+            },
+            {
+                "id": 98,
+                "nombre": "TURISMO",
+                "mallas": [
+                    {
+                        "id": 615,
+                        "nombre": "TURISMO 2019 (EN LINEA) (REDISEÑO 2020)"
+                    },
+                    {
+                        "id": 502,
+                        "nombre": "TURISMO 2019 (EN LINEA)"
+                    },
+                    {
+                        "id": 97,
+                        "nombre": "TURISMO 2019"
+                    },
+                    {
+                        "id": 608,
+                        "nombre": "TURISMO 2019 (REDISEÑO 2020)"
+                    }
+                ]
+            },
+            {
+                "id": 142,
+                "nombre": "GASTRONOMIA",
+                "mallas": [
+                    {
+                        "id": 626,
+                        "nombre": "GASTRONOMIA 2020"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "nombre": "CIENCIAS DE LA SALUD                                                                                ",
+        "escuelas": [
+            {
+                "id": 26,
+                "nombre": "MEDICINA",
+                "mallas": [
+                    {
+                        "id": 377,
+                        "nombre": "MEDICINA 2017 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 94,
+                        "nombre": "MEDICINA 2017 - ORIGINAL"
+                    },
+                    {
+                        "id": 13,
+                        "nombre": "MEDICINA 2009 (REFORMA 2015)"
+                    }
+                ]
+            },
+            {
+                "id": 27,
+                "nombre": "ENFERMERIA",
+                "mallas": [
+                    {
+                        "id": 373,
+                        "nombre": "ENFERMERIA 2017 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 14,
+                        "nombre": "ENFERMERIA 2009 (REFORMA 2012)"
+                    },
+                    {
+                        "id": 90,
+                        "nombre": "ENFERMERIA 2017 - ORIGINAL"
+                    }
+                ]
+            },
+            {
+                "id": 90,
+                "nombre": "LABORATORIO CLINICO",
+                "mallas": [
+                    {
+                        "id": 376,
+                        "nombre": "LABORATORIO CLINICO 2017 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 93,
+                        "nombre": "LABORATORIO CLINICO 2017 - ORIGINAL"
+                    },
+                    {
+                        "id": 51,
+                        "nombre": "LABORATORIO CLINICO"
+                    }
+                ]
+            },
+            {
+                "id": 95,
+                "nombre": "NUTRICION Y DIETÉTICA",
+                "mallas": [
+                    {
+                        "id": 50,
+                        "nombre": "NUTRICIÓN Y DIETÉTICA 2013 (REFORMA 2018)"
+                    },
+                    {
+                        "id": 63,
+                        "nombre": "NUTRICIÓN Y DIETÉTICA 2016 - ORIGINAL"
+                    },
+                    {
+                        "id": 353,
+                        "nombre": "NUTRICIÓN Y DIETÉTICA 2016 (REDISEÑO 2019)"
+                    }
+                ]
+            },
+            {
+                "id": 96,
+                "nombre": "OPTOMETRIA",
+                "mallas": [
+                    {
+                        "id": 49,
+                        "nombre": "OPTOMETRIA 2013"
+                    },
+                    {
+                        "id": 378,
+                        "nombre": "OPTOMETRIA 2018 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 95,
+                        "nombre": "OPTOMETRIA 2018 - ORIGINAL"
+                    }
+                ]
+            },
+            {
+                "id": 147,
+                "nombre": "BIOQUIMICA Y FARMACIA",
+                "mallas": [
+                    {
+                        "id": 697,
+                        "nombre": "BIOQUIMICA Y FARMACIA 2021"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "nombre": "CIENCIAS HUMANISTICAS Y SOCIALES                                                                    ",
+        "escuelas": [
+            {
+                "id": 46,
+                "nombre": "TRABAJO SOCIAL",
+                "mallas": [
+                    {
+                        "id": 20,
+                        "nombre": "TRABAJO SOCIAL 2009"
+                    },
+                    {
+                        "id": 75,
+                        "nombre": "TRABAJO SOCIAL 2016 - ORIGINAL"
+                    },
+                    {
+                        "id": 360,
+                        "nombre": "TRABAJO SOCIAL 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 501,
+                        "nombre": "TRABAJO SOCIAL 2019 (EN LINEA)"
+                    },
+                    {
+                        "id": 614,
+                        "nombre": "TRABAJO SOCIAL 2019 (EN LINEA) (REDISEÑO 2020)"
+                    }
+                ]
+            },
+            {
+                "id": 88,
+                "nombre": "PSICOLOGIA CLINICA",
+                "mallas": [
+                    {
+                        "id": 609,
+                        "nombre": "PSICOLOGIA 2019 (EN LINEA) (REDISEÑO 2020)"
+                    },
+                    {
+                        "id": 362,
+                        "nombre": "PSICOLOGIA 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 77,
+                        "nombre": "PSICOLOGIA 2016 - ORIGINAL"
+                    },
+                    {
+                        "id": 33,
+                        "nombre": "PSICOLOGIA CLINICA 2011"
+                    },
+                    {
+                        "id": 496,
+                        "nombre": "PSICOLOGIA 2019 (EN LINEA)"
+                    }
+                ]
+            },
+            {
+                "id": 89,
+                "nombre": "BIBLIOTECOLOGIA Y CIENCIAS DE LA INFORMACION",
+                "mallas": [
+                    {
+                        "id": 34,
+                        "nombre": "BIBLIOTECOLOGIA Y CIENCIAS DE LA INFORMACIÓN 2011"
+                    },
+                    {
+                        "id": 359,
+                        "nombre": "BIBLIOTECOLOGIA DOCUMENTACION Y ARCHIVO 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 74,
+                        "nombre": "BIBLIOTECOLOGIA DOCUMENTACION Y ARCHIVO 2016 - ORIGINAL"
+                    }
+                ]
+            },
+            {
+                "id": 140,
+                "nombre": "DERECHO",
+                "mallas": [
+                    {
+                        "id": 499,
+                        "nombre": "DERECHO 2019 (EN LINEA)"
+                    },
+                    {
+                        "id": 612,
+                        "nombre": "DERECHO 2019 (EN LINEA) (REDISEÑO 2020)"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "nombre": "CIENCIAS VETERINARIAS                                                                               ",
+        "escuelas": [
+            {
+                "id": 48,
+                "nombre": "MEDICINA VETERINARIA",
+                "mallas": [
+                    {
+                        "id": 375,
+                        "nombre": "MEDICINA VETERINARIA 2017 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 22,
+                        "nombre": "MEDICINA VETERINARIA 2008"
+                    },
+                    {
+                        "id": 92,
+                        "nombre": "MEDICINA VETERINARIA 2017 - ORIGINAL"
+                    }
+                ]
+            },
+            {
+                "id": 84,
+                "nombre": "ACUICULTURA Y PESQUERIA (BAHIA)",
+                "mallas": [
+                    {
+                        "id": 31,
+                        "nombre": "INGENIERIA EN ACUICULTURA Y PESQUERIA (BAHIA) 2008"
+                    },
+                    {
+                        "id": 355,
+                        "nombre": "ACUICULTURA (BAHIA) 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 65,
+                        "nombre": "ACUICULTURA (BAHIA) 2016 - ORIGINAL"
+                    }
+                ]
+            },
+            {
+                "id": 150,
+                "nombre": "RECURSOS NATURALES RENOVABLES",
+                "mallas": [
+                    {
+                        "id": 696,
+                        "nombre": "RECUSOS NATURALES RENOVABLES 2021"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "nombre": "INGENIERIA AGRÍCOLA                                                                                 ",
+        "escuelas": [
+            {
+                "id": 66,
+                "nombre": "INGENIERIA AGRICOLA",
+                "mallas": [
+                    {
+                        "id": 66,
+                        "nombre": "INGENIERIA AGRICOLA 2016 - ORIGINAL"
+                    },
+                    {
+                        "id": 356,
+                        "nombre": "INGENIERIA AGRICOLA 2016 (REDISEÑO 2019)"
+                    },
+                    {
+                        "id": 30,
+                        "nombre": "INGENIERIA AGRICOLA 2009"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "nombre": "INSTITUTO DE CIENCIAS BÁSICAS                                                                       ",
+        "escuelas": [
+            {
+                "id": 143,
+                "nombre": "QUIMICA",
+                "mallas": [
+                    {
+                        "id": 619,
+                        "nombre": "QUIMICA 2020"
+                    }
+                ]
+            },
+            {
+                "id": 145,
+                "nombre": "MATEMÁTICA APLICADA",
+                "mallas": [
+                    {
+                        "id": 621,
+                        "nombre": "INGENIERIA EN MATEMATICA APLICADA 2020"
+                    }
+                ]
+            },
+            {
+                "id": 146,
+                "nombre": "ESTADISTICA",
+                "mallas": [
+                    {
+                        "id": 623,
+                        "nombre": "INGENIERIA EN ESTADISTICA 2020"
+                    }
+                ]
+            }
+        ]
+    }
+] 

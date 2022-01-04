@@ -1,10 +1,8 @@
-import 'package:admin/components/charts/chart.line.dart';
 import 'package:admin/components/header.dart';
-import 'package:admin/controllers/controller.imc.dart';
+import 'package:admin/components/search_bar/component.search.dart';
 import 'package:admin/screens/dashboard/component.gender_imc.dart';
 import 'package:admin/screens/dashboard/component.imc_by_year.dart';
 import 'package:admin/screens/dashboard/component.overweight.dart';
-import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
@@ -31,57 +29,63 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
     final size = MediaQuery.of(context).size;
 
-    return SingleChildScrollView(
-      padding: EdgeInsets.all(defaultPadding),
-      child: Column(
-        children: [
-          Header(),
-          SizedBox(height: defaultPadding),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 1.0,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                MedicRecordsComponent(
-                  size: Size(size.width * 0.2, size.height),
-                ),
-                SizedBox(
-                  width: defaultPadding,
-                ),
-                IMCByFacultyComponent(
-                  size: Size(size.width * 0.55, size.height * 0.7),
-                ),
-                SizedBox(
-                  width: defaultPadding,
-                ),
-                GaugeChart(
-                  size: Size(size.width * 0.2, size.height),
-                )
-              ],
-            ),
-          ),
-          SizedBox(
-            height: defaultPadding,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          padding: EdgeInsets.all(defaultPadding),
+          child: Column(
             children: [
-              GenderIMCComponent(
-                size: Size(
-                  MediaQuery.of(context).size.width * 0.3,
-                  MediaQuery.of(context).size.height * 0.5
+              Header(),
+              SizedBox(height: defaultPadding),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 1.0,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    MedicRecordsComponent(
+                      size: Size(size.width * 0.2, size.height),
+                    ),
+                    SizedBox(
+                      width: defaultPadding,
+                    ),
+                    IMCByFacultyComponent(
+                      size: Size(size.width * 0.55, size.height * 0.7),
+                    ),
+                    SizedBox(
+                      width: defaultPadding,
+                    ),
+                    GaugeChart(
+                      size: Size(size.width * 0.2, size.height),
+                    )
+                  ],
                 ),
               ),
-              IMCByYearComponent(
-                size: Size(
-                  MediaQuery.of(context).size.width * 0.6,
-                  MediaQuery.of(context).size.height * 0.5
-                ),
+              SizedBox(
+                height: defaultPadding,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GenderIMCComponent(
+                    size: Size(
+                      MediaQuery.of(context).size.width * 0.35,
+                      MediaQuery.of(context).size.height * 0.5
+                    ),
+                  ),
+                  IMCByYearComponent(
+                    size: Size(
+                      MediaQuery.of(context).size.width * 0.6,
+                      MediaQuery.of(context).size.height * 0.5
+                    ),
+                  ),
+                ],
+              )
             ],
-          )
-        ],
-      ),
+          ),
+        ),
+        
+        SearchField(),
+      ],
     );
   }
 }

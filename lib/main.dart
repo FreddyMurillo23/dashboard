@@ -1,12 +1,10 @@
 import 'package:admin/constants.dart';
 // import 'package:admin/controllers/MenuController.dart';
 import 'package:admin/route_generator.dart';
-import 'package:admin/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 Future<void> main() async {
 

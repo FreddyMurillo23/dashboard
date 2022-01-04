@@ -4,11 +4,9 @@
 /// this way. Choosing [end] as the position does not require the justification
 /// to also be [endDrawArea].
 import 'package:admin/components/charts/chart.line.dart';
-import 'package:admin/components/charts/chart.multibar.dart';
 import 'package:admin/controllers/controller.imc.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
-import 'package:admin/constants.dart';
 
 /// Example that shows how to build a series legend that shows measure values
 /// when a datum is selected.

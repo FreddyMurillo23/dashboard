@@ -15,7 +15,6 @@ class Facultades {
     this.escuelas,
   });
   Facultades.fromJsonList(List<dynamic> jsonList) {
-    if (jsonList == null) return;
     //? Por cada item que recibe los va enviando al metodo que extrae los datos del json y retorna el mapa luego los agrega a una lista de items de tipo publicacion.
     for (var item in jsonList) {
       final Facultades? facultad = new Facultades.fromJSON(item);

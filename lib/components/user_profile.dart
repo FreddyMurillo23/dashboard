@@ -1,9 +1,8 @@
 import 'package:admin/components/header.dart';
 import 'package:admin/models/route_argument.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
-import '../../../constants.dart';
+import '../constants.dart';
 
 class UserProfile extends StatefulWidget {
   final RouteArgument? routeArgument;

@@ -1,6 +1,5 @@
-import 'package:admin/screens/dashboard/components/user_profile.dart';
+import 'package:admin/components/user_profile.dart';
 import 'package:admin/screens/dashboard/dashboard_screen.dart';
-import 'package:admin/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'models/route_argument.dart';
