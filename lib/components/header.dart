@@ -4,7 +4,6 @@ import 'package:admin/responsive.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
-import 'search_bar/component.search.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -45,7 +44,7 @@ class Header extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     Navigator.of(context)
-                        .pushNamed('/UserProfile', arguments: RouteArgument());
+                        .pushNamed('/UserProfile');
                   },
                   child: Container(
                     decoration: BoxDecoration(

@@ -1,13 +1,11 @@
 import 'package:admin/components/header.dart';
-import 'package:admin/models/route_argument.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
 class UserProfile extends StatefulWidget {
-  final RouteArgument? routeArgument;
 
-  UserProfile({Key? key, this.routeArgument}) : super(key: key);
+  UserProfile({Key? key}) : super(key: key);
 
   @override
   _UserProfileState createState() => _UserProfileState();
@@ -16,6 +14,10 @@ class UserProfile extends StatefulWidget {
 class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
+    
+    /// You need to pass the user in the route arguments
+    final user = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+
     return Scaffold(
       body: CustomScrollView(
         scrollDirection: Axis.horizontal,
