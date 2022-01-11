@@ -59,16 +59,24 @@ class CustomLineChart extends StatelessWidget {
                   dataIsInWholeNumbers: true,
                 )
               ),
+              secondaryMeasureAxis: charts.NumericAxisSpec(
+                tickProviderSpec: charts.BasicNumericTickProviderSpec(
+                  dataIsInWholeNumbers: true,
+                )
+              ),
               domainAxis: new charts.NumericAxisSpec(
                 // Set the initial viewport by providing a new AxisSpec with the
                 // desired viewport, in NumericExtents.
-                viewport: new charts.NumericExtents(
-                  lowerBound, 
-                  upperBound
-                )
+                viewport: new charts.NumericExtents.fromValues(
+                  Iterable.generate(
+                    upperBound - lowerBound, 
+                    (index)=>lowerBound + index
+                  )
+                ),
+                showAxisLine: true,
               ),
-              // Optionally add a pan or pan and zoom behavior.
-              // If pan/zoom is not added, the viewport specified remains the viewport.
+              // // Optionally add a pan or pan and zoom behavior.
+              // // If pan/zoom is not added, the viewport specified remains the viewport.
               behaviors: [new charts.PanAndZoomBehavior()],
               defaultRenderer: charts.LineRendererConfig(
                 includeLine: true,

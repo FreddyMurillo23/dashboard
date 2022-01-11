@@ -1,4 +1,4 @@
-import 'package:admin/components/header.dart';
+import 'package:admin/components/header/component.header.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -33,7 +33,7 @@ class _UserProfileState extends State<UserProfile> {
     return SliverToBoxAdapter(
       child: Padding(
         padding: EdgeInsets.all(defaultPadding),
-        child: Header(),
+        child: Header(size: Size(double.infinity, 150),),
       ),
     );
   }

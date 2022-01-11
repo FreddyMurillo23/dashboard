@@ -23,7 +23,6 @@ class CustomMultibarChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: size.width,
-      height: size.height,
       padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
         color: secondaryColor,
@@ -50,7 +49,7 @@ class CustomMultibarChart extends StatelessWidget {
             height: defaultPadding,
           ),
           SizedBox(
-            height: size.height * 0.8 - defaultPadding,
+            height: size.height,
             child: charts.BarChart(
               seriesList,
               animate: true,
@@ -65,7 +64,7 @@ class CustomMultibarChart extends StatelessWidget {
               behaviors: [
                 new charts.SeriesLegend(
                   entryTextStyle: charts.TextStyleSpec(
-                    fontSize: 10
+                    fontSize: 14
                   ),
                   // Positions for "start" and "end" will be left and right respectively
                   // for widgets with a build context that has directionality ltr.
@@ -73,6 +72,8 @@ class CustomMultibarChart extends StatelessWidget {
                   // Since this example has directionality of ltr, the legend is
                   // positioned on the right side of the chart.
                   position: charts.BehaviorPosition.end,
+                  outsideJustification: charts.OutsideJustification.middle,
+
                   // By default, if the position of the chart is on the left or right of
                   // the chart, [horizontalFirst] is set to false. This means that the
                   // legend entries will grow as new rows first instead of a new column.

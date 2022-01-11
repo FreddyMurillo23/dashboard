@@ -65,7 +65,7 @@ class _SearchFieldState extends State<SearchField> {
     // same or this will case overlaps
     return Positioned(
       right: size.width * 0.2,
-      top: defaultPadding * 1.5,
+      top: defaultPadding * 0.5,
       child: Container(
         width: size.width * 0.35,
         padding: const EdgeInsets.symmetric(
