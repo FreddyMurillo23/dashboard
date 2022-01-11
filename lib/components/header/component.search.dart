@@ -112,11 +112,12 @@ class _SearchFieldState extends State<SearchField> {
           ),
           Expanded(
             flex: 7,
-            child: TextField(
+            child: TextFormField(
               enabled: isEnable,
               onChanged: (value) {
                 controller.text = value;
               },
+              initialValue: controller.text,
               decoration: InputDecoration(
                 fillColor: secondaryColor,
                 filled: true,
@@ -180,82 +181,82 @@ class _SearchFieldState extends State<SearchField> {
       _getInputField(!shouldBlockFields, "Nombres", "0000000000", size, nameController),
       _getInputField(!shouldBlockFields, "Apellidos", "0000000000", size, surnameController),
       
-      FutureBuilder(
-        future: APIFaculty().fetchData(),
-        builder: (BuildContext context, AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
+      // FutureBuilder(
+      //   future: APIFaculty().fetchData(),
+      //   builder: (BuildContext context, AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
           
-          if(!snapshot.hasData) {
-            return Center(child: CircularProgressIndicator(),);
-          }
+      //     if(!snapshot.hasData) {
+      //       return Center(child: CircularProgressIndicator(),);
+      //     }
 
-          final facultyData = List<Map<String, dynamic>>.from(snapshot.data!.map((faculty) {
-            return {
-              "id": faculty["id"],
-              "name": faculty["nombre"],
-              "schools": faculty["escuelas"]
-            };
-          }));
+      //     final facultyData = List<Map<String, dynamic>>.from(snapshot.data!.map((faculty) {
+      //       return {
+      //         "id": faculty["id"],
+      //         "name": faculty["nombre"],
+      //         "schools": faculty["escuelas"]
+      //       };
+      //     }));
 
-          if(careers.isEmpty) {
+      //     if(careers.isEmpty) {
 
-            selectedFaculty = facultyData[0];
+      //       selectedFaculty = facultyData[0];
 
-            careers.clear();
-            careers.addAll(
-              List<Map<String, dynamic>>.from(
-                snapshot.data![0]["escuelas"]
-              )
-            );
+      //       careers.clear();
+      //       careers.addAll(
+      //         List<Map<String, dynamic>>.from(
+      //           snapshot.data![0]["escuelas"]
+      //         )
+      //       );
 
-            selectedCareer = careers[0];
+      //       selectedCareer = careers[0];
 
-          }
+      //     }
           
-          // Ok, this is raising an error if I don't reasign the [selectedFaculty]
-          // variable, and idk why exactly but it looks like a reference problem, 
-          // I mean, probably the [selectedFaculty] is not a reference, so I use 
-          // this code to handle the problem, why? i have no clue since the setState 
-          // in the onChange should handle it...
-          selectedFaculty = facultyData.firstWhere((fac)=>fac['id'] == selectedFaculty['id']);
+      //     // Ok, this is raising an error if I don't reasign the [selectedFaculty]
+      //     // variable, and idk why exactly but it looks like a reference problem, 
+      //     // I mean, probably the [selectedFaculty] is not a reference, so I use 
+      //     // this code to handle the problem, why? i have no clue since the setState 
+      //     // in the onChange should handle it...
+      //     selectedFaculty = facultyData.firstWhere((fac)=>fac['id'] == selectedFaculty['id']);
 
-          // Yeah, as you can guess, [selectedCareer] has the same problem...
-          selectedCareer = careers.firstWhere(
-            (cac)=>cac['id'] == selectedCareer['id'],
-            orElse: ()=>careers[0]
-          );
+      //     // Yeah, as you can guess, [selectedCareer] has the same problem...
+      //     selectedCareer = careers.firstWhere(
+      //       (cac)=>cac['id'] == selectedCareer['id'],
+      //       orElse: ()=>careers[0]
+      //     );
 
-          // You will see that onChange is defined here, well, that's because of the
-          // previous problem with references, so, it's better to define that method
-          // here in order to not loose the reference
-          return Column(
-            children: [
-              _getInputDorpDownField(
-                isEnable: !shouldBlockFields, 
-                title: "Facultad",
-                data: facultyData,
-                size: size, 
-                controller: selectedFaculty,
-                onChange: (value) {
-                  selectedFaculty = value;
-                  careers = List<Map<String, dynamic>>.from(selectedFaculty['schools']);
-                  setState(() {});
-                }
-              ),
-              _getInputDorpDownField(
-                isEnable: !shouldBlockFields, 
-                title: "Carrera",
-                data: careers,
-                size: size,
-                onChange: (value) {
-                  selectedCareer = value;
-                  setState(() {});
-                },
-                controller: selectedCareer
-              ),
-            ],
-          );
-        },
-      ),
+      //     // You will see that onChange is defined here, well, that's because of the
+      //     // previous problem with references, so, it's better to define that method
+      //     // here in order to not loose the reference
+      //     return Column(
+      //       children: [
+      //         _getInputDorpDownField(
+      //           isEnable: !shouldBlockFields, 
+      //           title: "Facultad",
+      //           data: facultyData,
+      //           size: size, 
+      //           controller: selectedFaculty,
+      //           onChange: (value) {
+      //             selectedFaculty = value;
+      //             careers = List<Map<String, dynamic>>.from(selectedFaculty['schools']);
+      //             setState(() {});
+      //           }
+      //         ),
+      //         _getInputDorpDownField(
+      //           isEnable: !shouldBlockFields, 
+      //           title: "Carrera",
+      //           data: careers,
+      //           size: size,
+      //           onChange: (value) {
+      //             selectedCareer = value;
+      //             setState(() {});
+      //           },
+      //           controller: selectedCareer
+      //         ),
+      //       ],
+      //     );
+      //   },
+      // ),
       
       Padding(
         padding: const EdgeInsets.all(8.0),
@@ -279,9 +280,9 @@ class _SearchFieldState extends State<SearchField> {
             users.clear();
             users.addAll(queryUsers);
 
-            if(queryUsers.length == 1 && ciController.text.isNotEmpty) {
-              Navigator.pushNamed(context, '/User', arguments: users.first);
-            }
+            // if(queryUsers.length == 1 && ciController.text.isNotEmpty) {
+            //   Navigator.pushNamed(context, '/User', arguments: users.first);
+            // }
 
             setState(() {
               showSearchPanel = false;
@@ -320,64 +321,68 @@ class _SearchFieldState extends State<SearchField> {
               onTap: (){
                 Navigator.pushNamed(context, '/User', arguments: users.first);
               },
-              child: Container(
-                margin: const EdgeInsets.all(8.0),
-                padding: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey[350]!, 
-                      offset: Offset(2.0, 2.0), 
-                      spreadRadius: 1.0,
-                      blurRadius: 2.0
-                    )
-                  ]
-                ),
-                child: Column(
-                  children: [
-                    Center(
-                      child: Text(
-                        "${users[index]['apellidos']} ${users[index]['nombres']}",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "Cédula: ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text("${users[index]['cedula']}")
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "Fecha de nacimiento: ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text("${users[index]['fecha_nacimiento']}")
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "Correo: ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text("${users[index]['correo_institucional']}")
-                      ],
-                    ),
-                  ],
-                )
-              ),
+              child: _getResultCard(index),
             );
           }
         ),
       )
     ];
+  }
+
+  Container _getResultCard(int index) {
+    return Container(
+      margin: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey[350]!, 
+            offset: Offset(2.0, 2.0), 
+            spreadRadius: 1.0,
+            blurRadius: 2.0
+          )
+        ]
+      ),
+      child: Column(
+        children: [
+          Center(
+            child: Text(
+              "${users[index]['apellidos']} ${users[index]['nombres']}",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+          Row(
+            children: [
+              Text(
+                "Cédula: ",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text("${users[index]['cedula']}")
+            ],
+          ),
+          Row(
+            children: [
+              Text(
+                "Fecha de nacimiento: ",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text("${users[index]['fecha_nacimiento']}")
+            ],
+          ),
+          Row(
+            children: [
+              Text(
+                "Correo: ",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text("${users[index]['correo_institucional']}")
+            ],
+          ),
+        ],
+      )
+    );
   }
 
   bool validateFields() {
