@@ -40,7 +40,6 @@ dependencies:
   flutter_bloc: ^8.0.0
   flutter_dotenv: ^5.0.2
   http: ^0.13.4
-  indexed: ^0.0.6
   flutter_smart_dialog: ^3.0.10
 
 

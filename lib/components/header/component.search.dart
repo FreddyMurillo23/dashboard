@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:admin/Repository/api.faculty.dart';
 import 'package:admin/constants.dart';
 import 'package:admin/controllers/controller.dashboardsearch.dart';
@@ -7,6 +9,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 class SearchField extends StatefulWidget {
 
   final _controller = DashBoardSearchController();
+  static final StreamController<Map<String, dynamic>> isSearchingStream = StreamController.broadcast();
 
   SearchField({
     Key? key,
@@ -319,7 +322,11 @@ class _SearchFieldState extends State<SearchField> {
 
             return GestureDetector(
               onTap: (){
-                Navigator.pushNamed(context, '/User', arguments: users.first);
+                SearchField.isSearchingStream.sink.add({
+                  "is_searching": true,
+                  "user": users[index]
+                });
+                // Navigator.pushNamed(context, '/User', arguments: users.first);
               },
               child: _getResultCard(index),
             );

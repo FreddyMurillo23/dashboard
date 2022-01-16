@@ -1,18 +1,27 @@
 // import 'package:admin/controllers/MenuController.dart';
-import 'package:admin/models/route_argument.dart';
 import 'package:admin/responsive.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../constants.dart';
 import 'component.search.dart';
 
+/// This is a singleton class so you can use the same instance all
+/// around the applicatino without any problem keeping the state
 class Header extends StatelessWidget {
+
+  static Header? _instance;
+
+  factory Header({required Size size}){
+    _instance ??= Header._(size: size,);
+
+    return _instance!;
+  }
 
   final Size size;
 
-  const Header({
-    Key? key, required this.size,
-  }) : super(key: key);
+  const Header._({
+    required this.size,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +67,7 @@ class Header extends StatelessWidget {
                             .pushNamed('/UserProfile');
                       },
                       child: Container(
+                        padding: const EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(80),
                           color: Colors.white,
@@ -71,10 +81,10 @@ class Header extends StatelessWidget {
                         // color: Colors.white,
                         child: Text(
                           "Perfil estudiante",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline6!
-                              .merge(TextStyle(color: Colors.black)),
+                          // style: Theme.of(context)
+                          //     .textTheme
+                          //     .headline6!
+                          //     .merge(TextStyle(color: Colors.black)),
                         ),
                       ),
                     ),

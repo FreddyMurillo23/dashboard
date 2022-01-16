@@ -1,10 +1,10 @@
+import 'package:admin/components/component.bottomsheet.dart';
 import 'package:admin/components/header/component.header.dart';
 import 'package:admin/components/header/component.search.dart';
 import 'package:admin/screens/dashboard/component.gender_imc.dart';
 import 'package:admin/screens/dashboard/component.imc_by_year.dart';
 import 'package:admin/screens/dashboard/component.overweight.dart';
 import 'package:flutter/material.dart';
-import 'package:indexed/indexed.dart';
 
 import '../../constants.dart';
 import 'component.overweight.dart';
@@ -20,8 +20,11 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   
+  late bool isExpanded;
+
   @override
   void initState() {
+    isExpanded = false;
     super.initState();
   }
 
@@ -95,6 +98,26 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ),
         Header(size: Size(size.width, size.height * 0.115)),
+        Positioned(
+          left: 0,
+          top: 0,
+          child: StreamBuilder<Map<String, dynamic>>(
+            stream: SearchField.isSearchingStream.stream,
+            builder: (context, snapshot) {
+              return LateralExpansionSheet(
+                screenWidth: size.width,
+                screenHeight: size.height,
+                isExpanded: snapshot.data?["is_searching"] ?? false, 
+                maxWidth: size.width * 0.7, 
+                height: size.height * 0.95,
+                child: !(snapshot.data?["is_searching"] ?? false)? null:Container(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(snapshot.data!['user'].toString()),
+                )
+              );
+            }
+          ),
+        )
       ],
     );
   }
