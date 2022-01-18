@@ -41,11 +41,6 @@ class Header extends StatelessWidget {
         children: [
           Row(
             children: [
-              IconButton(
-                icon: Icon(Icons.menu),
-                color: Colors.white,
-                onPressed: () {},
-              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: defaultPadding),
                 child: Text(
@@ -56,39 +51,83 @@ class Header extends StatelessWidget {
                       .merge(TextStyle(color: Colors.white)),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: defaultPadding),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.of(context)
-                        .pushNamed('/UserProfile');
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(80),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                            color: Theme.of(context).focusColor.withOpacity(0.15),
-                            blurRadius: 5,
-                            offset: Offset(0, 2)),
-                      ],
-                    ),
-                    // color: Colors.white,
-                    child: Text(
-                      "Perfil estudiante",
-                    ),
-                  ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                margin: const EdgeInsets.symmetric(vertical: defaultPadding),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  color: Colors.white
+                ),
+                child: DropdownButton<String>(
+                  underline: Container(),
+                  itemHeight: null,
+                  alignment: Alignment.center,
+                  onChanged: (item){},
+                  hint: Icon(Icons.auto_stories_sharp),
+                  items: [
+                    DropdownMenuItem(
+                      enabled: false,
+                      value: "",
+                      child: Container(
+                        width: size.width * 0.2,
+                        height: MediaQuery.of(context).size.height * 0.5,
+                        child: CustomScrollView(
+                          
+                          slivers: [
+                            SliverToBoxAdapter(
+                              child: ListTile(
+                                title: Text("Facultades"),
+                                leading: Icon(Icons.school),
+                              ),
+                            ),
+                            SliverToBoxAdapter(
+                              child: ListTile(
+                                title: Text("Personal"),
+                                leading: Icon(Icons.work)
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    )
+                    
+                  ],
                 ),
               ),
+              // Padding(
+              //   padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+              //   child: InkWell(
+              //     onTap: () {
+              //       Navigator.of(context)
+              //           .pushNamed('/UserProfile');
+              //     },
+              //     child: Container(
+              //       padding: const EdgeInsets.all(8.0),
+              //       decoration: BoxDecoration(
+              //         borderRadius: BorderRadius.circular(80),
+              //         color: Colors.white,
+              //         boxShadow: [
+              //           BoxShadow(
+              //               color: Theme.of(context).focusColor.withOpacity(0.15),
+              //               blurRadius: 5,
+              //               offset: Offset(0, 2)),
+              //         ],
+              //       ),
+              //       // color: Colors.white,
+              //       child: Text(
+              //         "Perfil estudiante",
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
           // if (!Responsive.isMobile(context))
           // Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
           
           SearchField(),
-          ProfileCard()
+          // SizedBox(width: size.width*0.1,)
+          // ProfileCard()
         ],
       ),
     );

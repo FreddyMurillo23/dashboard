@@ -20,12 +20,13 @@ class SearchField extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      margin: const EdgeInsets.symmetric(vertical: defaultPadding),
+      margin: const EdgeInsets.symmetric(vertical: defaultPadding, horizontal: defaultPadding),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
         color: Colors.white
       ),
       child: DropdownButton<String>(
+        // elevation: 1,
         underline: Container(),
         itemHeight: null,
         onChanged: (x){},

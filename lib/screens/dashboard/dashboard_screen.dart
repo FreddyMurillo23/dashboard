@@ -1,4 +1,4 @@
-import 'package:admin/components/component.bottomsheet.dart';
+import 'package:admin/components/component.leftsheet.dart';
 import 'package:admin/components/header/component.header.dart';
 import 'package:admin/components/header/component.search.dart';
 import 'package:admin/screens/dashboard/component.gender_imc.dart';
@@ -105,6 +105,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           child: StreamBuilder<Map<String, dynamic>>(
             stream: SearchField.isSearchingStream.stream,
             builder: (context, snapshot) {
+
               return LateralExpansionSheet(
                 screenWidth: size.width,
                 screenHeight: size.height,
