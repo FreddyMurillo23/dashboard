@@ -39,11 +39,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
       children: [
         SingleChildScrollView(
           padding: EdgeInsets.symmetric(
-            vertical: defaultPadding + size.height * 0.115, 
+            // vertical: defaultPadding + size.height * 0.115, 
             horizontal: defaultPadding
           ),
           child: Column(
             children: [
+              SizedBox(height: defaultPadding),
+              Header(size: Size(size.width, size.height * 0.115)),
               SizedBox(height: defaultPadding),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 1.0,
@@ -97,7 +99,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ],
           ),
         ),
-        Header(size: Size(size.width, size.height * 0.115)),
         Positioned(
           left: 0,
           top: 0,

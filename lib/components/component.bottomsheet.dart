@@ -1,6 +1,7 @@
 import 'package:admin/components/header/component.search.dart';
 import 'package:flutter/material.dart';
 
+// This will show a lateral sheet aver the screen
 class LateralExpansionSheet extends StatelessWidget {
 
   final bool isExpanded;
