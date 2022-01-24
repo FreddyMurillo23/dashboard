@@ -72,18 +72,25 @@ class Header extends StatelessWidget {
                         width: size.width * 0.2,
                         height: MediaQuery.of(context).size.height * 0.5,
                         child: CustomScrollView(
-                          
                           slivers: [
                             SliverToBoxAdapter(
-                              child: ListTile(
-                                title: Text("Facultades"),
-                                leading: Icon(Icons.school),
-                              ),
+                              child: MouseRegion(
+                                cursor: SystemMouseCursors.click,
+                                child: ListTile(
+                                  onTap: ()=>Navigator.of(context).pushNamed('/Faculties'),
+                                  title: Text("Facultades"),
+                                  leading: Icon(Icons.school),
+                                ),
+                              )
+                              
                             ),
                             SliverToBoxAdapter(
-                              child: ListTile(
-                                title: Text("Personal"),
-                                leading: Icon(Icons.work)
+                              child: MouseRegion(
+                                cursor: SystemMouseCursors.click,
+                                child: ListTile(
+                                  title: Text("Personal"),
+                                  leading: Icon(Icons.work)
+                                ),
                               ),
                             ),
                           ],

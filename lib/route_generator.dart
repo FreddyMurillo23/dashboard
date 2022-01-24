@@ -1,6 +1,7 @@
 import 'package:admin/components/user_profile.dart';
 import 'package:admin/screens/dashboard/dashboard_screen.dart';
-import 'package:admin/screens/user/screen.user.dart';
+import 'package:admin/screens/faculty/screen.faculties.dart';
+// import 'package:admin/screens/user/screen.user.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -11,8 +12,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => DashboardScreen(), settings: settings);
       case '/UserProfile':
         return MaterialPageRoute( builder: (_) => UserProfile(), settings: settings);
-      case '/User':
-        return MaterialPageRoute(builder: (_)=>UserScreen(), settings: settings);
+      // case '/User':
+      //   return MaterialPageRoute(builder: (_)=>UserScreen(), settings: settings);
+      case '/Faculties':
+        return MaterialPageRoute(builder: (_)=>FacultiesScreen(), settings: settings);
       default:
         // If there is no such named route in the switch statement, e.g. /third
         return MaterialPageRoute(
