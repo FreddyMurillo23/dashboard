@@ -251,26 +251,17 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
                   backDismiss: false,
                   clickBgDismissTemp: false,
                   widget: Container(
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    height: size.height * 0.9,
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        height: size.height,
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20.0),
-                        bottomRight: Radius.circular(20.0),
+                            color: primaryColor,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(10.0),
+                              bottomRight: Radius.circular(10.0),
                       )
                     ),
-                    child: Column(
-                      children: [
-                        ListTile(
-                          trailing: IconButton(
-                            icon: Icon(Icons.close),
-                            onPressed: ()=>SmartDialog.dismiss()
-                          ),
-                        ),
-                        UserScreen(user: users[index]),
-                      ],
-                    ),
+                        child: UserScreen(
+                            user: users[index], onPressed: SmartDialog.dismiss),
                   )
                 );
                 // SearchField.isSearchingStream.sink.add({
