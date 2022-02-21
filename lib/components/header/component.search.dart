@@ -243,15 +243,14 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
           itemBuilder: (context, index) {
 
             return GestureDetector(
-              onTap: (){
-                
+                onTap: () {
                 // this will show a lateral dialog
                 SmartDialog.show(
                   alignmentTemp: Alignment.centerLeft,
                   backDismiss: false,
                   clickBgDismissTemp: false,
                   widget: Container(
-                        width: MediaQuery.of(context).size.width * 0.6,
+                        width: MediaQuery.of(context).size.width * 0.7,
                         height: size.height,
                     decoration: BoxDecoration(
                             color: primaryColor,
@@ -261,7 +260,9 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
                       )
                     ),
                         child: UserScreen(
-                            user: users[index], onPressed: SmartDialog.dismiss),
+                            user: users[index],
+                            w: MediaQuery.of(context).size.width * 0.7,
+                            onPressed: SmartDialog.dismiss),
                   )
                 );
                 // SearchField.isSearchingStream.sink.add({
