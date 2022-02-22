@@ -249,7 +249,11 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
                 UIHelper().showLateralSheet(
                   context, 
                   title: '${users[index]['apellidos']} ${users[index]['nombres']}', 
-                  content: UserScreen(user: users[index]),
+                  content: UserScreen(
+                    user: users[index],
+                    w: MediaQuery.of(context).size.width * 0.7,
+                    onPressed: SmartDialog.dismiss
+                  )
                 );
               },
               child: _getResultCard(index),

@@ -1,6 +1,8 @@
 // import 'package:admin/controllers/MenuController.dart';
 import 'package:admin/responsive.dart';
+import 'package:admin/screens/user/screen.user.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import '../../../../constants.dart';
 import 'component.search.dart';
@@ -8,11 +10,12 @@ import 'component.search.dart';
 /// This is a singleton class so you can use the same instance all
 /// around the applicatino without any problem keeping the state
 class Header extends StatelessWidget {
-
   static Header? _instance;
 
-  factory Header({required Size size}){
-    _instance ??= Header._(size: size,);
+  factory Header({required Size size}) {
+    _instance ??= Header._(
+      size: size,
+    );
 
     return _instance!;
   }
@@ -32,9 +35,7 @@ class Header extends StatelessWidget {
       width: size.width,
       height: size.height,
       decoration: BoxDecoration(
-        color: primaryColor, 
-        borderRadius: BorderRadius.circular(10)
-      ),
+          color: primaryColor, borderRadius: BorderRadius.circular(10)),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,52 +56,70 @@ class Header extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 5.0),
                 margin: const EdgeInsets.symmetric(vertical: defaultPadding),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0),
-                  color: Colors.white
-                ),
+                    borderRadius: BorderRadius.circular(20.0),
+                    color: Colors.white),
                 child: DropdownButton<String>(
                   underline: Container(),
                   itemHeight: null,
                   alignment: Alignment.center,
-                  onChanged: (item){},
+                  onChanged: (item) {},
                   hint: Icon(Icons.auto_stories_sharp),
                   items: [
                     DropdownMenuItem(
-                      enabled: false,
-                      value: "",
-                      child: Container(
-                        width: size.width * 0.2,
-                        height: MediaQuery.of(context).size.height * 0.5,
-                        child: CustomScrollView(
-                          slivers: [
-                            SliverToBoxAdapter(
-                              child: MouseRegion(
+                        enabled: false,
+                        value: "",
+                        child: Container(
+                          width: size.width * 0.2,
+                          height: MediaQuery.of(context).size.height * 0.5,
+                          child: CustomScrollView(
+                            slivers: [
+                              SliverToBoxAdapter(
+                                  child: MouseRegion(
                                 cursor: SystemMouseCursors.click,
                                 child: ListTile(
-                                  onTap: ()=>Navigator.of(context).pushNamed('/Faculties'),
+                                  onTap: () => Navigator.of(context)
+                                      .pushNamed('/Faculties'),
                                   title: Text("Facultades"),
                                   leading: Icon(Icons.school),
                                 ),
-                              )
-                              
-                            ),
-                            SliverToBoxAdapter(
-                              child: MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                child: ListTile(
-                                  title: Text("Personal"),
-                                  leading: Icon(Icons.work)
+                              )),
+                              SliverToBoxAdapter(
+                                child: MouseRegion(
+                                  cursor: SystemMouseCursors.click,
+                                  child: ListTile(
+                                      title: Text("Personal"),
+                                      leading: Icon(Icons.work)),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    )
-                    
+                            ],
+                          ),
+                        ))
                   ],
                 ),
               ),
+              TextButton(
+                  child: Text('PACIENTE !'),
+                  onPressed: () {
+                    SmartDialog.show(
+                        alignmentTemp: Alignment.centerLeft,
+                        backDismiss: false,
+                        clickBgDismissTemp: false,
+                        widget: Container(
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          height: MediaQuery.of(context).size.height,
+                          decoration: BoxDecoration(
+                              color: primaryColor,
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(10.0),
+                                bottomRight: Radius.circular(10.0),
+                              )),
+                          child: UserScreen(
+                              user: Map<String, dynamic>() /*users[index]*/,
+                              w:MediaQuery.of(context).size.width * 0.7,
+                              onPressed: SmartDialog.dismiss),
+                        ));
+                  },
+                ),
               // Padding(
               //   padding: EdgeInsets.symmetric(horizontal: defaultPadding),
               //   child: InkWell(
@@ -131,7 +150,7 @@ class Header extends StatelessWidget {
           ),
           // if (!Responsive.isMobile(context))
           // Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
-          
+
           SearchField(),
           // SizedBox(width: size.width*0.1,)
           // ProfileCard()
