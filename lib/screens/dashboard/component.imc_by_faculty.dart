@@ -12,17 +12,32 @@ import 'package:flutter/material.dart';
 /// when a datum is selected.
 ///
 /// Also shows the option to provide a custom measure formatter.
-class IMCByFacultyComponent extends StatelessWidget {
+class IMCByFacultyComponent extends StatefulWidget {
 
-  final Size size;
-
-  late final IMCController _controller;
+  final Size size;  
 
   IMCByFacultyComponent({required this.size});
 
   @override
-  Widget build(BuildContext context) {
+  State<IMCByFacultyComponent> createState() => _IMCByFacultyComponentState();
+}
 
+class _IMCByFacultyComponentState extends State<IMCByFacultyComponent> {
+  late IMCController _controller;
+  late int year1;
+  late int year2;
+
+  @override
+  void initState() {
+    super.initState();
+
+    year1 = DateTime.now().year - 1;
+    year2 = DateTime.now().year;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    
     _controller = IMCController(context);
 
     return FutureBuilder<List<charts.Series<Map<String, dynamic>, String>>>(
@@ -34,8 +49,53 @@ class IMCByFacultyComponent extends StatelessWidget {
         }
 
         return CustomMultibarChart(
-          size: size,
-          title: "IMC por facultad en los últimos dos años",
+          size: widget.size,
+          title: Row(
+            children: [
+              Text(
+                "IMC por facultad",
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              Expanded(child: Container()),
+              Text("Comparando "),
+              DropdownButton<int>(
+                hint: Text("Seleccione primer año"),
+                value: year1,
+                onChanged: (x) => setState(() {
+                  year1 = x!;
+                }),
+                items:
+                  List.generate(5, (index) {
+                    final year = DateTime.now().year - 4 + index;
+
+                    return DropdownMenuItem<int>(
+                      value: year,
+                      child: Text("Año $year"),
+                    );
+                  }),
+              ),
+              Text(" con el año "),
+              DropdownButton<int>(
+                value: year2,
+                hint: Text("Seleccione segundo año"),
+                onChanged: (x)=>setState(() {
+                  year2 = x!;
+                }),
+                items: 
+                  List.generate(5, (index) {
+                    final year = DateTime.now().year - 4 + index;
+
+                    return DropdownMenuItem<int>(
+                      value: year,
+                      child: Text("Año $year"),
+                    );
+                  }),
+              ),
+            ],
+          ),
           seriesList: snapshot.data!,
         );
       },

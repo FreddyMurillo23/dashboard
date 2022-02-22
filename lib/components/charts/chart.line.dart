@@ -55,24 +55,34 @@ class CustomLineChart extends StatelessWidget {
             child: charts.LineChart(
               seriesList,
               primaryMeasureAxis: charts.NumericAxisSpec(
-                tickProviderSpec: charts.BasicNumericTickProviderSpec(
-                  dataIsInWholeNumbers: true,
+                viewport: charts.NumericExtents.fromValues(
+                  Iterable.castFrom([0, 100])
+                ),
+                tickFormatterSpec: charts.BasicNumericTickFormatterSpec(
+                  (value) => "$value %"
                 )
+                // tickProviderSpec: charts.BasicNumericTickProviderSpec(
+                //   dataIsInWholeNumbers: true,
+                // )
               ),
               domainAxis: charts.NumericAxisSpec(
                 // Set the initial viewport by providing a new AxisSpec with the
                 // desired viewport, in NumericExtents.
-                viewport: charts.NumericExtents.fromValues(
-                  Iterable.generate(
-                    upperBound - lowerBound, 
-                    (index)=>lowerBound + index
-                  )
+                // viewport: charts.NumericExtents.fromValues(
+                //   Iterable.castFrom([lowerBound, upperBound])
+                // ),
+                tickProviderSpec: charts.StaticNumericTickProviderSpec(
+                  List.generate(upperBound - lowerBound, (index) {
+                    return charts.TickSpec<int>(lowerBound + index);
+                  })
                 ),
-                showAxisLine: true,
+                tickFormatterSpec: charts.BasicNumericTickFormatterSpec(
+                  (value)=>value.toString()
+                )
               ),
               // // Optionally add a pan or pan and zoom behavior.
               // // If pan/zoom is not added, the viewport specified remains the viewport.
-              behaviors: [charts.PanAndZoomBehavior()],
+              // behaviors: [charts.PanAndZoomBehavior()],
               defaultRenderer: charts.LineRendererConfig(
                 includeLine: true,
                 includePoints: true

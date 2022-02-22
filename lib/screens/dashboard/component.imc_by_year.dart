@@ -38,7 +38,7 @@ class IMCByYearComponent extends StatelessWidget {
           lowerBound: _controller.lowerIMCByYearBound!,
           upperBound: _controller.upperIMCByYearBound!,
           size: size,
-          title: "Porcentaje de Obesidad en la poblacion por semestres",
+          title: "Porcentaje de Obesidad en la poblacion por año",
           seriesList: snapshot.data!
         );
       }

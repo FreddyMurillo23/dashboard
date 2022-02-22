@@ -7,23 +7,12 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 class IMCController {
 
   
-  /// singleton class, it means all the time I'll
-  /// be using the same instance.
-  static IMCController? _instance;
-
-  factory IMCController(BuildContext context) {    
-    _instance ??= IMCController._(context);
-
-    return _instance!;
-  }
-  
-  
   /// Private constructor, the user is only able to create
   /// instances using the factory costructor
-  IMCController._(BuildContext context):_context=context;
+  IMCController(BuildContext context):context=context;
 
   /// The context of the view
-  BuildContext? _context;
+  BuildContext? context;
 
   int? lowerIMCByYearBound;
   int? upperIMCByYearBound;

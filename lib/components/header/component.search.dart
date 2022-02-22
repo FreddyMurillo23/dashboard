@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:admin/constants.dart';
 import 'package:admin/controllers/controller.dashboardsearch.dart';
+import 'package:admin/helpers/helper.ui.dart';
 import 'package:admin/screens/user/screen.user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
@@ -244,40 +245,12 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
 
             return GestureDetector(
               onTap: (){
-                
                 // this will show a lateral dialog
-                SmartDialog.show(
-                  alignmentTemp: Alignment.centerLeft,
-                  backDismiss: false,
-                  clickBgDismissTemp: false,
-                  widget: Container(
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    height: size.height * 0.9,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20.0),
-                        bottomRight: Radius.circular(20.0),
-                      )
-                    ),
-                    child: Column(
-                      children: [
-                        ListTile(
-                          trailing: IconButton(
-                            icon: Icon(Icons.close),
-                            onPressed: ()=>SmartDialog.dismiss()
-                          ),
-                        ),
-                        UserScreen(user: users[index]),
-                      ],
-                    ),
-                  )
+                UIHelper().showLateralSheet(
+                  context, 
+                  title: '${users[index]['apellidos']} ${users[index]['nombres']}', 
+                  content: UserScreen(user: users[index]),
                 );
-                // SearchField.isSearchingStream.sink.add({
-                //   "is_searching": true,
-                //   "user": users[index]
-                // });
-                // Navigator.pushNamed(context, '/User', arguments: users.first);
               },
               child: _getResultCard(index),
             );

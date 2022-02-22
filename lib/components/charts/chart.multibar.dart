@@ -8,7 +8,7 @@ import 'package:charts_flutter/flutter.dart' as charts;
 /// backend
 class CustomMultibarChart extends StatelessWidget {
 
-  final String title;
+  final Widget title;
   final Size size;
   final List<charts.Series<dynamic, String>> seriesList;
 
@@ -38,13 +38,7 @@ class CustomMultibarChart extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          title,
           SizedBox(
             height: defaultPadding,
           ),

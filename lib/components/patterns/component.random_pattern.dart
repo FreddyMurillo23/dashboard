@@ -5,13 +5,18 @@ import 'package:flutter/material.dart';
 /// Creates a random pattern with random geometry shapes and colors.
 /// This is just a visual aspect and do nothing.
 class RandomPatternComponent extends StatelessWidget {
-  const RandomPatternComponent({ Key? key }) : super(key: key);
+  
+  final int seed;
+  
+  RandomPatternComponent({ Key? key, required this.seed }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
+      isComplex: true,
+      willChange: false,      
       size: MediaQuery.of(context).size,
-      painter: _PatterPainter(),
+      painter: _PatterPainter(seed),
     );
   }
 }
@@ -32,13 +37,20 @@ class _PatterPainter extends CustomPainter {
     Colors.red
   ];
 
+  final int seed;
+  late final Random rand;
+  _PatterPainter(this.seed){
+    rand = Random(seed);
+  }
+
+
   @override
   void paint(Canvas canvas, Size size) {
     
     final painter = Paint();
     Path path = Path();
 
-    painter.color = colors[Random().nextInt(colors.length)];
+    painter.color = colors[rand.nextInt(colors.length)];
     painter.strokeWidth = 2.0;
 
     // filling the component
@@ -58,14 +70,14 @@ class _PatterPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 
   void paintSquarePattern(Path path, Size size, {int howMany = 10}) {
 
     for(int i=0; i<howMany; ++i) {
       path.addRect(Rect.fromPoints(
-        Offset(size.width * Random().nextDouble(), size.height * Random().nextDouble()), 
-        Offset(size.width * Random().nextDouble(), size.height * Random().nextDouble())
+        Offset(size.width * rand.nextDouble(), size.height * rand.nextDouble()), 
+        Offset(size.width * rand.nextDouble(), size.height * rand.nextDouble())
       ));
     }
   }
@@ -74,8 +86,8 @@ class _PatterPainter extends CustomPainter {
 
     for(int i=0; i<howMany; ++i) {
       path.addOval(Rect.fromCircle(
-        center: Offset(size.width * Random().nextDouble(), size.height * Random().nextDouble()),
-        radius: size.width * 0.2 * Random().nextDouble()
+        center: Offset(size.width * rand.nextDouble(), size.height * rand.nextDouble()),
+        radius: size.width * 0.2 * rand.nextDouble()
       ));
     }
   }
