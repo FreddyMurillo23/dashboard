@@ -48,7 +48,7 @@ class APIIMCB {
 
     // will store the real or simulated response
     final response = List<Map<String, dynamic>>.from(
-      decodedRespone
+      decodedRespone['faculades_sobrepeso']
     );
 
     return response;

@@ -1,17 +1,14 @@
-import 'dart:math';
-
+import 'package:admin/helpers/helper.math.dart' as mathHelper;
 import 'package:flutter/material.dart';
 
 class ColorHelpers {
   
-  List<Color> generateColors(int howMany) {
+  /// Generates a list of colors based on [color]. The generated palette
+  /// will be scaled using minmax standardizer with [howMany] as the
+  /// max value and 0 as the min one
+  List<Color> generateColors(int howMany, [Color color = Colors.blue]) {
     return List.generate(howMany, (index) {
-      return Color.fromRGBO(
-        30 + Random().nextInt(200 - 30), 
-        50 + Random().nextInt(100 - 50), 
-        Random().nextInt(50),
-        1.0
-      );
+      return color.withOpacity(1 - mathHelper.minmax(index, 0, howMany));
     });
   }
 }

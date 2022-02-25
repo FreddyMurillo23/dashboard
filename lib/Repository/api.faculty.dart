@@ -58,4 +58,19 @@ class APIFaculty {
 
     return _facultyList;
   }
+
+  Future<Map<String, dynamic>> fetchSchoolData(int idFac, int idSch) async {
+
+    final url = Uri.parse("${dotenv.env['API_HOST']}salud/datos_nutricionales_escuela/$idFac/$idSch");
+    final fetchedData = await http.get(url);
+
+    if(fetchedData.statusCode != 200) {
+      throw new ErrorDescription('Hubo un problema cargando los datos. Recargue');
+    }
+
+    final rawResponse = fetchedData.body;
+    final decodedRespone = json.decode(rawResponse);
+
+    return Map<String, dynamic>.from(decodedRespone);
+  }
 }

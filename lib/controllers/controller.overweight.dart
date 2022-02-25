@@ -59,10 +59,10 @@ class OverweightController {
       
       elements.add(PieChartSectionData(
         color: colors[idx++],
-        value: item["valores_netos"][0]['sobrepeso'],
-        title: item["nombre_facultad"],
+        value: item['porcentaje_sobrepeso'],
+        title: item["facultad"],
         showTitle: false,
-        radius: minSize + scaleFactor * ((item["valores_porcentuales"][0]["p_sobrepeso"] ?? 1) - min) / (max - min),
+        radius: minSize + scaleFactor * ((item["porcentaje_sobrepeso"] ?? 1) - min) / (max - min),
       ));
     });
 

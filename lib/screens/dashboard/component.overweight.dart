@@ -59,14 +59,14 @@ class GaugeChart extends StatelessWidget {
                   var data = snapshot.data!;
                   data.sort((a, b) {
       
-                    int valueA = a["valores_netos"][0]["sobrepeso"];
-                    int valueB = b["valores_netos"][0]["sobrepeso"];
+                    final valueA = a["porcentaje_sobrepeso"];
+                    final valueB = b["porcentaje_sobrepeso"];
       
-                    return valueA > valueB? 1:(valueA == valueB?0:-1);
+                    return valueA < valueB? 1:(valueA == valueB?0:-1);
                   });
       
                   // only consider top 5
-                  data = data.getRange(0, 5).toList();
+                  // data = data.getRange(0, 5).toList();
                   final colors = ColorHelpers().generateColors(data.length);
       
                   return Column(
@@ -102,13 +102,13 @@ class GaugeChart extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: List<Widget>.from(data.map((element) {
         return StorageInfoCard(
-          title: element['nombre_facultad'],
+          title: element['facultad'],
           svgSrc: Icon(
             Icons.android,
             color: colors[colorIdx++],
           ), 
-          amountOfFiles: "${element['valores_porcentuales'][0]['p_sobrepeso']}", 
-          numOfFiles: element['valores_netos'][0]['sobrepeso'], 
+          amountOfFiles: "${element['porcentaje_sobrepeso']}", 
+          numOfFiles: element['total_poblacion'], 
           onPress: (){},
         );
       }))

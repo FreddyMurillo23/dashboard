@@ -1,7 +1,7 @@
 import 'package:admin/screens/dashboard/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'components/side_menu.dart';
+import '../../components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
   @override
