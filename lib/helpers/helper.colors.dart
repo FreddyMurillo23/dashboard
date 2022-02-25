@@ -8,7 +8,7 @@ class ColorHelpers {
   /// max value and 0 as the min one
   List<Color> generateColors(int howMany, [Color color = Colors.blue]) {
     return List.generate(howMany, (index) {
-      return color.withOpacity(1 - mathHelper.minmax(index, 0, howMany));
+      return color.withOpacity(1 - mathHelper.minmax(index * 1.0, 0, howMany * 1.0));
     });
   }
 }

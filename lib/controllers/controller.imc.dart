@@ -1,4 +1,6 @@
 import 'package:admin/Repository/api.imc.dart';
+import 'package:admin/helpers/helper.colors.dart';
+import 'package:admin/helpers/helper.ui.dart';
 import 'package:flutter/material.dart';
 
 import 'package:charts_flutter/flutter.dart' as charts;
@@ -80,15 +82,56 @@ class IMCController {
     response.addAll(
       [
         charts.Series<Map<String, dynamic>, int>(
-          id: 'ICM global por año',
+          id: 'Promedio',
           domainFn: (data, _) => int.parse(data['name']),
           measureFn: (data, _) => data['value'],
-          
           data: List<Map<String, dynamic>>.from(
             data.keys.map((year){
               return {
                 'name': year,
                 'value': data['$year'][0]['promedio_imc']
+              };
+            })
+          )
+        ),
+        charts.Series<Map<String, dynamic>, int>(
+          id: 'Delgadez',
+          domainFn: (data, _) => int.parse(data['name']),
+          measureFn: (data, _) => data['value'],
+          dashPatternFn: (data, _) => [2, 2],
+          data: List<Map<String, dynamic>>.from(
+            data.keys.map((year){
+              return {
+                'name': year,
+                'value': data['$year'][0]['valores_porcentuales'][0]['p_delgadez']
+              };
+            })
+          )
+        ),
+        charts.Series<Map<String, dynamic>, int>(
+          id: 'Normal',
+          domainFn: (data, _) => int.parse(data['name']),
+          measureFn: (data, _) => data['value'],
+          dashPatternFn: (data, _) => [1, 1],
+          data: List<Map<String, dynamic>>.from(
+            data.keys.map((year){
+              return {
+                'name': year,
+                'value': data['$year'][0]['valores_porcentuales'][0]['p_pesonormal']
+              };
+            })
+          )
+        ),
+        charts.Series<Map<String, dynamic>, int>(
+          id: 'Sobrepeso',
+          domainFn: (data, _) => int.parse(data['name']),
+          measureFn: (data, _) => data['value'],
+          dashPatternFn: (data, _) => [2, 2],
+          data: List<Map<String, dynamic>>.from(
+            data.keys.map((year){
+              return {
+                'name': year,
+                'value': data['$year'][0]['valores_porcentuales'][0]['p_sobrepeso']
               };
             })
           )
@@ -113,6 +156,7 @@ class IMCController {
     }
 
     List<charts.Series<Map<String, dynamic>, String>> response = [];
+    final colorList = ColorHelpers().generateColors(3);
 
     response.addAll(
       [
@@ -120,7 +164,7 @@ class IMCController {
           id: 'Delgadéz',
           domainFn: (data, _) => data['name'],
           measureFn: (data, _) => data['value'],
-          colorFn: (_, __)=> charts.MaterialPalette.yellow.shadeDefault,
+          colorFn: (_, __)=> charts.MaterialPalette.blue.shadeDefault.lighter,
           data: [
             {
                 'name': 'Masculino',
@@ -152,7 +196,7 @@ class IMCController {
           id: 'Sobrepeso',
           domainFn: (data, _) => data['name'],
           measureFn: (data, _) => data['value'],
-          colorFn: (_, __)=> charts.MaterialPalette.red.shadeDefault,
+          colorFn: (_, __)=> charts.MaterialPalette.blue.shadeDefault.darker,
           data: [
             {
                 'name': 'Masculino',

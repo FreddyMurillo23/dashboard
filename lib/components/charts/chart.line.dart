@@ -61,16 +61,8 @@ class CustomLineChart extends StatelessWidget {
                 tickFormatterSpec: charts.BasicNumericTickFormatterSpec(
                   (value) => "$value %"
                 )
-                // tickProviderSpec: charts.BasicNumericTickProviderSpec(
-                //   dataIsInWholeNumbers: true,
-                // )
               ),
               domainAxis: charts.NumericAxisSpec(
-                // Set the initial viewport by providing a new AxisSpec with the
-                // desired viewport, in NumericExtents.
-                // viewport: charts.NumericExtents.fromValues(
-                //   Iterable.castFrom([lowerBound, upperBound])
-                // ),
                 tickProviderSpec: charts.StaticNumericTickProviderSpec(
                   List.generate(upperBound - lowerBound, (index) {
                     return charts.TickSpec<int>(lowerBound + index);
@@ -80,9 +72,7 @@ class CustomLineChart extends StatelessWidget {
                   (value)=>value.toString()
                 )
               ),
-              // // Optionally add a pan or pan and zoom behavior.
-              // // If pan/zoom is not added, the viewport specified remains the viewport.
-              // behaviors: [charts.PanAndZoomBehavior()],
+              behaviors: [charts.SeriesLegend()],
               defaultRenderer: charts.LineRendererConfig(
                 includeLine: true,
                 includePoints: true

@@ -7,6 +7,6 @@
 /// value you wanna scale according to a [min] and a [max] value
 /// of an array. The value 1e-10 is used to avoid division by zero
 /// in the case where min and max are the same value.
-double minmax(int x, int min, int max) {
+double minmax(double x, double min, double max) {
   return (x - min) / (max - min) + 0.0000000001;
 }

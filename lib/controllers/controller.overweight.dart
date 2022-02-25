@@ -51,7 +51,7 @@ class OverweightController {
     double min = 0.0;
     double max = 100.0;
     double minSize = 15.0;
-    double scaleFactor = 25.0;
+    double scaleFactor = 15.0;
 
     int idx = 0;
 
