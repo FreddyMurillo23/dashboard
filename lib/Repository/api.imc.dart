@@ -57,7 +57,7 @@ class APIIMCB {
   /// Returns a map of faculty data from last 10 years. The data contains
   /// "delgadez", "pesonormal", "sobrepeso", and the average IMC for every
   /// year of the faculty.
-  Future<Map<String, dynamic>> fetchIMCPerFaculty() async {
+  Future<Map<String, dynamic>> fetchIMCPerFaculty(int startYr, int endYr) async {
     final isProduction = dotenv.env['IS_PRODUCTION'] == "true";
 
     late final rawResponse;
@@ -67,7 +67,8 @@ class APIIMCB {
       rawResponse = await rootBundle.loadString('data/estadisticasFacultades.json');
     }
     else {
-      final url = Uri.parse("${dotenv.env['API_HOST']}salud/estadisticasFacultades");
+      print("Fetching new year comparission data on " + "${dotenv.env['API_HOST']}salud/estadisticasFacultades/$startYr/$endYr");
+      final url = Uri.parse("${dotenv.env['API_HOST']}salud/estadisticasFacultades/$startYr/$endYr");
       final fetchedData = await http.get(url);
 
       if(fetchedData.statusCode != 200) {
@@ -78,7 +79,6 @@ class APIIMCB {
     }
     
     final decodedRespone = Map<String, dynamic>.from(json.decode(rawResponse));
-
     return decodedRespone;
   }
 

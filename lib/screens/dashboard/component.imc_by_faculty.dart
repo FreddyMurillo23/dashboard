@@ -7,6 +7,7 @@ import 'package:admin/components/charts/chart.multibar.dart';
 import 'package:admin/controllers/controller.imc.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 /// Example that shows how to build a series legend that shows measure values
 /// when a datum is selected.
@@ -41,7 +42,7 @@ class _IMCByFacultyComponentState extends State<IMCByFacultyComponent> {
     _controller = IMCController(context);
 
     return FutureBuilder<List<charts.Series<Map<String, dynamic>, String>>>(
-      future: _controller.createIMCPerFacultyData(),
+      future: _controller.createIMCPerFacultyData(year1, year2),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         
         if(!snapshot.hasData) {
@@ -64,12 +65,18 @@ class _IMCByFacultyComponentState extends State<IMCByFacultyComponent> {
               DropdownButton<int>(
                 hint: Text("Seleccione primer año"),
                 value: year1,
-                onChanged: (x) => setState(() {
-                  year1 = x!;
-                }),
+                onChanged: (x) {                  
+                  if(!validateYears(x ?? 2016, year2)) {
+                    SmartDialog.showToast("El año inicial debe ser menor al año inicial");
+                    return;
+                  }
+                  setState(() {
+                    year1 = x!;
+                  });
+                },
                 items:
-                  List.generate(5, (index) {
-                    final year = DateTime.now().year - 4 + index;
+                  List.generate(DateTime.now().year - 2015, (index) {
+                    final year = 2016 + index;
 
                     return DropdownMenuItem<int>(
                       value: year,
@@ -81,15 +88,21 @@ class _IMCByFacultyComponentState extends State<IMCByFacultyComponent> {
               DropdownButton<int>(
                 value: year2,
                 hint: Text("Seleccione segundo año"),
-                onChanged: (x)=>setState(() {
-                  year2 = x!;
-                }),
+                onChanged: (x){
+                  if(!validateYears(year1, x ?? DateTime.now().year)) {
+                    SmartDialog.showToast("El año final debe ser mayor al año inicial");
+                    return;
+                  }
+                  setState(() {
+                    year2 = x!;
+                  });
+                },
                 items: 
-                  List.generate(5, (index) {
-                    final year = DateTime.now().year - 4 + index;
+                  List.generate(DateTime.now().year - 2016, (index) {
+                    final year = 2017 + index;
 
                     return DropdownMenuItem<int>(
-                      value: year,
+                      value: year,                      
                       child: Text("Año $year"),
                     );
                   }),
@@ -100,6 +113,10 @@ class _IMCByFacultyComponentState extends State<IMCByFacultyComponent> {
         );
       },
     );
+  }
+
+  bool validateYears(int year1, int year2) {
+    return year2 > year1;
   }
 }
 

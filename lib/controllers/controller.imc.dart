@@ -20,11 +20,14 @@ class IMCController {
   int? upperIMCByYearBound;
 
   /// Create series list with multiple series
-  Future<List<charts.Series<Map<String, dynamic>, String>>> createIMCPerFacultyData() async {
+  Future<List<charts.Series<Map<String, dynamic>, String>>> createIMCPerFacultyData(int yr1, int yr2) async {
+    
+    print("Fetching new data for years $yr1 $yr2");
+    
     late final Map<String, dynamic> data;
 
     try {
-      data = await APIIMCB().fetchIMCPerFaculty();
+      data = await APIIMCB().fetchIMCPerFaculty(yr1, yr2);
     }catch(_) {
       SmartDialog.showToast("Error cargando datos, intente más tarde");
       return [];
@@ -32,11 +35,20 @@ class IMCController {
 
     List<charts.Series<Map<String, dynamic>, String>> response = [];
 
-    int initialYear = int.parse(List<String>.from(data.keys).last) - 1;
+    final years = [
+      int.parse(List<String>.from(data.keys).first),
+      int.parse(List<String>.from(data.keys).last)
+    ];
 
     // getting all faculty names
-    final facultyNames = List<String>.from((data[initialYear.toString()] as List).map((e) => e['nombre_facultad']));
+    print("Reaching datasexxxxxxxxxxxxxxxxxt starting process");
+    print(years.first);
+    final facultyNames = List<String>.from((data[years.first.toString()] as List).map((e) {
+      return e['nombre_facultad'];
+    }));
 
+    
+    print("Reaching dataset starting process");
     // outer level is the faculty (each x-axis values) and year (x-axis value) is the inner level
     response.addAll(
       List<charts.Series<Map<String, dynamic>, String>>.from(
@@ -47,12 +59,12 @@ class IMCController {
             measureFn: (data, _) => data['value'],
             data: List<Map<String, dynamic>>.from(
               List.generate(2, (index) {
-                final faculty = (data['${initialYear + index}'] as List).firstWhere((element) {
+                final faculty = (data['${years[index]}'] as List).firstWhere((element) {
                   return element['nombre_facultad'] == facultyName;
                 });
 
                 return {
-                  'name': (initialYear + index).toString(),
+                  'name': (years[index]).toString(),
                   'value': faculty['promedio_imc']
                 };
               })
@@ -61,6 +73,8 @@ class IMCController {
         })
       )
     );
+
+    print("Reaching dataset building process");
 
     return response;
   }
