@@ -1,4 +1,3 @@
-import 'package:admin/components/header/component.header.dart';
 import 'package:admin/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +13,7 @@ class UserScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,6 +35,15 @@ class UserScreen extends StatelessWidget {
   }
 
   Widget _header(BuildContext context) {
+
+    String complexion = "";
+    double imc = user['enfermeria_actual'].isNotEmpty? user['enfermeria_actual'].last['imc']:-99.0;
+
+    if(imc < 0) complexion = "DESCONOCIDA";
+    else if(imc < 18.5) complexion = "DELGADEZ";
+    else if(imc >= 25.0) complexion = "SOBREPESO";
+    else complexion = "NORMAL";
+
     return Padding(
       padding: const EdgeInsets.all(defaultPadding),
       child: Column(
@@ -50,16 +58,25 @@ class UserScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Column(
-                  children: [Text('COMPLEXION FISICA:'), Text('SOBREPESO')],
+                  children: [
+                    Text('COMPLEXION FISICA:'), 
+                    Text('$complexion')
+                  ],
                 ),
                 Column(
-                  children: [Text('SEXO:'), Text('MASCULINO')],
+                  children: [
+                    Text('SEXO:'), 
+                    Text(user['datos_personales'][0]['genero'] == 'M'? 'MASCULINO':'FEMENINO')
+                  ],
                 ),
                 Column(
-                  children: [Text('DERIVACION:'), Text('INDEFINIDA')],
+                  children: [Text('DERIVACION:'), Text('XXX')],
                 ),
                 Column(
-                  children: [Text('DISCAPACIDAD:'), Text('NO DEFINIDO')],
+                  children: [
+                    Text('DISCAPACIDAD:'), 
+                    Text(user['datos_personales'][0]['discapacidad'] ?? 'NINGUNA')
+                  ],
                 )
               ],
             ),
@@ -137,15 +154,16 @@ class UserScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Freddy John Murillo Mendoza',
+                          '${user['datos_personales'][0]['apellidos']} '
+                          '${user['datos_personales'][0]['nombres']}',
                           style: TextStyle(fontSize: 13),
                         ),
                         Text(
-                          'Cedula: 1317054888',
+                          'Cedula: ${user['cedula']}',
                           style: TextStyle(fontSize: 13),
                         ),
                         Text(
-                          'Ciudad: Manta',
+                          'Ciudad: xxxxxx',
                           style: TextStyle(fontSize: 13),
                         ),
                       ],
@@ -165,21 +183,23 @@ class UserScreen extends StatelessWidget {
                             children: [
                               Text('Telefono:'),
                               SizedBox(),
-                              Text('0956325896'),
+                              Text('XXXXXXXXX'),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text('Edad:'),
-                              Text('23'),
+                              Text(
+                                "${DateTime.now().difference(DateTime.parse(user['datos_personales'][0]['fecha_nacimiento'])).inDays ~/ 365}"
+                              ),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text('Grupo Sanguineo:'),
-                              Text('A+'),
+                              Text('XXA+'),
                             ],
                           ),
                         ],
@@ -208,138 +228,72 @@ class UserScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                color: secondaryColor,
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[350]!,
-                      offset: Offset(0.0, 2.0),
-                      spreadRadius: 1.0,
-                      blurRadius: 2.0)
-                ],
-              ),
-              width: w * 12 / 100,
-              height: MediaQuery.of(context).size.height * 17 / 100,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: MediaQuery.of(context).size.height * 0.02),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image(
-                          image:
-                              AssetImage('assets/images/pt-dashboard-01.png')),
-                      Text('Temperatura'),
-                      Text('18 °C'),
-                    ],
-                  ),
-                ),
-              ),
+            _healthDataCard(
+              context,
+              imgUrl: 'assets/images/pt-dashboard-01.png',
+              label: 'Temperatura',
+              value: user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['temperatura']}':'NA'
             ),
-            // Divider(),
-            Container(
-              decoration: BoxDecoration(
-                color: secondaryColor,
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[350]!,
-                      offset: Offset(0.0, 2.0),
-                      spreadRadius: 1.0,
-                      blurRadius: 2.0)
-                ],
-              ),
-              width: w * 12 / 100,
-              height: MediaQuery.of(context).size.height * 17 / 100,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: MediaQuery.of(context).size.height * 0.02),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image(
-                          image:
-                              AssetImage('assets/images/pt-dashboard-02.png')),
-                      Text('Ritmo Cardiaco'),
-                      Text('12bpm'),
-                    ],
-                  ),
-                ),
-              ),
+            _healthDataCard(
+              context,
+              imgUrl: 'assets/images/pt-dashboard-02.png',
+              label: 'Ritmo cardiaco',
+              value: 'XXX'
             ),
-            // Divider(),
-            Container(
-              decoration: BoxDecoration(
-                color: secondaryColor,
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[350]!,
-                      offset: Offset(0.0, 2.0),
-                      spreadRadius: 1.0,
-                      blurRadius: 2.0)
-                ],
-              ),
-              width: w * 12 / 100,
-              height: MediaQuery.of(context).size.height * 17 / 100,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: MediaQuery.of(context).size.height * 0.02),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image(
-                          image:
-                              AssetImage('assets/images/pt-dashboard-03.png')),
-                      Text('IMC'),
-                      Text('90'),
-                    ],
-                  ),
-                ),
-              ),
+            _healthDataCard(
+              context,
+              imgUrl: 'assets/images/pt-dashboard-03.png',
+              label: 'IMC',
+              value: user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['imc']}':'NA'
             ),
-            // Divider(),
-            Container(
-              decoration: BoxDecoration(
-                color: secondaryColor,
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[350]!,
-                      offset: Offset(0.0, 2.0),
-                      spreadRadius: 1.0,
-                      blurRadius: 2.0)
-                ],
-              ),
-              width: w * 12 / 100,
-              height: MediaQuery.of(context).size.height * 17 / 100,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: MediaQuery.of(context).size.height * 0.02),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image(
-                          image:
-                              AssetImage('assets/images/pt-dashboard-04.png')),
-                      Text('Presion Sanguinea'),
-                      Text('202/90 mg/dl'),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            _healthDataCard(
+              context,
+              imgUrl: 'assets/images/pt-dashboard-04.png',
+              label: 'Presion Sanguinea',
+              value: 'XXX202/90 mg/dl'
+            )
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _healthDataCard(
+    BuildContext context,
+    {
+      required String imgUrl,
+      required String label,
+      required String value
+    }
+  ) {
+    return Container(
+      decoration: BoxDecoration(
+        color: secondaryColor,
+        boxShadow: [
+          BoxShadow(
+              color: Colors.grey[350]!,
+              offset: Offset(0.0, 2.0),
+              spreadRadius: 1.0,
+              blurRadius: 2.0)
+        ],
+      ),
+      width: w * 12 / 100,
+      height: MediaQuery.of(context).size.height * 17 / 100,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 5.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image(
+                image: AssetImage(imgUrl)
+              ),
+              Text(label),
+              Text(value),
+            ],
+          ),
         ),
       ),
     );

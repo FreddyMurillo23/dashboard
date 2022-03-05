@@ -7,7 +7,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 /// Manages all the flow of searched data on any screen of the project
-class APISearch {
+class APIUser {
 
   Future<List<Map<String, dynamic>>> searchUserByCedula(String cedula) async {
     
@@ -61,6 +61,25 @@ class APISearch {
     final decodedRespone = json.decode(rawResponse);
 
     return List<Map<String, dynamic>>.from(decodedRespone);
+  }
+
+  
+  Future<Map<String, dynamic>> fetchUserData(String id) async {
+    
+    late final rawResponse;
+
+    final url = Uri.parse("${dotenv.env['API_HOST']}salud/datos_nutricionales_paciente/$id");
+    final fetchedData = await http.get(url);
+
+    if(fetchedData.statusCode != 200) {
+      throw new ErrorDescription('Hubo un problema cargando los datos. Recargue');
+    }
+
+    rawResponse = fetchedData.body;
+    
+    final decodedRespone = json.decode(rawResponse);
+
+    return Map<String, dynamic>.from(decodedRespone);
   }
 
 }

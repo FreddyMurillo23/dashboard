@@ -1,4 +1,4 @@
-import 'package:admin/Repository/api.search.dart';
+import 'package:admin/Repository/api.user.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 /// This controller is only with the responsability of controll the 
@@ -8,7 +8,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 /// different data and you probably wanna keep the state of every screen.
 class DashBoardSearchController {
 
-  final _searchAPI = APISearch();
+  final _searchAPI = APIUser();
 
   /// Searchs an user based on cedula, full name, faculty or school but
   /// you can just pass some of the next parameters. If you use [cedula]

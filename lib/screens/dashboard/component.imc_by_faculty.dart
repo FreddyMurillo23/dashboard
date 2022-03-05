@@ -52,18 +52,17 @@ class _IMCByFacultyComponentState extends State<IMCByFacultyComponent> {
                 
         switch(snapshot.connectionState) {
 
-          case ConnectionState.none: return Center(child: CircularProgressIndicator());
-          case ConnectionState.waiting: return Center(child: CircularProgressIndicator());
+          case ConnectionState.none: 
+          case ConnectionState.waiting:
           case ConnectionState.active: return Center(child: CircularProgressIndicator());
-          case ConnectionState.done:
-            break;
+          case ConnectionState.done: break;
         }
 
         if(!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator(),);
         }
 
-        // do not fetch new data until user requests it
+        // do not fetch new data until user requests it, instead use [cachedData]
         cachedData = snapshot.data!;
         shouldFetchNew = false;
 

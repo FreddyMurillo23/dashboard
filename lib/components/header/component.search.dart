@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:admin/Repository/api.user.dart';
 import 'package:admin/constants.dart';
 import 'package:admin/controllers/controller.dashboardsearch.dart';
 import 'package:admin/helpers/helper.ui.dart';
@@ -127,7 +128,7 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
       child: Column(
         children: showSearchPanel? 
           _getSearchPanel(Size(size.width * 0.35, size.height)):
-          _searchResultPanel(Size(size.width * 0.35, size.height))
+          _searchResultPanel(context, Size(size.width * 0.35, size.height))
       ),
     );
   }
@@ -218,7 +219,7 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
     ];
   }
 
-  List<Widget> _searchResultPanel(Size size) {
+  List<Widget> _searchResultPanel(BuildContext mainContext, Size size) {
     return <Widget>[
       ListTile(
         title: Text("Resultados de la búsqueda"),
@@ -247,12 +248,25 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
               onTap: (){
                 // this will show a lateral dialog
                 UIHelper().showLateralSheet(
-                  context, 
+                  mainContext, 
                   title: '${users[index]['apellidos']} ${users[index]['nombres']}', 
-                  content: UserScreen(
-                    user: users[index],
-                    w: MediaQuery.of(context).size.width * 0.7,
-                    onPressed: SmartDialog.dismiss
+                  content: FutureBuilder<Map<String,dynamic>>(
+                    future: APIUser().fetchUserData(users[index]['id_paciente'].toString()),
+                    builder: (context, snapshot) {
+
+                      if(!snapshot.hasData) {
+                        return Center(child: CircularProgressIndicator(),);
+                      }
+
+                      final Map<String, dynamic> data = snapshot.data!;
+                      data.addAll({'cedula': users[index]['cedula']});
+
+                      return UserScreen(
+                        user: snapshot.data!,
+                        w: MediaQuery.of(context).size.width * 0.7,
+                        onPressed: SmartDialog.dismiss
+                      );
+                    }
                   )
                 );
               },
