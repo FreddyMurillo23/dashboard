@@ -27,11 +27,16 @@ class _IMCByFacultyComponentState extends State<IMCByFacultyComponent> {
   late IMCController _controller;
   late int year1;
   late int year2;
+  late bool shouldFetchNew;
+  late List<charts.Series<Map<String, dynamic>, String>> cachedData;
+  late bool shouldQuery; // Do not perform queries every time the state changes
 
   @override
   void initState() {
     super.initState();
 
+    shouldFetchNew = true;
+    shouldQuery = true;
     year1 = DateTime.now().year - 1;
     year2 = DateTime.now().year;
   }
@@ -42,19 +47,32 @@ class _IMCByFacultyComponentState extends State<IMCByFacultyComponent> {
     _controller = IMCController(context);
 
     return FutureBuilder<List<charts.Series<Map<String, dynamic>, String>>>(
-      future: _controller.createIMCPerFacultyData(year1, year2),
+      future: shouldFetchNew? _controller.createIMCPerFacultyData(year1, year2):Future.value(cachedData),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
-        
+                
+        switch(snapshot.connectionState) {
+
+          case ConnectionState.none: return Center(child: CircularProgressIndicator());
+          case ConnectionState.waiting: return Center(child: CircularProgressIndicator());
+          case ConnectionState.active: return Center(child: CircularProgressIndicator());
+          case ConnectionState.done:
+            break;
+        }
+
         if(!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator(),);
         }
+
+        // do not fetch new data until user requests it
+        cachedData = snapshot.data!;
+        shouldFetchNew = false;
 
         return CustomMultibarChart(
           size: widget.size,
           title: Row(
             children: [
               Text(
-                "IMC por facultad",
+                "IMC promedio por facultad",
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
@@ -107,6 +125,14 @@ class _IMCByFacultyComponentState extends State<IMCByFacultyComponent> {
                     );
                   }),
               ),
+              SizedBox(width: 10.0,),
+              TextButton.icon(
+                onPressed: ()=>setState((){
+                  shouldFetchNew = true;
+                }), 
+                icon: Icon(Icons.search), 
+                label: Text("Consultar")
+              )
             ],
           ),
           seriesList: snapshot.data!,
@@ -119,4 +145,5 @@ class _IMCByFacultyComponentState extends State<IMCByFacultyComponent> {
     return year2 > year1;
   }
 }
+
 

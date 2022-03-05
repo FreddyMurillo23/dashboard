@@ -60,8 +60,8 @@ class APIFaculty {
   }
 
   Future<Map<String, dynamic>> fetchSchoolData(int idFac, int idSch) async {
-
-    final url = Uri.parse("${dotenv.env['API_HOST']}salud/datos_nutricionales_escuela/$idFac/$idSch");
+    
+    final url = Uri.parse("${dotenv.env['API_HOST']}salud/estadisticas_escuela_genero/$idFac/$idSch");
     final fetchedData = await http.get(url);
 
     if(fetchedData.statusCode != 200) {

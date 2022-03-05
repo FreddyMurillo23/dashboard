@@ -11,7 +11,10 @@ class FacultiesController {
   }
 
   Future<Map<String, dynamic>> fetchSchoolData(int facId, int schId) async {
-    return await _api.fetchSchoolData(facId, schId);
+
+    final output = await _api.fetchSchoolData(facId, schId);
+
+    return output;
   }
 
   List<PieChartSectionData> buildSchoolImcDataset(Map<String, dynamic> data, List<Color> colors) {
@@ -25,23 +28,23 @@ class FacultiesController {
       
     elements.add(PieChartSectionData(
       color: colors[0],
-      value: data["valores_porcentuales"][0]['p_delgadez'],
+      value: (data["valores_porcentuales"] ?? data["valores_porcentuales_general"])[0]['p_delgadez'],
       title: 'Delgadez',
-      radius: minSize + scaleFactor * (data["valores_porcentuales"][0]['p_delgadez'] - min) / (max - min),
+      radius: minSize + scaleFactor * ((data["valores_porcentuales"] ?? data["valores_porcentuales_general"])[0]['p_delgadez'] - min) / (max - min),
       showTitle: false,
     ));
     elements.add(PieChartSectionData(
       color: colors[1],
-      value: data["valores_porcentuales"][0]['p_pesonormal'],
+      value: (data["valores_porcentuales"] ?? data["valores_porcentuales_general"])[0]['p_pesonormal'],
       title: 'Peso Normal',
-      radius:  minSize + scaleFactor * (data["valores_porcentuales"][0]['p_pesonormal'] - min) / (max - min),
+      radius:  minSize + scaleFactor * ((data["valores_porcentuales"] ?? data["valores_porcentuales_general"])[0]['p_pesonormal'] - min) / (max - min),
       showTitle: false,
     ));
     elements.add(PieChartSectionData(
       color: colors[2],
-      value: data["valores_porcentuales"][0]['p_sobrepeso'],
+      value: (data["valores_porcentuales"] ?? data["valores_porcentuales_general"])[0]['p_sobrepeso'],
       title: 'Sobrepeso',
-      radius:  minSize + scaleFactor * (data["valores_porcentuales"][0]['p_sobrepeso'] - min) / (max - min),
+      radius:  minSize + scaleFactor * ((data["valores_porcentuales"] ?? data["valores_porcentuales_general"])[0]['p_sobrepeso'] - min) / (max - min),
       showTitle: false,
     ));
 

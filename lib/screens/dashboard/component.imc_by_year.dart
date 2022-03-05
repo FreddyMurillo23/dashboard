@@ -30,6 +30,7 @@ class IMCByYearComponent extends StatelessWidget {
       future: _controller.createIMCPerYearData(),
       builder: (context, snapshot) {
 
+
         if(!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator(),);
         }
@@ -38,7 +39,7 @@ class IMCByYearComponent extends StatelessWidget {
           lowerBound: _controller.lowerIMCByYearBound!,
           upperBound: _controller.upperIMCByYearBound!,
           size: size,
-          title: "Porcentaje promedio de ICM por año",
+          title: "Porcentaje promedio de IMC por año",
           seriesList: snapshot.data!
         );
       }

@@ -41,14 +41,10 @@ class IMCController {
     ];
 
     // getting all faculty names
-    print("Reaching datasexxxxxxxxxxxxxxxxxt starting process");
-    print(years.first);
     final facultyNames = List<String>.from((data[years.first.toString()] as List).map((e) {
       return e['nombre_facultad'];
     }));
 
-    
-    print("Reaching dataset starting process");
     // outer level is the faculty (each x-axis values) and year (x-axis value) is the inner level
     response.addAll(
       List<charts.Series<Map<String, dynamic>, String>>.from(
@@ -73,8 +69,6 @@ class IMCController {
         })
       )
     );
-
-    print("Reaching dataset building process");
 
     return response;
   }
@@ -159,18 +153,22 @@ class IMCController {
     return response;
   }
 
-  Future<List<charts.Series<Map<String, dynamic>, String>>> createIMCPerGenderData() async {
+  /// This will create a dataset to be used in [CustomStackedBar] component. If you don't
+  /// define any [customData] then new data will be fetched (global records of UTM).
+  Future<List<charts.Series<Map<String, dynamic>, String>>> createIMCPerGenderData([
+    Map<String, dynamic>? customData
+  ]) async {
     late final Map<String, dynamic> data;
 
     try {
-      data = await APIIMCB().fetchIMCPerGender();
+      data = customData ?? await APIIMCB().fetchIMCPerGender();
     }catch(_) {
       SmartDialog.showToast("Error cargando datos, intente más tarde");
       return [];
     }
 
     List<charts.Series<Map<String, dynamic>, String>> response = [];
-    final colorList = ColorHelpers().generateColors(3);
+    // final colorList = ColorHelpers().generateColors(3);
 
     response.addAll(
       [

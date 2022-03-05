@@ -24,7 +24,7 @@ class GenderIMCComponent extends StatelessWidget {
 
         return CustomStackedBar(
           size: size,
-          title: "ICM global por género",
+          title: "IMC global por género",
           seriesList: snapshot.data!,
         );
       },
