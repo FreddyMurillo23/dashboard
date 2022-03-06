@@ -112,8 +112,7 @@ class Header extends StatelessWidget {
                     title: 'Paciente x',
                     content: UserScreen(
                         user: Map<String, dynamic>() /*users[index]*/,
-                        w: MediaQuery.of(context).size.width * 0.7,
-                        onPressed: SmartDialog.dismiss),
+                    )
                   );
                 },
               ),

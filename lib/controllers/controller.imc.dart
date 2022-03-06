@@ -226,4 +226,34 @@ class IMCController {
     return response;
 
   }
+
+  
+  /// generate line chart data for a specific user. [data] corresponds to 
+  Future<List<charts.Series<Map<String, dynamic>, DateTime>>> createIMUserData(
+    List<Map<String, dynamic>> data
+  ) async {
+  
+    List<charts.Series<Map<String, dynamic>, DateTime>> response = [];
+
+    // outer level is the faculty (each x-axis values) and year (x-axis value) is the inner level
+    response.addAll(
+      [
+        charts.Series<Map<String, dynamic>, DateTime>(
+          id: 'Promedio',
+          domainFn: (data, _) => data['name'],
+          measureFn: (data, _) => data['value'],
+          data: List<Map<String, dynamic>>.from(
+            data.map((imcDat){
+              return {
+                'value': double.parse(imcDat['imc']),
+                'name': DateTime.parse(imcDat['fecha_consulta'])
+              };
+            })
+          )
+        ),
+      ]
+    );
+
+    return response;
+  }
 }

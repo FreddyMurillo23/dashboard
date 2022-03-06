@@ -56,9 +56,6 @@ class _FacultyDetailState extends State<FacultyDetail> {
               Colors.blue[200]!
             ];
 
-            print("jjjjjjjjjjjjjjjjjjj");
-            print(data);
-
             return Container(
               child: Row(
                 children: [

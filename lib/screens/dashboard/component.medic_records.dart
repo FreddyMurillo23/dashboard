@@ -86,7 +86,6 @@ class MedicRecordsComponent extends StatelessWidget {
             icon: Icon(Icons.arrow_back),
             onPressed: (){
               controller.goBackRecordPanel();
-              print(controller.medicRecordsDataStack);
             },
           ),
         Text(
@@ -154,8 +153,6 @@ class MedicRecordsComponent extends StatelessWidget {
     // Since I cannot get an index in the next map process, I'll
     // be using this index
     int index = 0;
-
-    print(data);
 
     return <Widget>[
       Center(child: CustomPieChart(

@@ -70,7 +70,6 @@ class MedicRecordsController {
   /// created at the top left, so when you click on it you should be
   /// redirected to the main filter page. That's what this method does.
   void goBackRecordPanel() {
-    print(medicRecordsDataStack);
     final filters = medicRecordsDataStack[0];
     medicRecordsDataStack.clear();
     medicRecordsDataStack.add(filters);

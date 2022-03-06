@@ -263,8 +263,6 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
 
                       return UserScreen(
                         user: snapshot.data!,
-                        w: MediaQuery.of(context).size.width * 0.7,
-                        onPressed: SmartDialog.dismiss
                       );
                     }
                   )
