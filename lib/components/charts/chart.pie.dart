@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 import '../../../../constants.dart';
 
 class CustomPieChart extends StatelessWidget {
+  final int? validRecords;
+  final int? totalRecords;
   const CustomPieChart({
     Key? key,
-    required this.paiChartSelectionDatas
+    required this.paiChartSelectionDatas, 
+    this.validRecords, 
+    this.totalRecords
   }) : super(key: key);
 
   final List<PieChartSectionData> paiChartSelectionDatas;
@@ -27,19 +31,19 @@ class CustomPieChart extends StatelessWidget {
               ),
             ),
             Positioned.fill(
-              child: Column(
+              child: totalRecords == null?Container():Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(height: defaultPadding),
                   Text(
-                    "6598",
+                    "$validRecords",
                     style: Theme.of(context).textTheme.headline4!.copyWith(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
-                          height: 0.5,
-                        ),
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      height: 0.5,
+                    ),
                   ),
-                  Text("de 8502")
+                  Text("de $totalRecords")
                 ],
               ),
             ),

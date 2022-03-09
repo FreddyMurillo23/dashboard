@@ -14,7 +14,6 @@ class UserBasicInfo extends StatelessWidget {
       children: [
         _basicInfor(size, context),
         _appointments(context),
-        Text("Historial", style: TextStyle(fontWeight: FontWeight.bold),),
         _history(context)
       ],
     );
@@ -145,21 +144,38 @@ class UserBasicInfo extends StatelessWidget {
 
     final hist = List<Map<String, dynamic>>.from(user['historico']);
     final size = MediaQuery.of(context).size;
-    if(hist.isEmpty) {
-      return Center(child: Text("No hay registros de consultas"),);
-    }
 
     return Container(
-      height: size.height * 0.4,
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ...List<Widget>.from(hist.map((hist){
-              return _userHistTile(hist);
-            })),
-          ]
-        ),
+      width: size.width * 0.25,
+      padding: const EdgeInsets.all(defaultPadding),
+      decoration: BoxDecoration(
+        color: secondaryColor,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        children: [
+          Text("Historial", style: TextStyle(fontWeight: FontWeight.bold),),
+          hist.isEmpty?
+          Column(
+            children: [
+              Icon(Icons.info, size: 36,),
+              Text("No hay registros de consultas"),
+            ],
+          ):
+          Container(
+            height: size.height * 0.4,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...List<Widget>.from(hist.map((hist){
+                    return _userHistTile(hist);
+                  })),
+                ]
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

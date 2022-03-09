@@ -249,7 +249,9 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
                 // this will show a lateral dialog
                 UIHelper().showLateralSheet(
                   mainContext, 
-                  title: '${users[index]['apellidos']} ${users[index]['nombres']}', 
+                  backgroundColor: Colors.green[900]!,
+                  foregroundColor: Colors.white,
+                  title: 'Mostrando datos de usuario', 
                   content: FutureBuilder<Map<String,dynamic>>(
                     future: APIUser().fetchUserData(users[index]['id_paciente'].toString()),
                     builder: (context, snapshot) {

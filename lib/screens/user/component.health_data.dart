@@ -1,8 +1,7 @@
-import 'package:admin/components/charts/chart.line.dart';
 import 'package:admin/components/charts/chart.timeseries.dart';
 import 'package:admin/constants.dart';
 import 'package:admin/controllers/controller.imc.dart';
-import 'package:charts_flutter/flutter.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class UserHealthData extends StatelessWidget {
@@ -32,43 +31,36 @@ class UserHealthData extends StatelessWidget {
     else if(imc >= 25.0) complexion = "SOBREPESO";
     else complexion = "NORMAL";
 
-    return Padding(
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: defaultPadding),
       padding: const EdgeInsets.all(defaultPadding),
-      child: Column(
+      width: size.width * 55 / 100,
+      decoration: BoxDecoration(
+          color: secondaryColor, borderRadius: BorderRadius.circular(10)),
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            // padding: EdgeInsets.all(defaultPadding),
-            width: size.width * 65 / 100,
-            decoration: BoxDecoration(
-                color: secondaryColor, borderRadius: BorderRadius.circular(10)),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    Text('COMPLEXION FISICA:'), 
-                    Text('$complexion')
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text('SEXO:'), 
-                    Text(user['datos_personales'][0]['genero'] == 'M'? 'MASCULINO':'FEMENINO')
-                  ],
-                ),
-                Column(
-                  children: [Text('DERIVACION:'), Text('XXX')],
-                ),
-                Column(
-                  children: [
-                    Text('DISCAPACIDAD:'), 
-                    Text(user['datos_personales'][0]['discapacidad'] ?? 'NINGUNA')
-                  ],
-                )
-              ],
-            ),
+          Column(
+            children: [
+              Text('COMPLEXION FISICA:'), 
+              Text('$complexion')
+            ],
+          ),
+          Column(
+            children: [
+              Text('SEXO:'), 
+              Text(user['datos_personales'][0]['genero'] == 'M'? 'MASCULINO':'FEMENINO')
+            ],
+          ),
+          Column(
+            children: [Text('DERIVACION:'), Text('XXX')],
+          ),
+          Column(
+            children: [
+              Text('DISCAPACIDAD:'), 
+              Text(user['datos_personales'][0]['discapacidad'] ?? 'NINGUNA')
+            ],
           )
         ],
       ),
@@ -81,7 +73,7 @@ class UserHealthData extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      width: size.width * 65 / 100,
+      width: size.width * 55 / 100,
       // padding: EdgeInsets.symmetric(horizontal: defaultPadding),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10), color: Colors.white),
@@ -170,7 +162,7 @@ class UserHealthData extends StatelessWidget {
     
     final size = MediaQuery.of(context).size;
 
-    return FutureBuilder<List<Series<Map<String, dynamic>, DateTime>>>(
+    return FutureBuilder<List<charts.Series<Map<String, dynamic>, DateTime>>>(
           future: IMCController(context).createIMUserData(
             List<Map<String, dynamic>>.from(user['historico'])
           ),
@@ -180,12 +172,35 @@ class UserHealthData extends StatelessWidget {
               return Center(child: CircularProgressIndicator(),);
             }
 
-            print(user['historico']);
+            if(snapshot.data![0].data.isEmpty) {
+              return Container(
+                width: size.width * 0.55,
+                padding: const EdgeInsets.all(defaultPadding),
+                decoration: BoxDecoration(
+                  color: secondaryColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      "IMC a través del tiempo",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    Icon(Icons.info, size: 36,),
+                    Text("No hay registros de consultas"),
+                  ],
+                ),
+              );
+            }
+
+            print(snapshot.data![0].data);
 
             return CustomTimeChart(
               title: "IMC a través del tiempo", 
               seriesList: snapshot.data!, 
-              size: Size(size.width*0.5, size.height*0.5),
+              size: Size(size.width*0.55, size.height*0.45),
             );
           }
         );

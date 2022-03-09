@@ -53,6 +53,14 @@ class CustomTimeChart extends StatelessWidget {
               defaultRenderer: charts.LineRendererConfig(
                 includeLine: true,
                 includePoints: true
+              ),
+              domainAxis: charts.DateTimeAxisSpec(
+                tickFormatterSpec: charts.AutoDateTimeTickFormatterSpec(
+                  day: charts.TimeFormatterSpec(
+                    format: 'd',
+                    transitionFormat: 'MM/dd/yyyy'
+                  )
+                )
               )
             ),
           )

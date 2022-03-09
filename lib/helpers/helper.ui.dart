@@ -1,37 +1,19 @@
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
-
 class UIHelper {
 
   ///
-  void showLateralSheet(BuildContext context, {required String title, required Widget content}) {
+  void showLateralSheet(
+    BuildContext context, 
+    {
+      required String title,
+      required Widget content,
+      Color? backgroundColor,
+      Color? foregroundColor
+    }
+  ) {
     
     final size = MediaQuery.of(context).size;
-    
-    // SmartDialog.show(      
-
-    //   widget: Container(
-    //     width: size.width * 0.8,
-    //     height: size.height * 0.95,
-    //     decoration: BoxDecoration(
-    //       color: Colors.white,
-    //       borderRadius: BorderRadius.only(
-    //         topRight: Radius.circular(20.0),
-    //         bottomRight: Radius.circular(20.0),
-    //       )
-    //     ),
-    //     child: Column(
-    //       crossAxisAlignment: CrossAxisAlignment.start,
-    //       children: [
-    //         Padding(
-    //           padding: const EdgeInsets.all(10.0),
-    //           child: content
-    //         ),
-    //       ],
-    //     )
-    //   )
-    // );
 
     showGlobalDrawer(
       context: context, 
@@ -42,7 +24,7 @@ class UIHelper {
           width: size.width * 0.8,
           height: size.height,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: backgroundColor ?? Colors.white,
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(20.0),
               bottomRight: Radius.circular(20.0),
@@ -52,9 +34,15 @@ class UIHelper {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ListTile(
-                title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+                title: Text(
+                  title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: foregroundColor ?? Colors.black
+                  )
+                ),
                 trailing: IconButton(
-                  icon: Icon(Icons.close),
+                  icon: Icon(Icons.close, color: foregroundColor,),
                   onPressed: ()=>Navigator.of(context).pop(),
                 ),
               ),
