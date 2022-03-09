@@ -19,7 +19,7 @@ class CustomTimeChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    
+    print(seriesList.first.data);
     return Container(
       width: size.width,
       padding: EdgeInsets.all(defaultPadding),
@@ -54,10 +54,19 @@ class CustomTimeChart extends StatelessWidget {
                 includeLine: true,
                 includePoints: true
               ),
+              
               domainAxis: charts.DateTimeAxisSpec(
+                tickProviderSpec: seriesList.first.data.length > 1? null:charts.StaticDateTimeTickProviderSpec(
+                  [
+                    // do it to avoid to show '12 00' when there is only one point
+                    charts.TickSpec<DateTime>((seriesList.first.data.first['name'] as DateTime).subtract(Duration(days: 30))),
+                    charts.TickSpec<DateTime>(seriesList.first.data.first['name']),
+                    charts.TickSpec<DateTime>((seriesList.first.data.first['name'] as DateTime).add(Duration(days: 30))),
+                  ]
+                ),
                 tickFormatterSpec: charts.AutoDateTimeTickFormatterSpec(
                   day: charts.TimeFormatterSpec(
-                    format: 'd',
+                    format: 'dd MMM',
                     transitionFormat: 'MM/dd/yyyy'
                   )
                 )

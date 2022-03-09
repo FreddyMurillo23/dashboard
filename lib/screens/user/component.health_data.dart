@@ -195,8 +195,6 @@ class UserHealthData extends StatelessWidget {
               );
             }
 
-            print(snapshot.data![0].data);
-
             return CustomTimeChart(
               title: "IMC a través del tiempo", 
               seriesList: snapshot.data!, 
