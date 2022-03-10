@@ -97,7 +97,7 @@ class GaugeChart extends StatelessWidget {
         return StorageInfoCard(
           title: element['facultad'],
           svgSrc: Icon(
-            Icons.android,
+            Icons.school,
             color: colors[colorIdx++],
           ), 
           amountOfFiles: "${element['porcentaje_sobrepeso']}", 
