@@ -74,40 +74,42 @@ class UserHealthData extends StatelessWidget {
 
     return Container(
       width: size.width * 55 / 100,
-      // padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+      padding: EdgeInsets.symmetric(horizontal: defaultPadding),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10), color: Colors.white),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: defaultPadding),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _healthDataCard(
-              context,
-              imgUrl: 'assets/images/pt-dashboard-01.png',
-              label: 'Temperatura',
-              value: user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['temperatura']}':'NA'
-            ),
-            _healthDataCard(
-              context,
-              imgUrl: 'assets/images/pt-dashboard-02.png',
-              label: 'Ritmo cardiaco',
-              value: 'XXX'
-            ),
-            _healthDataCard(
-              context,
-              imgUrl: 'assets/images/pt-dashboard-03.png',
-              label: 'IMC',
-              value: user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['imc']}':'NA'
-            ),
-            _healthDataCard(
-              context,
-              imgUrl: 'assets/images/pt-dashboard-04.png',
-              label: 'P. Sanguinea',
-              value: 'XXX2'
-            )
-          ],
+        child: ClipRRect(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _healthDataCard(
+                context,
+                imgUrl: 'assets/images/pt-dashboard-01.png',
+                label: 'Temperatura',
+                value: user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['temperatura']}':'NA'
+              ),
+              _healthDataCard(
+                context,
+                imgUrl: 'assets/images/pt-dashboard-02.png',
+                label: 'Ritmo cardiaco',
+                value: 'XXX'
+              ),
+              _healthDataCard(
+                context,
+                imgUrl: 'assets/images/pt-dashboard-03.png',
+                label: 'IMC',
+                value: user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['imc']}':'NA'
+              ),
+              _healthDataCard(
+                context,
+                imgUrl: 'assets/images/pt-dashboard-04.png',
+                label: 'P. Sanguinea',
+                value: 'XXX2'
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -4,22 +4,21 @@ import 'package:flutter/material.dart';
 
 import 'package:charts_flutter/flutter.dart' as charts;
 
-class GenderIMCComponent extends StatelessWidget {
+import '../../components/LoadingWidget.dart';
 
+class GenderIMCComponent extends StatelessWidget {
   final Size size;
-  const GenderIMCComponent({ Key? key, required this.size }) : super(key: key);
+  const GenderIMCComponent({Key? key, required this.size}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     final _controller = IMCController(context);
 
     return FutureBuilder<List<charts.Series<Map<String, dynamic>, String>>>(
       future: _controller.createIMCPerGenderData(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
-        
-        if(!snapshot.hasData) {
-          return const Center(child: CircularProgressIndicator(),);
+        if (!snapshot.hasData) {
+          return LoadingWidget(size: size);
         }
 
         return CustomStackedBar(
@@ -31,3 +30,5 @@ class GenderIMCComponent extends StatelessWidget {
     );
   }
 }
+
+

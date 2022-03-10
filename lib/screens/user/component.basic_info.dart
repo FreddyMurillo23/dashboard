@@ -146,7 +146,7 @@ class UserBasicInfo extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      width: size.width * 0.25,
+      width: size.width * 0.18,
       padding: const EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
         color: secondaryColor,

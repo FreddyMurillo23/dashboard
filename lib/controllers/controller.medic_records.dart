@@ -82,7 +82,7 @@ class MedicRecordsController {
   }
 
   Future<List<Map<String, dynamic>>> loadFilters() async {
-    SmartDialog.showLoading();
+    // SmartDialog.showLoading();
 
     List<Map<String, dynamic>>? filters;
     
@@ -90,9 +90,9 @@ class MedicRecordsController {
       filters = await APIMedicRecords().fetchFilters();
       medicRecordsSink = filters;
     }catch(e) {
-      SmartDialog.showToast(e.toString());
+      // SmartDialog.showToast(e.toString());
     }finally {
-      SmartDialog.dismiss();
+      // SmartDialog.dismiss();
     }
     
     medicRecordsSink = filters;
@@ -100,7 +100,7 @@ class MedicRecordsController {
   }
 
   Future<Map<String, dynamic>> loadFilterValues(int id, String name) async {
-    SmartDialog.showLoading();
+    // SmartDialog.showLoading();
 
     Map<String, dynamic>? filterOpts;
     
@@ -109,9 +109,9 @@ class MedicRecordsController {
       filterOpts.addAll({"name": name});
       medicRecordsSink = filterOpts;
     }catch(e) {
-      SmartDialog.showToast(e.toString());
+      // SmartDialog.showToast(e.toString());
     }finally {
-      SmartDialog.dismiss();
+      // SmartDialog.dismiss();
     }
     
     return filterOpts ?? <String, dynamic>{};

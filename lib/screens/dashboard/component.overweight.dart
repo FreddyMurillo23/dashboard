@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 class GaugeChart extends StatelessWidget {
-  
   final Size size;
 
   late final OverweightController _controller;
@@ -16,7 +15,6 @@ class GaugeChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     _controller = OverweightController(context);
 
     return Container(
@@ -47,40 +45,39 @@ class GaugeChart extends StatelessWidget {
           SizedBox(
             // width: MediaQuery.of(context).size.width * 22.5 / 100,
             child: FutureBuilder<List<Map<String, dynamic>>>(
-              future: _controller.createSampleData(),
-              builder: (context, snapshot) {
-      
-                if(!snapshot.hasData) {
-                  return const Center(child: CircularProgressIndicator(),);
-                }
-      
-                   // sorting elements to get the top 7
-                var data = snapshot.data!;
-                data.sort((a, b) {
-      
-                  final valueA = a["porcentaje_sobrepeso"];
-                  final valueB = b["porcentaje_sobrepeso"];
-      
-                  return valueA < valueB? 1:(valueA == valueB?0:-1);
-                });
-      
-                // only consider top 5
-                // data = data.getRange(0, 5).toList();
-                final colors = ColorHelpers().generateColors(data.length);
-      
-                return Container(
-                  height: size.height,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        infoCards(data, colors),
-                      ],
+                future: _controller.createSampleData(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+
+                  // sorting elements to get the top 7
+                  var data = snapshot.data!;
+                  data.sort((a, b) {
+                    final valueA = a["porcentaje_sobrepeso"];
+                    final valueB = b["porcentaje_sobrepeso"];
+
+                    return valueA < valueB ? 1 : (valueA == valueB ? 0 : -1);
+                  });
+
+                  // only consider top 5
+                  // data = data.getRange(0, 5).toList();
+                  final colors = ColorHelpers().generateColors(data.length);
+
+                  return Container(
+                    height: size.height,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          infoCards(data, colors),
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              }
-            ),
+                  );
+                }),
           ),
         ],
       ),
@@ -88,23 +85,21 @@ class GaugeChart extends StatelessWidget {
   }
 
   Widget infoCards(List<Map<String, dynamic>> data, List<Color> colors) {
-
     int colorIdx = 0;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: List<Widget>.from(data.map((element) {
-        return StorageInfoCard(
-          title: element['facultad'],
-          svgSrc: Icon(
-            Icons.school,
-            color: colors[colorIdx++],
-          ), 
-          amountOfFiles: "${element['porcentaje_sobrepeso']}", 
-          numOfFiles: element['total_poblacion'], 
-          onPress: (){},
-        );
-      }))
-    );
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: List<Widget>.from(data.map((element) {
+          return StorageInfoCard(
+            title: element['facultad'],
+            svgSrc: Icon(
+              Icons.school,
+              color: colors[colorIdx++],
+            ),
+            amountOfFiles: "${element['porcentaje_sobrepeso']}",
+            numOfFiles: element['total_poblacion'],
+            onPress: () {},
+          );
+        })));
   }
 }

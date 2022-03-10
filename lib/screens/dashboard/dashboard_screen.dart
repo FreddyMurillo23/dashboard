@@ -60,21 +60,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             size: Size(size.width * 0.76, size.height * 0.35),
                           ),
                           SizedBox(
-                        height: defaultPadding,
-                      ),
+                            height: defaultPadding,
+                          ),
                           Row(
                             children: [
                               GenderIMCComponent(
                                 size: Size(
                                     MediaQuery.of(context).size.width * 0.40,
-                                    MediaQuery.of(context).size.height * 0.30),
+                                    MediaQuery.of(context).size.height * 0.337),
                               ),
                               SizedBox(
-                        width: defaultPadding,
-                      ),
+                                width: defaultPadding,
+                              ),
                               GaugeChart(
-                                size:
-                                    Size(size.width * 0.35, size.height * 0.30),
+                                size: Size(
+                                    size.width * 0.35, size.height * 0.337),
                               ),
                             ],
                           ),

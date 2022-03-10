@@ -6,6 +6,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:admin/helpers/helper.colors.dart';
 import 'package:admin/helpers/helper.icons.dart';
 
+import '../../components/LoadingWidget.dart';
 import '../../constants.dart';
 import '../../controllers/controller.medic_records.dart';
 
@@ -13,27 +14,20 @@ import '../../controllers/controller.medic_records.dart';
 /// This will change dinamically based on some filters defined
 /// later.
 class MedicRecordsComponent extends StatelessWidget {
-
   final Size size;
 
-  const MedicRecordsComponent({
-    Key? key,
-    required this.size
-  }) : super(key: key);
-
+  const MedicRecordsComponent({Key? key, required this.size}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    
     final _controller = MedicRecordsController(context);
-    
+
     // fetching filters from API
     _controller.loadFilters();
 
     return Container(
       width: size.width,
       height: size.height,
-      padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
         color: secondaryColor,
         borderRadius: BorderRadius.circular(10),
@@ -48,29 +42,29 @@ class MedicRecordsComponent extends StatelessWidget {
         stream: _controller.medicRecordsStrm,
         // initialData: _controller.medicRecordsDataStack.last,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if(!snapshot.hasData || snapshot.data == null) {
-            return Center(child: CircularProgressIndicator(),);
+          if (!snapshot.hasData || snapshot.data == null) {
+            return LoadingWidget(size: size);
           }
 
           late final List<Widget> elements;
 
-          if(snapshot.data! is List<Map<String, dynamic>>) {
+          if (snapshot.data! is List<Map<String, dynamic>>) {
             elements = _getFilters(_controller, snapshot.data!);
-          }
-          else {
+          } else {
             elements = _getFilterOpt(_controller, snapshot.data!);
           }
 
-
           return SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                _lateralDashboardHeader(_controller, snapshot),
-                SizedBox(height: defaultPadding),
-                ...elements
-              ]
+            child: Container(
+              padding: EdgeInsets.all(defaultPadding),
+              child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    _lateralDashboardHeader(_controller, snapshot),
+                    SizedBox(height: defaultPadding),
+                    ...elements
+                  ]),
             ),
           );
         },
@@ -78,21 +72,20 @@ class MedicRecordsComponent extends StatelessWidget {
     );
   }
 
-  Row _lateralDashboardHeader(MedicRecordsController controller, AsyncSnapshot<dynamic> snapshot) {
+  Row _lateralDashboardHeader(
+      MedicRecordsController controller, AsyncSnapshot<dynamic> snapshot) {
     return Row(
       children: [
-        snapshot.data! is List<Map<String, dynamic>>?
-          Container():IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: (){
-              controller.goBackRecordPanel();
-            },
-          ),
+        snapshot.data! is List<Map<String, dynamic>>
+            ? Container()
+            : IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  controller.goBackRecordPanel();
+                },
+              ),
         Text(
-          "Registros Medicos${
-            (snapshot.data is Map<String, dynamic>)?
-             "\nde " + snapshot.data['name']:""
-          }",
+          "Registros Medicos${(snapshot.data is Map<String, dynamic>) ? "\nde " + snapshot.data['name'] : ""}",
           maxLines: 2,
           style: TextStyle(
             fontSize: 18,
@@ -104,47 +97,45 @@ class MedicRecordsComponent extends StatelessWidget {
   }
 
   /// Returns a list of elements based on the filter the user choose
-  List<Widget> _getFilterOpt(MedicRecordsController controller, Map<String, dynamic> data) {
-
-        // How many colors I should generate for the chart
+  List<Widget> _getFilterOpt(
+      MedicRecordsController controller, Map<String, dynamic> data) {
+    // How many colors I should generate for the chart
     final howManyColors = 3;
 
     final colors = ColorHelpers().generateColors(howManyColors);
 
     return <Widget>[
       Center(
-        child: CustomPieChart(
-          paiChartSelectionDatas: controller.buildDataset(data, colors),
-        )
-      ),
-
+          child: CustomPieChart(
+        paiChartSelectionDatas: controller.buildDataset(data, colors),
+      )),
       StorageInfoCard(
         title: "Delgadez",
         numOfFiles: data["valores_netos"][0]["delgadez"],
         amountOfFiles: '${data["valores_porcentuales"][0]["p_delgadez"]}',
-        onPress: (){},
+        onPress: () {},
         svgSrc: Icon(Icons.person, color: colors[0]),
       ),
       StorageInfoCard(
         title: "Peso normal",
         numOfFiles: data["valores_netos"][0]["pesonormal"],
         amountOfFiles: '${data["valores_porcentuales"][0]["p_pesonormal"]}',
-        onPress: (){},
+        onPress: () {},
         svgSrc: Icon(Icons.person, color: colors[1]),
       ),
       StorageInfoCard(
         title: "Delgadez",
         numOfFiles: data["valores_netos"][0]["sobrepeso"],
         amountOfFiles: '${data["valores_porcentuales"][0]["p_sobrepeso"]}',
-        onPress: (){},
+        onPress: () {},
         svgSrc: Icon(Icons.person, color: colors[2]),
       ),
     ];
   }
 
   /// Returns a list of elements based on the filter the user choose
-  List<Widget> _getFilters(MedicRecordsController controller, List<Map<String, dynamic>> data) {
-
+  List<Widget> _getFilters(
+      MedicRecordsController controller, List<Map<String, dynamic>> data) {
     // How many colors I should generate for the chart
     final howManyColors = data.length;
 
@@ -155,28 +146,26 @@ class MedicRecordsComponent extends StatelessWidget {
     int index = 0;
 
     return <Widget>[
-      Center(child: CustomPieChart(
+      Center(
+          child: CustomPieChart(
         paiChartSelectionDatas: controller.buildDataset(data, colors),
-        
       )),
-      
       ...List<Widget>.from(data.map((filter) {
         return StorageInfoCard(
-          amountOfFiles: ((filter["porcentaje"] ?? 10.0) as double).toStringAsFixed(2),
-          numOfFiles: filter["cantidad_registros"] ?? 1,
-          title: filter["nombre"] ?? "No name", 
-          svgSrc: Icon(
-            IconHelper().iconFromString(filter["nombre"]),
-            color: colors[index++]
-          ), 
-          onPress: () async {
-            SmartDialog.showLoading();
+            amountOfFiles:
+                ((filter["porcentaje"] ?? 10.0) as double).toStringAsFixed(2),
+            numOfFiles: filter["cantidad_registros"] ?? 1,
+            title: filter["nombre"] ?? "No name",
+            svgSrc: Icon(IconHelper().iconFromString(filter["nombre"]),
+                color: colors[index++]),
+            onPress: () async {
+              SmartDialog.showLoading();
 
-            await controller.loadFilterValues(filter["cod_clasificacion"], filter["nombre"]);
+              await controller.loadFilterValues(
+                  filter["cod_clasificacion"], filter["nombre"]);
 
-            SmartDialog.dismiss();
-          }
-        );
+              SmartDialog.dismiss();
+            });
       }))
     ];
   }

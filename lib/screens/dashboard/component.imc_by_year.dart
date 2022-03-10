@@ -8,6 +8,8 @@ import 'package:admin/controllers/controller.imc.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
+import '../../components/LoadingWidget.dart';
+
 /// Example that shows how to build a series legend that shows measure values
 /// when a datum is selected.
 ///
@@ -32,7 +34,7 @@ class IMCByYearComponent extends StatelessWidget {
 
 
         if(!snapshot.hasData) {
-          return const Center(child: CircularProgressIndicator(),);
+          return LoadingWidget(size: size);
         }
 
         return CustomLineChart(

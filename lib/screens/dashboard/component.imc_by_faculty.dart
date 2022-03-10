@@ -9,6 +9,8 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
+import '../../components/LoadingWidget.dart';
+
 /// Example that shows how to build a series legend that shows measure values
 /// when a datum is selected.
 ///
@@ -54,7 +56,7 @@ class _IMCByFacultyComponentState extends State<IMCByFacultyComponent> {
 
           case ConnectionState.none: 
           case ConnectionState.waiting:
-          case ConnectionState.active: return Center(child: CircularProgressIndicator());
+          case ConnectionState.active: return LoadingWidget(size: widget.size);
           case ConnectionState.done: break;
         }
 
