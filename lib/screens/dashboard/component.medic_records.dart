@@ -157,6 +157,7 @@ class MedicRecordsComponent extends StatelessWidget {
     return <Widget>[
       Center(child: CustomPieChart(
         paiChartSelectionDatas: controller.buildDataset(data, colors),
+        
       )),
       
       ...List<Widget>.from(data.map((filter) {

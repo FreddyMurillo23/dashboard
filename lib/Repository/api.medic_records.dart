@@ -92,4 +92,24 @@ class APIMedicRecords {
 
     return response;
   }
+
+  /// Fetchs a full list of all the students that have high probabilities of
+  /// being oveerweighted in the future.
+  Future<Map<String, dynamic>> fetchHypertensionAlertRecords() async {
+    
+    final url = Uri.parse("${dotenv.env['API_HOST']}salud/alertaHipertensionUtm");
+    final fetchedData = await http.get(url);
+
+    if(fetchedData.statusCode != 200) {
+      throw new ErrorDescription('Hubo un problema cargando los datos. Recargue o intente más tarde.');
+    }
+
+    final rawResponse = fetchedData.body;
+    
+    final decodedRespone = json.decode(rawResponse);
+
+    final response = decodedRespone;
+
+    return response;
+  }
 }

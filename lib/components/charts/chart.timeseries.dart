@@ -19,7 +19,6 @@ class CustomTimeChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    print(seriesList.first.data);
     return Container(
       width: size.width,
       padding: EdgeInsets.all(defaultPadding),

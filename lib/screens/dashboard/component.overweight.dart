@@ -21,7 +21,7 @@ class GaugeChart extends StatelessWidget {
 
     return Container(
       width: size.width,
-      height: size.height,
+      // height: size.height,
       padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
         color: secondaryColor,
@@ -33,63 +33,56 @@ class GaugeChart extends StatelessWidget {
               offset: Offset(-2, 2)),
         ],
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Facultades con mayor sobrepeso.",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Facultades con mayor sobrepeso",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
             ),
-            SizedBox(height: defaultPadding),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 22.5 / 100,
-              child: FutureBuilder<List<Map<String, dynamic>>>(
-                future: _controller.createSampleData(),
-                builder: (context, snapshot) {
+          ),
+          SizedBox(height: defaultPadding),
+          SizedBox(
+            // width: MediaQuery.of(context).size.width * 22.5 / 100,
+            child: FutureBuilder<List<Map<String, dynamic>>>(
+              future: _controller.createSampleData(),
+              builder: (context, snapshot) {
       
-                  if(!snapshot.hasData) {
-                    return const Center(child: CircularProgressIndicator(),);
-                  }
-      
-                     // sorting elements to get the top 7
-                  var data = snapshot.data!;
-                  data.sort((a, b) {
-      
-                    final valueA = a["porcentaje_sobrepeso"];
-                    final valueB = b["porcentaje_sobrepeso"];
-      
-                    return valueA < valueB? 1:(valueA == valueB?0:-1);
-                  });
-      
-                  // only consider top 5
-                  // data = data.getRange(0, 5).toList();
-                  final colors = ColorHelpers().generateColors(data.length);
-      
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        // height: MediaQuery.of(context).size.height * 35 / 100,
-                        // width: MediaQuery.of(context).size.width * 10 / 100,
-                        child: CustomPieChart(
-                          paiChartSelectionDatas: _controller.buildDataset(
-                            data, 
-                            colors
-                          ),
-                        )
-                      ),
-                      infoCards(data, colors),
-                    ],
-                  );
+                if(!snapshot.hasData) {
+                  return const Center(child: CircularProgressIndicator(),);
                 }
-              ),
+      
+                   // sorting elements to get the top 7
+                var data = snapshot.data!;
+                data.sort((a, b) {
+      
+                  final valueA = a["porcentaje_sobrepeso"];
+                  final valueB = b["porcentaje_sobrepeso"];
+      
+                  return valueA < valueB? 1:(valueA == valueB?0:-1);
+                });
+      
+                // only consider top 5
+                // data = data.getRange(0, 5).toList();
+                final colors = ColorHelpers().generateColors(data.length);
+      
+                return Container(
+                  height: size.height,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        infoCards(data, colors),
+                      ],
+                    ),
+                  ),
+                );
+              }
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
