@@ -40,7 +40,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Column(
         children: [
           SizedBox(height: defaultPadding),
-          Header(size: Size(size.width, size.height * 0.115)),
+          Header(size: Size(size.width, size.height * 0.1)),
           SizedBox(height: defaultPadding),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
