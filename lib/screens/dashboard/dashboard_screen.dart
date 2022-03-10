@@ -72,7 +72,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               SizedBox(
                                 width: defaultPadding,
                               ),
-                              GaugeChart(
+                              FacultyOverweight(
                                 size: Size(
                                     size.width * 0.35, size.height * 0.337),
                               ),
@@ -105,46 +105,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ],
               ),
-              // SizedBox(
-              //   width: defaultPadding,
-              // ),
-              // Column(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   mainAxisSize: MainAxisSize.max,
-              //   children: [
-              //     IMCByYearComponent(
-              //       size: Size(size.width * 0.40, size.height * 0.35),
-              //     ),
-              //     SizedBox(height: 10.0,),
-              //     GenderIMCComponent(
-              //       size: Size(
-              //         MediaQuery.of(context).size.width * 0.40,
-              //         MediaQuery.of(context).size.height * 0.35
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              // SizedBox(
-              //   width: defaultPadding,
-              // ),
-              // Column(
-              //   children: [
-              //     GaugeChart(
-              //       size: Size(size.width * 0.35, size.height * 0.4),
-              //     ),
-              //     SizedBox(height: 10.0,),
-              //     HypertensionAlert(size: Size(size.width * 0.35, size.height * 0.4))
-              //   ],
-              // )
             ],
           ),
-          SizedBox(
-            height: defaultPadding,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [],
-          )
         ],
       ),
     );

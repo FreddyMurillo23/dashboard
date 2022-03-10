@@ -36,14 +36,14 @@ class CustomPieChart extends StatelessWidget {
                 children: [
                   SizedBox(height: defaultPadding),
                   Text(
-                    "$validRecords",
+                    "$totalRecords",
                     style: Theme.of(context).textTheme.headline4!.copyWith(
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
                       height: 0.5,
                     ),
                   ),
-                  Text("de $totalRecords")
+                  Text("REGISTROS", textAlign: TextAlign.center,)
                 ],
               ),
             ),

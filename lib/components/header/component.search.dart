@@ -270,14 +270,17 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
                     builder: (context, snapshot) {
 
                       if(!snapshot.hasData) {
-                        return Center(child: CircularProgressIndicator(),);
+                        return UserScreen(
+                          user: {},
+                          isLoading: !snapshot.hasData
+                        );
                       }
 
                       final Map<String, dynamic> data = snapshot.data!;
                       data.addAll({'cedula': users[index]['cedula']});
 
                       return UserScreen(
-                        user: snapshot.data!,
+                        user: snapshot.data!
                       );
                     }
                   )

@@ -1,4 +1,5 @@
 import 'package:admin/Repository/api.faculty.dart';
+import 'package:admin/components/LoadingWidget.dart';
 import 'package:admin/components/charts/chart.pie.dart';
 import 'package:admin/components/charts/chart.stacked_bar.dart';
 import 'package:admin/components/storage_info_card.dart';
@@ -29,62 +30,76 @@ class _FacultyDetailState extends State<FacultyDetail> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return Column(
-      children: [
-        _header(),
-        FutureBuilder<Map<String, dynamic>>(
-          future: FacultiesController().fetchSchoolData(widget.faculty['id'], value),
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-
-            switch(snapshot.connectionState) {
-
-              case ConnectionState.none: return Center(child: CircularProgressIndicator());
-              case ConnectionState.waiting: return Center(child: CircularProgressIndicator());
-              case ConnectionState.active: return Center(child: CircularProgressIndicator());
-              case ConnectionState.done:
-                break;
-            }
-
-            if (!snapshot.hasData) {
-              return Center(child: CircularProgressIndicator());
-            }
-
-            final data = snapshot.data!;
-            final colors = [
-              Colors.blue[400]!,
-              Colors.blue[300]!,
-              Colors.blue[200]!
-            ];
-
-            return Container(
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 25, 
-                    child: 
-                    _getPieIMCWidget(data, colors)
-                  ),
-                  SizedBox(width: 20,),
-                  Expanded(
-                    flex: 50,
-                    child: _getIMCByGenderWidget(context, data, Size(size.width*0.3, size.height*0.6)),
-                  )
-                ],
-              ),
-            );
-          },
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          _header(),
+          SizedBox(height: 20.0,),
+          FutureBuilder<Map<String, dynamic>>(
+            future: FacultiesController().fetchSchoolData(widget.faculty['id'], value),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+    
+              bool isLoading = false;
+    
+              switch(snapshot.connectionState) {
+    
+                case ConnectionState.none: isLoading = true; break;
+                case ConnectionState.waiting: isLoading = true; break;
+                case ConnectionState.active: isLoading = true; break;
+                case ConnectionState.done: break;
+              }
+    
+              if (!snapshot.hasData) {
+                isLoading = true;
+              }
+    
+              final Map<String, dynamic>? data = snapshot.data;
+              final colors = [
+                Colors.blue[400]!,
+                Colors.blue[300]!,
+                Colors.blue[200]!
+              ];
+    
+              return Container(
+                child: Row(
+                  children: [ 
+                    _getPieIMCWidget(
+                      data ?? {}, 
+                      colors, 
+                      Size(
+                        size.width * 0.3, 
+                        size.height*0.6
+                      ),
+                      isLoading
+                    ),
+                    SizedBox(width: 20,),
+                    _getIMCByGenderWidget(
+                      context, data ?? {}, 
+                      Size(size.width*0.45, size.height*0.6),
+                      isLoading
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _getIMCByGenderWidget(BuildContext context, Map<String, dynamic> data, Size size) {
+  Widget _getIMCByGenderWidget(
+    BuildContext context, 
+    Map<String, dynamic> data, 
+    Size size, 
+    [bool isLoading = false]
+  ) {
     return FutureBuilder<List<charts.Series<Map<String, dynamic>, String>>>(
       future: IMCController(context).createIMCPerGenderData(data),
       builder: (context, snapshot) {
 
-        if(!snapshot.hasData) {
-          return Center(child: CircularProgressIndicator(),);
+        if(isLoading || !snapshot.hasData) {
+          return LoadingWidget(size: size);
         }
 
         return CustomStackedBar(
@@ -97,31 +112,59 @@ class _FacultyDetailState extends State<FacultyDetail> {
   }
 
   /// Shows a pie chart with tiles as a legend
-  Widget _getPieIMCWidget(Map<String, dynamic> data, List<Color> colors) {
+  Widget _getPieIMCWidget(
+    Map<String, dynamic> data, 
+    List<Color> colors, 
+    Size size,
+    [bool isLoading = false]
+  ) {
+    
+    if(isLoading) {
+      return Column(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          LoadingWidget(size: size)
+        ],
+      );
+    }
+
+    
     final delgadez = data["valores_netos_general"][0]["delgadez"];
     final pesonormal = data["valores_netos_general"][0]["pesonormal"];
     final sobrepeso = data["valores_netos_general"][0]["sobrepeso"];
 
     // It's necessary to avoid layout errors
     if (delgadez + pesonormal + sobrepeso == 0) {
-      return Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.info_outline,
-            size: 50,
-          ),
-          Text(
-            "No hay datos",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-        ],
+      return Container(
+        width: size.width,
+        height: size.height,
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.info_outline,
+              size: 50,
+            ),
+            Text(
+              "No hay datos",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
       );
     }
 
+    int numberOfRecords = 0;
+    
+    (data['valores_netos_general'] as List).forEach((item){
+      numberOfRecords += item['total'] as int;
+    });
+
     return Container(
-      margin: const EdgeInsets.all(8.0),
+      width: size.width,
+      height: size.height + defaultPadding * 4,
       padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
         color: secondaryColor,
@@ -135,12 +178,16 @@ class _FacultyDetailState extends State<FacultyDetail> {
         ],
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.max,
         children: [
           Center(
-              child: CustomPieChart(
-            paiChartSelectionDatas:
-                FacultiesController().buildSchoolImcDataset(data, colors),
-          )),
+            child: CustomPieChart(
+              paiChartSelectionDatas: FacultiesController().buildSchoolImcDataset(
+                data, colors
+              ),
+              totalRecords: numberOfRecords,
+            )
+          ),
           StorageInfoCard(
             title: "Delgadez",
             numOfFiles: delgadez,

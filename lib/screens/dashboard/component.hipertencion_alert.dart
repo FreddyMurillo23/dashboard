@@ -1,4 +1,5 @@
 import 'package:admin/Repository/api.medic_records.dart';
+import 'package:admin/components/LoadingWidget.dart';
 import 'package:admin/constants.dart';
 import 'package:admin/helpers/helper.ui.dart';
 import 'package:admin/screens/user/secreen.hypertension.dart';
@@ -10,43 +11,43 @@ class HypertensionAlert extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: size.width,
-      padding: EdgeInsets.all(defaultPadding),
-      decoration: BoxDecoration(
-        color: secondaryColor,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-              color: Theme.of(context).shadowColor.withOpacity(0.2),
-              blurRadius: 5,
-              offset: Offset(-2, 2)),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Alertas de hipertensión",
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          SizedBox(height: defaultPadding),
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: FutureBuilder<Map<String, dynamic>>(
-              future: APIMedicRecords().fetchHypertensionAlertRecords(),
-              builder: (context, snapshot) {
-      
-                if(!snapshot.hasData) {
-                  return const Center(child: CircularProgressIndicator(),);
-                } 
+    return FutureBuilder<Map<String, dynamic>>(
+      future: APIMedicRecords().fetchHypertensionAlertRecords(),
+      builder: (context, snapshot) {
 
-                final users = List<Map<String, dynamic>>.from(snapshot.data!["estudiantes"]);
-      
-                return Container(
+        if(!snapshot.hasData) {
+          return LoadingWidget(size: size);
+        } 
+
+        final users = List<Map<String, dynamic>>.from(snapshot.data!["estudiantes"]);
+
+        return Container(
+          width: size.width,
+          padding: EdgeInsets.all(defaultPadding),
+          decoration: BoxDecoration(
+            color: secondaryColor,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                  color: Theme.of(context).shadowColor.withOpacity(0.2),
+                  blurRadius: 5,
+                  offset: Offset(-2, 2)),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Alertas de hipertensión",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              SizedBox(height: defaultPadding),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Container(
                   height: size.height,
                   child: SingleChildScrollView(
                     child: Column(
@@ -56,12 +57,12 @@ class HypertensionAlert extends StatelessWidget {
                       }))
                     ),
                   ),
-                );
-              }
-            ),
+                )
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      }
     );
   }
 

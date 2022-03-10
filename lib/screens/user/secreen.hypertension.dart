@@ -1,3 +1,4 @@
+import 'package:admin/components/component.info_tile.dart';
 import 'package:flutter/material.dart';
 
 class HypertensionUser extends StatelessWidget {
@@ -37,42 +38,42 @@ class HypertensionUser extends StatelessWidget {
                         childAspectRatio: 2
                       ),
                       children: [
-                        _infoTile(
+                        InfoTile(
                           bgColor: Colors.blue,
                           fgColor: Colors.white,
                           icon: Icons.circle,
                           title: "IMC",
                           value: "${user['imc']}"
                         ),
-                        _infoTile(
+                        InfoTile(
                           bgColor: Colors.red,
                           fgColor: Colors.white,
                           icon: Icons.warning,
                           title: "Alertas directas",
                           value: "${user['alertas_directas']}"
                         ),
-                        _infoTile(
+                        InfoTile(
                           bgColor: Colors.red[800]!,
                           fgColor: Colors.white,
                           icon: Icons.dangerous_sharp,
                           title: "Alertas totales",
                           value: "${user['alertas_totales']}"
                         ),
-                        _infoTile(
+                        InfoTile(
                           bgColor: Colors.indigo[900]!,
                           fgColor: Colors.white,
                           icon: Icons.medical_services,
                           title: "Diagnóstico",
                           value: "${user['diagnostico']}"
                         ),
-                        _infoTile(
+                        InfoTile(
                           bgColor: Colors.orange[800]!,
                           fgColor: Colors.black,
                           icon: Icons.bubble_chart,
                           title: "Sistólica",
                           value: "${user['sistolica']}"
                         ),
-                        _infoTile(
+                        InfoTile(
                           bgColor: Colors.orange[800]!,
                           fgColor: Colors.black,
                           icon: Icons.bubble_chart_outlined,
@@ -90,54 +91,6 @@ class HypertensionUser extends StatelessWidget {
       ),
     );
   }
-
-  Container _infoTile({
-    required IconData icon,
-    required String title,
-    required String value,
-    required Color bgColor,
-    required Color fgColor
-  }) {
-    return Container(
-      padding: const EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
-        color: bgColor,
-        borderRadius: BorderRadius.circular(10.0)
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Row(
-            children: [
-              Icon(
-                icon,
-                color: fgColor,
-                size: 20.0,
-              ),
-              SizedBox(width: 10.0,),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 18.0,
-                  color: fgColor,
-                  fontWeight: FontWeight.bold
-                ),
-              ),
-            ],
-          ),
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: 40.0,
-              color: fgColor,
-              fontWeight: FontWeight.bold
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
 
 
   Container _personalInfoTile(Map<String, dynamic> personalData) {

@@ -1,4 +1,6 @@
+import 'package:admin/components/LoadingWidget.dart';
 import 'package:admin/components/charts/chart.timeseries.dart';
+import 'package:admin/components/component.info_tile.dart';
 import 'package:admin/constants.dart';
 import 'package:admin/controllers/controller.imc.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
@@ -6,23 +8,47 @@ import 'package:flutter/material.dart';
 
 class UserHealthData extends StatelessWidget {
   final Map<String, dynamic> user;
-  const UserHealthData({ Key? key, required this.user }) : super(key: key);
+  final bool isLoading;
+  const UserHealthData({ 
+    Key? key, 
+    required this.user,
+    this.isLoading = false 
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    final size = MediaQuery.of(context).size;
+
     return Column(
       children: [
-        _header(context),
-        _healtData(context),
+        isLoading? 
+          LoadingWidget(size: Size(
+            size.width * 0.55, size.height * 0.10
+          )):
+          _header(context, Size(
+            size.width * 0.55, size.height * 0.12
+          )),
         SizedBox(height: 10.0,),
-        _datagraph(context),
+        isLoading? 
+          LoadingWidget(size: Size(
+            size.width * 0.55, size.height * 0.2 
+          )):
+          _healtData(context, Size(
+            size.width * 0.55, size.height * 0.2 
+          )),
+        SizedBox(height: 10.0,),
+        isLoading?
+          LoadingWidget(size: Size(size.width * 0.55, size.height *0.3))
+          :_datagraph(context, Size(
+            size.width * 0.55, size.height *0.45
+          )),
       ],
     );
   }
 
-  Widget _header(BuildContext context) {
+  Widget _header(BuildContext context, Size size) {
 
-    final size = MediaQuery.of(context).size;
     String complexion = "";
     double imc = user['enfermeria_actual'].isNotEmpty? user['enfermeria_actual'].last['imc']:-99.0;
 
@@ -32,48 +58,66 @@ class UserHealthData extends StatelessWidget {
     else complexion = "NORMAL";
 
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: defaultPadding),
-      padding: const EdgeInsets.all(defaultPadding),
-      width: size.width * 55 / 100,
+      margin: const EdgeInsets.only(top: defaultPadding),
+      // padding: const EdgeInsets.all(defaultPadding),
+      width: size.width,
+      // height: size.height,
       decoration: BoxDecoration(
-          color: secondaryColor, borderRadius: BorderRadius.circular(10)),
+        // color: secondaryColor, borderRadius: BorderRadius.circular(10)
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            children: [
-              Text('COMPLEXION FISICA:'), 
-              Text('$complexion')
-            ],
+          InfoTile(
+            icon: Icons.person,
+            title: "COMPLEXION FISICA",
+            value: complexion,
+            size: Size(size.width * 0.24, size.height),
+            titleSize: 14.0,
+            valueSize: 18.0,
+            iconSize: 17.0,
           ),
-          Column(
-            children: [
-              Text('SEXO:'), 
-              Text(user['datos_personales'][0]['genero'] == 'M'? 'MASCULINO':'FEMENINO')
-            ],
+          InfoTile(
+            icon: Icons.circle_outlined,
+            title: "SEXO",
+            value: user['datos_personales'][0]['genero'] == 'M'? 'MASCULINO':'FEMENINO',
+            size: Size(size.width * 0.24, size.height),
+            titleSize: 14.0,
+            valueSize: 18.0,
+            iconSize: 17.0,
           ),
-          Column(
-            children: [Text('DERIVACION:'), Text('XXX')],
+          InfoTile(
+            icon: Icons.health_and_safety,
+            title: "DISCAPACIDAD",
+            value: user['datos_personales'][0]['discapacidad'] ?? 'NINGUNA',
+            size: Size(size.width * 0.24, size.height),
+            titleSize: 14.0,
+            valueSize: 18.0,
+            iconSize: 17.0,
           ),
-          Column(
-            children: [
-              Text('DISCAPACIDAD:'), 
-              Text(user['datos_personales'][0]['discapacidad'] ?? 'NINGUNA')
-            ],
-          )
+          InfoTile(
+            icon: Icons.medication_sharp,
+            title: "RIESGO HIPERTENSION",
+            value: user['alertas'][0]['propenso_hipertension'] == 1? 'Sí':'No',
+            size: Size(size.width * 0.24, size.height),
+            bgColor: user['alertas'][0]['propenso_hipertension'] == 1?Colors.red:Colors.white,
+            fgColor: user['alertas'][0]['propenso_hipertension'] == 1?Colors.white:Colors.black,
+            titleSize: 14.0,
+            valueSize: 18.0,
+            iconSize: 17.0,
+          ),
         ],
       ),
     );
   }
 
-  
-  Widget _healtData(BuildContext context) {
-    
-    final size = MediaQuery.of(context).size;
 
+  
+  Widget _healtData(BuildContext context, Size size) {
+    
     return Container(
-      width: size.width * 55 / 100,
+      width: size.width,
       padding: EdgeInsets.symmetric(horizontal: defaultPadding),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10), color: Colors.white),
@@ -88,25 +132,25 @@ class UserHealthData extends StatelessWidget {
                 context,
                 imgUrl: 'assets/images/pt-dashboard-01.png',
                 label: 'Temperatura',
-                value: user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['temperatura']}':'NA'
+                value: user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['temperatura']}':'No disponible'
               ),
               _healthDataCard(
                 context,
                 imgUrl: 'assets/images/pt-dashboard-02.png',
-                label: 'Ritmo cardiaco',
-                value: 'XXX'
+                label: 'Intolerancia',
+                value: '${user['datos_nutricionales'].isNotEmpty? user['datos_nutricionales'][0]['intolerencia']:'No disponible'}'
               ),
               _healthDataCard(
                 context,
                 imgUrl: 'assets/images/pt-dashboard-03.png',
                 label: 'IMC',
-                value: user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['imc']}':'NA'
+                value: user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['imc']}':'No disponible'
               ),
               _healthDataCard(
                 context,
                 imgUrl: 'assets/images/pt-dashboard-04.png',
-                label: 'P. Sanguinea',
-                value: 'XXX2'
+                label: 'P. Arterial',
+                value:  user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['presion_sistolica']}/${user['enfermeria_actual'].last['presion_diastolica']}':'No disponible'
               )
             ],
           ),
@@ -161,50 +205,48 @@ class UserHealthData extends StatelessWidget {
     );
   }
 
-  Widget _datagraph(BuildContext context) {
+  Widget _datagraph(BuildContext context, Size size) {
     
-    final size = MediaQuery.of(context).size;
-
     return FutureBuilder<List<charts.Series<Map<String, dynamic>, DateTime>>>(
-          future: IMCController(context).createIMUserData(
-            List<Map<String, dynamic>>.from(user['historico'])
-          ),
-          builder: (context, snapshot) {
+      future: IMCController(context).createIMUserData(
+        List<Map<String, dynamic>>.from(user['historico'])
+      ),
+      builder: (context, snapshot) {
 
-            if(!snapshot.hasData) {
-              return Center(child: CircularProgressIndicator(),);
-            }
+        if(!snapshot.hasData) {
+          return LoadingWidget(size: size);
+        }
 
-            if(snapshot.data![0].data.isEmpty) {
-              return Container(
-                width: size.width * 0.55,
-                padding: const EdgeInsets.all(defaultPadding),
-                decoration: BoxDecoration(
-                  color: secondaryColor,
-                  borderRadius: BorderRadius.circular(10),
+        if(snapshot.data![0].data.isEmpty) {
+          return Container(
+            width: size.width,
+            padding: const EdgeInsets.all(defaultPadding),
+            decoration: BoxDecoration(
+              color: secondaryColor,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              children: [
+                Text(
+                  "IMC a través del tiempo",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold
+                  ),
                 ),
-                child: Column(
-                  children: [
-                    Text(
-                      "IMC a través del tiempo",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold
-                      ),
-                    ),
-                    Icon(Icons.info, size: 36,),
-                    Text("No hay registros de consultas"),
-                  ],
-                ),
-              );
-            }
+                Icon(Icons.info, size: 36,),
+                Text("No hay registros de consultas"),
+              ],
+            ),
+          );
+        }
 
-            return CustomTimeChart(
-              title: "IMC a través del tiempo", 
-              seriesList: snapshot.data!, 
-              size: Size(size.width*0.55, size.height*0.45),
-            );
-          }
+        return CustomTimeChart(
+          title: "IMC a través del tiempo", 
+          seriesList: snapshot.data!, 
+          size: Size(size.width, size.height),
         );
+      }
+    );
   }
 
 }

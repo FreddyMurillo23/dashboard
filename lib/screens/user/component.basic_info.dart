@@ -1,9 +1,14 @@
+import 'package:admin/components/LoadingWidget.dart';
 import 'package:admin/constants.dart';
 import 'package:flutter/material.dart';
 
 class UserBasicInfo extends StatelessWidget {
   final Map<String, dynamic> user;
-  UserBasicInfo({ Key? key, required this.user }) : super(key: key);
+  final bool isLoading;
+  UserBasicInfo({ 
+    Key? key, required this.user,
+    this.isLoading = false
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,25 +17,32 @@ class UserBasicInfo extends StatelessWidget {
 
     return Column(
       children: [
-        _basicInfor(size, context),
-        _appointments(context),
-        _history(context)
+        isLoading? 
+          LoadingWidget(size: Size(size.width * 0.18, size.height * 0.3))
+          :_basicInfor(size, context),
+        SizedBox(height: 10.0,),
+        isLoading? 
+          LoadingWidget(size: Size(size.width * 0.18, size.height * 0.3))
+          :_history(
+            context,
+            Size(size.width * 0.18, size.height * 0.4),
+          )
       ],
     );
   }
 
   
-  Widget _appointments(BuildContext context) {
+  // Widget _appointments(BuildContext context) {
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-      child: Container(
-        // padding: EdgeInsets.symmetric(horizontal: defaultPadding),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10), color: Colors.white),
-      ),
-    );
-  }
+  //   return Padding(
+  //     padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+  //     child: Container(
+  //       // padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+  //       decoration: BoxDecoration(
+  //           borderRadius: BorderRadius.circular(10), color: Colors.white),
+  //     ),
+  //   );
+  // }
 
   Padding _basicInfor(Size size, BuildContext context) {
     return Padding(
@@ -140,13 +152,13 @@ class UserBasicInfo extends StatelessWidget {
       );
   }
 
-  Widget _history(BuildContext context) {
+  Widget _history(BuildContext context, Size size) {
 
     final hist = List<Map<String, dynamic>>.from(user['historico']);
-    final size = MediaQuery.of(context).size;
 
     return Container(
-      width: size.width * 0.18,
+      width: size.width,
+      height: size.height,
       padding: const EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
         color: secondaryColor,
@@ -162,8 +174,7 @@ class UserBasicInfo extends StatelessWidget {
               Text("No hay registros de consultas"),
             ],
           ):
-          Container(
-            height: size.height * 0.4,
+          Expanded(
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -98,16 +98,20 @@ class MedicRecordsComponent extends StatelessWidget {
 
   /// Returns a list of elements based on the filter the user choose
   List<Widget> _getFilterOpt(
-      MedicRecordsController controller, Map<String, dynamic> data) {
+    MedicRecordsController controller, Map<String, dynamic> data
+  ) {
     // How many colors I should generate for the chart
     final howManyColors = 3;
 
     final colors = ColorHelpers().generateColors(howManyColors);
 
+    int numberOfRecords = (data['valores_netos'][0]['total'] as int);
+
     return <Widget>[
       Center(
-          child: CustomPieChart(
-        paiChartSelectionDatas: controller.buildDataset(data, colors),
+        child: CustomPieChart(
+          paiChartSelectionDatas: controller.buildDataset(data, colors),
+          totalRecords: numberOfRecords,
       )),
       StorageInfoCard(
         title: "Delgadez",
@@ -145,10 +149,17 @@ class MedicRecordsComponent extends StatelessWidget {
     // be using this index
     int index = 0;
 
+    int numberOfRecords = 0;
+
+    data.forEach((element) {
+        numberOfRecords += element['cantidad_registros'] as int;
+    });
+
     return <Widget>[
       Center(
           child: CustomPieChart(
         paiChartSelectionDatas: controller.buildDataset(data, colors),
+        totalRecords: numberOfRecords,
       )),
       ...List<Widget>.from(data.map((filter) {
         return StorageInfoCard(
@@ -162,7 +173,8 @@ class MedicRecordsComponent extends StatelessWidget {
               SmartDialog.showLoading();
 
               await controller.loadFilterValues(
-                  filter["cod_clasificacion"], filter["nombre"]);
+                filter["cod_clasificacion"], filter["nombre"]
+              );
 
               SmartDialog.dismiss();
             });

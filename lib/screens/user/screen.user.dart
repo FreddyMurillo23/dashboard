@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 
 class UserScreen extends StatelessWidget {
   final Map<String, dynamic> user;
+  final bool isLoading;
 
-  const UserScreen(
-      {Key? key, required this.user})
-      : super(key: key);
+  const UserScreen({
+    Key? key, 
+    required this.user, 
+    this.isLoading = false
+  }):super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +23,20 @@ class UserScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(flex: 25, child: UserBasicInfo(user: user,)),
-          Expanded(flex: 75, child: UserHealthData(user: user))
+          Expanded(
+            flex: 25, 
+            child: UserBasicInfo(
+              user: user, 
+              isLoading: isLoading
+            )
+          ),
+          Expanded(
+            flex: 75, 
+            child: UserHealthData(
+              user: user,
+              isLoading: isLoading
+            )
+          )
         ],
       ),
     );
