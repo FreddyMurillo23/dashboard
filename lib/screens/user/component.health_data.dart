@@ -142,7 +142,8 @@ class UserHealthData extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 5.0),
-          child: Column(
+          child: Column( 
+            
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
