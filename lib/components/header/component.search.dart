@@ -183,37 +183,50 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
   
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: MaterialButton(
-          onPressed: ()async{
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            MaterialButton(
+              onPressed: ()async{
 
-            if(!validateFields()) {
-              SmartDialog.showToast(
-                "Rellene los campos con la información solicitada",
-                time: Duration(seconds: 3)
-              );
-              return;
-            }
+                if(!validateFields()) {
+                  SmartDialog.showToast(
+                    "Rellene los campos con la información solicitada",
+                    time: Duration(seconds: 3)
+                  );
+                  return;
+                }
 
-            final queryUsers = await widget._controller.searchUser(
-              cedula: ciController.text,
-              fullName: surnameController.text + " " + nameController.text,
-            );
-            
-            // Cleaning up previous results
-            users.clear();
-            users.addAll(queryUsers);
+                final queryUsers = await widget._controller.searchUser(
+                  cedula: ciController.text,
+                  fullName: surnameController.text + " " + nameController.text,
+                );
+                
+                // Cleaning up previous results
+                users.clear();
+                users.addAll(queryUsers);
 
-            // if(queryUsers.length == 1 && ciController.text.isNotEmpty) {
-            //   Navigator.pushNamed(context, '/User', arguments: users.first);
-            // }
+                // if(queryUsers.length == 1 && ciController.text.isNotEmpty) {
+                //   Navigator.pushNamed(context, '/User', arguments: users.first);
+                // }
 
-            setState(() {
-              showSearchPanel = false;
-            });
-          },
-          child: Text("Buscar"),
-          color: Colors.green[900],
-          textColor: Colors.white,
+                setState(() {
+                  showSearchPanel = false;
+                });
+              },
+              child: Text("Buscar"),
+              color: Colors.green[900],
+              textColor: Colors.white,
+            ),
+
+            MaterialButton(
+              color: Colors.green[900],
+              onPressed: () => Navigator.of(context)
+                                      .pushNamed('/Faculties'),
+            child: Text('Facultades',style: TextStyle(color: secondaryColor),),
+            ),
+          ],
         ),
       )
     ];
