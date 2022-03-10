@@ -18,7 +18,6 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  
   late bool isExpanded;
 
   @override
@@ -29,14 +28,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     final size = MediaQuery.of(context).size;
 
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(
-        // vertical: defaultPadding + size.height * 0.115, 
-        horizontal: defaultPadding
-      ),
+          // vertical: defaultPadding + size.height * 0.115,
+          horizontal: defaultPadding),
       child: Column(
         children: [
           SizedBox(height: defaultPadding),
@@ -45,40 +42,100 @@ class _DashboardScreenState extends State<DashboardScreen> {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              MedicRecordsComponent(
-                size: Size(size.width * 0.2, size.height),
-              ),
-              SizedBox(
-                width: defaultPadding,
-              ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  IMCByYearComponent(
-                    size: Size(size.width * 0.40, size.height * 0.35),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MedicRecordsComponent(
+                        size: Size(size.width * 0.2, size.height * 0.86),
+                      ),
+                      SizedBox(
+                        width: defaultPadding,
+                      ),
+                      Column(
+                        children: [
+                          IMCByYearComponent(
+                            size: Size(size.width * 0.76, size.height * 0.35),
+                          ),
+                          SizedBox(
+                        height: defaultPadding,
+                      ),
+                          Row(
+                            children: [
+                              GenderIMCComponent(
+                                size: Size(
+                                    MediaQuery.of(context).size.width * 0.40,
+                                    MediaQuery.of(context).size.height * 0.30),
+                              ),
+                              SizedBox(
+                        width: defaultPadding,
+                      ),
+                              GaugeChart(
+                                size:
+                                    Size(size.width * 0.35, size.height * 0.30),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 10.0,),
-                  GenderIMCComponent(
-                    size: Size(
-                      MediaQuery.of(context).size.width * 0.40,
-                      MediaQuery.of(context).size.height * 0.35
-                    ),
+                  SizedBox(
+                    height: defaultPadding,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      HypertensionAlert(
+                          size: Size(size.width * 0.2, size.height * 0.525)),
+                      SizedBox(
+                        width: defaultPadding,
+                      ),
+                      IMCByFacultyComponent(
+                        size: Size(MediaQuery.of(context).size.width * 0.76,
+                            MediaQuery.of(context).size.height * 0.5),
+                      ),
+                      SizedBox(
+                        width: defaultPadding,
+                      ),
+                    ],
                   ),
                 ],
               ),
-              SizedBox(
-                width: defaultPadding,
-              ),
-              Column(
-                children: [
-                  GaugeChart(
-                    size: Size(size.width * 0.35, size.height * 0.4),
-                  ),
-                  SizedBox(height: 10.0,),
-                  HypertensionAlert(size: Size(size.width * 0.35, size.height * 0.4))
-                ],
-              )
+              // SizedBox(
+              //   width: defaultPadding,
+              // ),
+              // Column(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   mainAxisSize: MainAxisSize.max,
+              //   children: [
+              //     IMCByYearComponent(
+              //       size: Size(size.width * 0.40, size.height * 0.35),
+              //     ),
+              //     SizedBox(height: 10.0,),
+              //     GenderIMCComponent(
+              //       size: Size(
+              //         MediaQuery.of(context).size.width * 0.40,
+              //         MediaQuery.of(context).size.height * 0.35
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(
+              //   width: defaultPadding,
+              // ),
+              // Column(
+              //   children: [
+              //     GaugeChart(
+              //       size: Size(size.width * 0.35, size.height * 0.4),
+              //     ),
+              //     SizedBox(height: 10.0,),
+              //     HypertensionAlert(size: Size(size.width * 0.35, size.height * 0.4))
+              //   ],
+              // )
             ],
           ),
           SizedBox(
@@ -86,14 +143,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IMCByFacultyComponent(
-                size: Size(
-                  MediaQuery.of(context).size.width * 0.9,
-                  MediaQuery.of(context).size.height * 0.5
-                ),
-              ),
-            ],
+            children: [],
           )
         ],
       ),
