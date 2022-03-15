@@ -5,6 +5,7 @@ import 'package:admin/constants.dart';
 import 'package:admin/controllers/controller.imc.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 class UserHealthData extends StatelessWidget {
   final Map<String, dynamic> user;
@@ -20,30 +21,59 @@ class UserHealthData extends StatelessWidget {
 
     final size = MediaQuery.of(context).size;
 
-    return Column(
-      children: [
-        isLoading? 
-          LoadingWidget(size: Size(
-            size.width * 0.55, size.height * 0.10
-          )):
-          _header(context, Size(
-            size.width * 0.55, size.height * 0.12
-          )),
-        SizedBox(height: 10.0,),
-        isLoading? 
-          LoadingWidget(size: Size(
-            size.width * 0.55, size.height * 0.2 
-          )):
-          _healtData(context, Size(
-            size.width * 0.55, size.height * 0.2 
-          )),
-        SizedBox(height: 10.0,),
-        isLoading?
-          LoadingWidget(size: Size(size.width * 0.55, size.height *0.3))
-          :_datagraph(context, Size(
-            size.width * 0.55, size.height *0.45
-          )),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          isLoading? 
+            LoadingWidget(size: Size(
+              size.width * 0.58, size.height * 0.10
+            )):
+            _header(context, Size(
+              size.width * 0.58, size.height * 0.12
+            )),
+          SizedBox(height: 10.0,),
+          isLoading? 
+            LoadingWidget(size: Size(
+              size.width * 0.58, size.height * 0.2 
+            )):
+            _healtData(context, Size(
+              size.width * 0.58, size.height * 0.2 
+            )),
+          SizedBox(height: 10.0,),
+          isLoading?
+            LoadingWidget(size: Size(
+              size.width * 0.58, size.height * 0.35
+            )):
+            SizedBox(
+              width: size.width * 0.58,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _getHistoryWidget(
+                    Size(size.width * 0.28, size.height * 0.3),
+                    List<Map<String, dynamic>>.from(user['antecedentes'])
+                  ),
+                  _getHabitsWidget(
+                    Size(size.width * 0.28, size.height * 0.3),
+                    List<Map<String, dynamic>>.from(user['datos_nutricionales'])
+                  )
+                ],
+              ),
+            ),
+          SizedBox(height: 10.0,),
+          isLoading?
+            LoadingWidget(size: Size(size.width * 0.58, size.height *0.3))
+            :_datagraph(context, Size(
+              size.width * 0.58, size.height *0.45
+            )),
+          SizedBox(height: 10.0,),
+          isLoading?
+            LoadingWidget(size: Size(size.width * 0.58, size.height *0.5))
+            :_getMedicRecords(Size(
+              size.width * 0.58, size.height *0.45
+            )),
+        ],
+      ),
     );
   }
 
@@ -112,8 +142,141 @@ class UserHealthData extends StatelessWidget {
     );
   }
 
+  Container _getHabitsWidget(Size size, List<Map<String, dynamic>> habits) {
 
-  
+    return Container(
+      width: size.width,
+      child: Column(
+        children: [
+          Text(
+            "Hábitos",
+            style: TextStyle(
+              fontSize: 18.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey[300]!,
+                width: 2.0
+              ),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Container(
+              height: size.height,
+              padding: const EdgeInsets.all(5.0),
+              child: habits.isEmpty?
+              Center(child: Text("No hay datos")):
+              _getHabitTile(habits.first)
+            ),
+          )
+        ],
+      ),
+    );
+  }
+ 
+  Container _getHabitTile(Map<String, dynamic> hist) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.grey[300]!,
+          width: 2.0
+        ),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      width: double.infinity,
+      padding: const EdgeInsets.all(5.0),
+      margin: const EdgeInsets.symmetric(vertical: 5.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text.rich(
+            TextSpan(
+              text: "Actividad Física: ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              children: [
+                TextSpan(text: hist['actividad_fisica'], 
+                  style: TextStyle(fontWeight: FontWeight.normal)
+                )
+              ]
+            )
+          ),
+          Text.rich(
+            TextSpan(
+              text: "Alcohol: ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              children: [
+                TextSpan(text: hist['alcohol'] == '0'? 'No':'Sí', 
+                  style: TextStyle(fontWeight: FontWeight.normal)
+                )
+              ]
+            )
+          ),
+          Text.rich(
+            TextSpan(
+              text: "Cigarrillo: ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              children: [
+                TextSpan(text: hist['cigarrillo'] == '0'? 'No':'Sí',
+                  style: TextStyle(fontWeight: FontWeight.normal)
+                )
+              ]
+            )
+          ),
+          Text.rich(
+            TextSpan(
+              text: "Apetito: ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              children: [
+                TextSpan(text: hist['apetito'],
+                  style: TextStyle(fontWeight: FontWeight.normal)
+                )
+              ]
+            )
+          ),
+          Text.rich(
+            TextSpan(
+              text: "Masticación: ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              children: [
+                TextSpan(text: hist['masticacion'],
+                  style: TextStyle(fontWeight: FontWeight.normal)
+                )
+              ]
+            )
+          ),
+          Text.rich(
+            TextSpan(
+              text: "Hábito intestinal: ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              children: [
+                TextSpan(text: hist['habito_intestinal'],
+                  style: TextStyle(fontWeight: FontWeight.normal)
+                )
+              ]
+            )
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _healtData(BuildContext context, Size size) {
     
     return Container(
@@ -159,7 +322,6 @@ class UserHealthData extends StatelessWidget {
     );
   }
 
-  
   Widget _healthDataCard(
     BuildContext context,
     {
@@ -249,5 +411,352 @@ class UserHealthData extends StatelessWidget {
     );
   }
 
+  Container _getHistoryWidget(Size size, List<Map<String, dynamic>> parentsHistory) {
+
+    return Container(
+      width: size.width,
+      child: Column(
+        children: [
+          Text(
+            "Antecedentes (${parentsHistory.length})",
+            style: TextStyle(
+              fontSize: 18.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey[300]!,
+                width: 2.0
+              ),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Container(
+              height: size.height,
+              padding: const EdgeInsets.all(5.0),
+              child: parentsHistory.isEmpty? 
+              Center(child: Text("No hay datos")):
+              SingleChildScrollView(
+                child: Column(
+                  children: List<Widget>.from(parentsHistory.map((hist){
+                      return _getHistTile(hist);
+                    }),
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Container _getHistTile(Map<String, dynamic> hist) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(5.0),
+      margin: const EdgeInsets.symmetric(vertical: 5.0),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.grey[300]!,
+          width: 2.0,
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text.rich(
+            TextSpan(
+              text: "Antecedente: ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              children: [
+                TextSpan(text: hist['antecedente'], 
+                  style: TextStyle(fontWeight: FontWeight.normal)
+                )
+              ]
+            )
+          ),
+          Text.rich(
+            TextSpan(
+              text: "Descripción: ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              children: [
+                TextSpan(text: hist['descripcion'], 
+                  style: TextStyle(fontWeight: FontWeight.normal)
+                )
+              ]
+            )
+          ),
+          Text.rich(
+            TextSpan(
+              text: "Parentezco: ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              children: [
+                TextSpan(text: hist['nombre_parentesco'], 
+                  style: TextStyle(fontWeight: FontWeight.normal)
+                )
+              ]
+            )
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _getMedicRecords(Size size) {
+
+    final records = List<Map<String, dynamic>>.from(user['record_consultas']);
+
+    if(records.isEmpty) {
+      return Container(
+        width: size.width,
+        padding: const EdgeInsets.all(defaultPadding),
+        decoration: BoxDecoration(
+          color: secondaryColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          children: [
+            Text(
+              "Historial de consultas",
+              style: TextStyle(
+                fontWeight: FontWeight.bold
+              ),
+            ),
+            Icon(Icons.info, size: 36,),
+            Text("No hay registros de consultas"),
+          ],
+        ),
+      );
+    }
+
+    const header = [
+      "Motivo",
+      "Fecha",
+      "Enfermedad",
+      "Observación",
+      // "Enfermera",
+      "Médico"
+    ];
+
+    return Container(
+      width: size.width,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.grey[300]!,
+          width: 2.0
+        ),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Container(
+          width: size.width * 0.99,
+          padding: const EdgeInsets.all(8.0),
+          child: PaginatedDataTable(
+            columnSpacing: 5.0,
+            horizontalMargin: 5.0,
+            columns: List<DataColumn>.from(header.map((e){
+              return DataColumn(
+                label: Text(
+                  e
+                )
+              );
+            })),
+            showCheckboxColumn: false,
+            header: Text("Historial de consultas"),
+            // dataRowHeight: size.height * 0.2,
+            source: _TalbeRow(records, size)
+          ),
+        ),
+      ),
+    );
+  }
+
 }
 
+class _TalbeRow extends DataTableSource {
+
+  final List<Map<String, dynamic>> userRecords;
+  final Size size;
+
+  _TalbeRow(this.userRecords, this.size);
+
+  @override
+  DataRow? getRow(int index) {
+
+    if(index > userRecords.length - 1) return null;
+
+    return DataRow.byIndex(
+      onSelectChanged: (_){
+        SmartDialog.show(
+          widget: Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Container(
+              width: size.width / 2,
+              height: size.height * 2,
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ListTile(
+                      title: Text("Detalles de la consulta"),
+                      trailing: IconButton(
+                        icon: Icon(Icons.close),
+                        onPressed: ()=>SmartDialog.dismiss(),
+                      ),
+                    ),
+                    Divider(),
+                    ListTile(
+                      leading: Icon(Icons.info),
+                      title: Text("Motivo"),
+                      subtitle: Text(userRecords[index]['motivo_consulta']),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.date_range),
+                      title: Text("Fecha"),
+                      subtitle: Text(userRecords[index]['fecha']),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.local_hospital),
+                      title: Text("Enfermera"),
+                      subtitle: Text(userRecords[index]['nombre_enfermera']),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.medical_services_rounded),
+                      title: Text("Médico"),
+                      subtitle: Text(userRecords[index]['nombre_medico']),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.height),
+                      title: Text("Talla"),
+                      subtitle: Text(userRecords[index]['talla']),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.circle),
+                      title: Text("Peso"),
+                      subtitle: Text(userRecords[index]['peso']),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.healing),
+                      title: Text("Presión arterial"),
+                      subtitle: Text("${userRecords[index]['presion_sistolica']}/${userRecords[index]['presion_diastolica']}"),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.thermostat),
+                      title: Text("Temperatura"),
+                      subtitle: Text(userRecords[index]['temperatura']),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.text_fields_outlined),
+                      title: Text("Enfermedad"),
+                      subtitle: Text(userRecords[index]['enfermedad_actual']),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.album_outlined),
+                      title: Text("Observación"),
+                      subtitle: Text(
+                        userRecords[index]['observacion'].isEmpty?
+                          "Sin datos":
+                          userRecords[index]['observacion'],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
+        );
+      },
+      index: index,
+      cells: [
+        DataCell(
+          SizedBox(
+            width: size.width*0.2,
+            child: Text(
+              userRecords[index]['motivo_consulta'],
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            )
+          )
+        ),
+        DataCell(
+          SizedBox(
+            width: size.width*0.1,
+            child: Text(
+              userRecords[index]['fecha'],
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            )
+          )
+        ),
+        DataCell(
+          SizedBox(
+            width: size.width*0.2,
+            child: Text(
+              userRecords[index]['enfermedad_actual'],
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            )
+          )
+        ),
+        DataCell(
+          SizedBox(
+            width: size.width*0.15,
+            child: Text(
+              userRecords[index]['observacion'].isEmpty?
+              "Sin datos":
+              userRecords[index]['observacion'],
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            )
+          )
+        ),
+        // DataCell(
+        //   SizedBox(
+        //     width: size.width*0.1,
+        //     child: Text(
+        //       userRecords[index]['nombre_enfermera'],
+        //       maxLines: 2,
+        //       overflow: TextOverflow.ellipsis,
+        //     )
+        //   )
+        // ),
+        DataCell(
+          SizedBox(
+            width: size.width*0.2,
+            child: Text(
+              userRecords[index]['nombre_medico'],
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            )
+          )
+        ),
+      ]
+    );
+  }
+
+  @override
+  bool get isRowCountApproximate => false;
+  @override
+  int get rowCount => userRecords.length;
+  @override
+  int get selectedRowCount => 0; // para no complicarse la existencia :)
+
+
+}
