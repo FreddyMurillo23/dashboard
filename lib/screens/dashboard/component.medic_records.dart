@@ -128,7 +128,7 @@ class MedicRecordsComponent extends StatelessWidget {
         svgSrc: Icon(Icons.person, color: colors[1]),
       ),
       StorageInfoCard(
-        title: "Delgadez",
+        title: "Sobrepeso",
         numOfFiles: data["valores_netos"][0]["sobrepeso"],
         amountOfFiles: '${data["valores_porcentuales"][0]["p_sobrepeso"]}',
         onPress: () {},
