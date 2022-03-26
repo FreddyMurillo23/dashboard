@@ -214,7 +214,7 @@ class UserHealthData extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               children: [
-                TextSpan(text: hist['alcohol'] == '0'? 'No':'Sí', 
+                TextSpan(text: hist['alcohol'] == '1'? 'Sí':'No',
                   style: TextStyle(fontWeight: FontWeight.normal)
                 )
               ]
@@ -227,7 +227,7 @@ class UserHealthData extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               children: [
-                TextSpan(text: hist['cigarrillo'] == '0'? 'No':'Sí',
+                TextSpan(text: hist['cigarrillo'] == '1'? 'Sí':'No',
                   style: TextStyle(fontWeight: FontWeight.normal)
                 )
               ]
@@ -645,12 +645,12 @@ class _TalbeRow extends DataTableSource {
                     ListTile(
                       leading: Icon(Icons.height),
                       title: Text("Talla"),
-                      subtitle: Text(userRecords[index]['talla']),
+                      subtitle: Text('${userRecords[index]['talla']} cm'),
                     ),
                     ListTile(
                       leading: Icon(Icons.circle),
                       title: Text("Peso"),
-                      subtitle: Text(userRecords[index]['peso']),
+                      subtitle: Text('${userRecords[index]['peso']} kg'),
                     ),
                     ListTile(
                       leading: Icon(Icons.healing),
@@ -660,7 +660,7 @@ class _TalbeRow extends DataTableSource {
                     ListTile(
                       leading: Icon(Icons.thermostat),
                       title: Text("Temperatura"),
-                      subtitle: Text(userRecords[index]['temperatura']),
+                      subtitle: Text("${userRecords[index]['temperatura']} °C"),
                     ),
                     ListTile(
                       leading: Icon(Icons.text_fields_outlined),

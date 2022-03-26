@@ -133,6 +133,8 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
     );
   }
 
+  /// Creates a new custom input field according to defined
+  /// interface styles
   Widget _getInputField(
     bool isEnable, 
     String title, 
@@ -175,6 +177,10 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
     );
   }
 
+  /// Creates a panel that allows user to search for students according
+  /// to a full name or an identification (cedula). You can't input a cedula and
+  /// a full name at the same time. [size] referes to the size of this component,
+  /// not the screen size.
   List<Widget> _getSearchPanel(Size size) {
     return <Widget>[
       _getInputField(true, "Cédula", "0000000000", size, ciController),
@@ -198,10 +204,13 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
                   return;
                 }
 
+		SmartDialog.showLoading(msg: 'Cargando datos, por favor espere');
                 final queryUsers = await widget._controller.searchUser(
                   cedula: ciController.text,
-                  fullName: surnameController.text + " " + nameController.text,
+                  fullName: nameController.text + " " + surnameController.text,
                 );
+
+		SmartDialog.dismiss();
                 
                 // Cleaning up previous results
                 users.clear();
@@ -233,120 +242,51 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
   }
 
   List<Widget> _searchResultPanel(BuildContext mainContext, Size size) {
-    return <Widget>[
+
+
+    List<Widget> content = [
       ListTile(
-        title: Text("Resultados de la búsqueda"),
+        title: Text("Mostrando resultados de búsqueda"),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            // SmartDialog.show(
-            //   alignmentTemp: Alignment.centerLeft,
-            //   widget: Text("Hola")
-            // );
             setState(() {
               showSearchPanel = true;
             });
           }
         ),
       ),
-      Container(
+      users.isEmpty?Container(
         width: size.width,
         height: size.height * 0.5,
-        child: ListView.builder(
-          shrinkWrap: true,
-          itemCount: users.length,
-          itemBuilder: (context, index) {
-
-            return GestureDetector(
-              onTap: (){
-                // this will show a lateral dialog
-                UIHelper().showLateralSheet(
-                  mainContext, 
-                  backgroundColor: Colors.green[900]!,
-                  foregroundColor: Colors.white,
-                  title: 'Mostrando datos de usuario', 
-                  content: FutureBuilder<Map<String,dynamic>>(
-                    future: APIUser().fetchUserData(users[index]['id_paciente'].toString()),
-                    builder: (context, snapshot) {
-
-                      if(!snapshot.hasData) {
-                        return UserScreen(
-                          user: {},
-                          isLoading: !snapshot.hasData
-                        );
-                      }
-
-                      final Map<String, dynamic> data = snapshot.data!;
-                      data.addAll({'cedula': users[index]['cedula']});
-
-                      return UserScreen(
-                        user: snapshot.data!
-                      );
-                    }
-                  )
-                );
-              },
-              child: _getResultCard(index),
-            );
-          }
-        ),
-      )
+	child: Center(
+	    child: Text("Ningún usuario coincide con los criterios de búsqueda")
+	)
+      ):_getResultTable(users, size)
     ];
+
+    return content;
   }
 
-  Container _getResultCard(int index) {
-    return Container(
-      margin: const EdgeInsets.all(8.0),
-      padding: const EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[350]!, 
-            offset: Offset(2.0, 2.0), 
-            spreadRadius: 1.0,
-            blurRadius: 2.0
-          )
-        ]
-      ),
-      child: Column(
-        children: [
-          Center(
-            child: Text(
-              "${users[index]['apellidos']} ${users[index]['nombres']}",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Row(
-            children: [
-              Text(
-                "Cédula: ",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Text("${users[index]['cedula']}")
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                "Fecha de nacimiento: ",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Text("${users[index]['fecha_nacimiento']}")
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                "Correo: ",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Text("${users[index]['correo_institucional']}")
-            ],
-          ),
-        ],
-      )
+  Widget _getResultTable(List<Map<String, dynamic>> userRecords, Size size) {
+
+    const header = [
+      "Cédula",
+      "Correo",
+      "Nombre",
+      "F. Nacimiento"
+    ];
+
+    return PaginatedDataTable(
+	  columnSpacing: 10.0,
+	  showCheckboxColumn: false,
+	  rowsPerPage: 5,
+	  source: _TalbeRow(context, userRecords, size),
+	  horizontalMargin: 5.0,
+	  
+	  columns: List<DataColumn>.from(header.map((head){
+	    return DataColumn(label: Text(head));
+	  }))
     );
   }
 
@@ -356,5 +296,110 @@ class _SearchAndResultsPanelState extends State<_SearchAndResultsPanel> {
       || surnameController.text.trim().isNotEmpty
     ;
   }
+
+}
+
+/// Creates a new row format for a PaginatedDataTable. In
+/// this scenario [context] should be a MaterialPage context,
+/// you can't use a context provided by, for example, FutureBuilder,
+/// StreamBuilder, or any builder context that does not directly
+/// belong to a material page.
+/// 
+class _TalbeRow extends DataTableSource {
+
+  final List<Map<String, dynamic>> userRecords;
+  final Size size;
+  final BuildContext context;
+
+  _TalbeRow(this.context, this.userRecords, this.size);
+
+  @override
+  DataRow? getRow(int index) {
+
+    if(index > userRecords.length - 1) return null;
+
+    return DataRow.byIndex(
+      onSelectChanged: (_){
+	UIHelper().showLateralSheet(
+	  context, 
+	  backgroundColor: Colors.green[900]!,
+	  foregroundColor: Colors.white,
+	  title: 'Mostrando datos de usuario', 
+	  content: FutureBuilder<Map<String,dynamic>>(
+	    future: APIUser().fetchUserData(userRecords[index]['id_paciente'].toString()),
+	    builder: (context, snapshot) {
+
+	      if(!snapshot.hasData) {
+		return UserScreen(
+		  user: {},
+		  isLoading: !snapshot.hasData
+		);
+	      }
+
+	      final Map<String, dynamic> data = snapshot.data!;
+	      data.addAll({'cedula': userRecords[index]['cedula']});
+
+	      return UserScreen(
+		user: snapshot.data!
+	      );
+	    }
+	  )
+	);
+      },
+      index: index,
+      cells: [
+        DataCell(
+          SizedBox(
+            width: size.width*0.15,
+            child: Text(
+              userRecords[index]['cedula'] ?? "N/A",
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            )
+          )
+        ),
+        DataCell(
+          SizedBox(
+            width: size.width*0.3,
+            child: Text(
+              userRecords[index]['correo_institucional'] ?? "N/A",
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            )
+          )
+        ),
+        DataCell(
+          SizedBox(
+            width: size.width*0.35,
+            child: Text(
+              '${userRecords[index]['apellidos']} ${userRecords[index]['nombres']}',
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            )
+          )
+        ),
+        DataCell(
+          SizedBox(
+            width: size.width*0.2,
+            child: Text(
+              userRecords[index]['fecha_nacimiento'] ?? "N/A",
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            )
+          )
+        ),
+
+
+      ]
+    );
+  }
+
+  @override
+  bool get isRowCountApproximate => false;
+  @override
+  int get rowCount => userRecords.length;
+  @override
+  int get selectedRowCount => 0; // para no complicarse la existencia :)
+
 
 }
