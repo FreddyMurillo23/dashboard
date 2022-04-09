@@ -95,7 +95,7 @@ class _FacultyDetailState extends State<FacultyDetail> {
     [bool isLoading = false]
   ) {
     return FutureBuilder<List<charts.Series<Map<String, dynamic>, String>>>(
-      future: IMCController(context).createIMCPerGenderData(data),
+      future: IMCController(context).createIMCPerGenderData(DateTime.now().year, data),
       builder: (context, snapshot) {
 
         if(isLoading || !snapshot.hasData) {
@@ -104,7 +104,7 @@ class _FacultyDetailState extends State<FacultyDetail> {
 
         return CustomStackedBar(
           size: size,
-          title: "IMC por género",
+          title: Text("IMC por género"),
           seriesList: snapshot.data!,
         );
       }

@@ -155,13 +155,13 @@ class IMCController {
 
   /// This will create a dataset to be used in [CustomStackedBar] component. If you don't
   /// define any [customData] then new data will be fetched (global records of UTM).
-  Future<List<charts.Series<Map<String, dynamic>, String>>> createIMCPerGenderData([
+  Future<List<charts.Series<Map<String, dynamic>, String>>> createIMCPerGenderData(int year, [
     Map<String, dynamic>? customData
   ]) async {
     late final Map<String, dynamic> data;
 
     try {
-      data = customData ?? await APIIMCB().fetchIMCPerGender();
+      data = customData ?? await APIIMCB().fetchIMCPerGender(year);
     }catch(_) {
       SmartDialog.showToast("Error cargando datos, intente más tarde");
       return [];

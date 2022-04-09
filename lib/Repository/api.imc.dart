@@ -108,7 +108,8 @@ class APIIMCB {
     return decodedRespone;
   }
 
-  Future<Map<String, dynamic>> fetchIMCPerGender() async {
+  /// Gets the IMC per gender globally for all the faculties & schools
+  Future<Map<String, dynamic>> fetchIMCPerGender(int year) async {
     final isProduction = dotenv.env['IS_PRODUCTION'] == "true";
 
     late final rawResponse;
@@ -118,7 +119,7 @@ class APIIMCB {
       rawResponse = await rootBundle.loadString('data/estadisticasUtmGenero.json');
     }
     else {
-      final url = Uri.parse("${dotenv.env['API_HOST']}salud/estadisticasUtmGenero");
+      final url = Uri.parse("${dotenv.env['API_HOST']}salud/estadisticasUtmGenero/$year");
       final fetchedData = await http.get(url);
 
       if(fetchedData.statusCode != 200) {
