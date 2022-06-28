@@ -293,19 +293,19 @@ class UserHealthData extends StatelessWidget {
             children: [
               _healthDataCard(
                 context,
-                imgUrl: 'assets/images/pt-dashboard-01.png',
+                imgUrl: 'assets/images/pt-dashboard-02.png',
                 label: 'Temperatura',
                 value: user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['temperatura']}':'No disponible'
               ),
               _healthDataCard(
                 context,
-                imgUrl: 'assets/images/pt-dashboard-02.png',
-                label: 'Intolerancia',
-                value: '${user['datos_nutricionales'].isNotEmpty? user['datos_nutricionales'][0]['intolerencia']:'No disponible'}'
+                imgUrl: 'assets/images/pt-dashboard-06.png',
+                label: 'Alergias',
+                value: '${user['datos_nutricionales'].isNotEmpty? user['datos_nutricionales'][0]['Alergias']:'No disponible'}'
               ),
               _healthDataCard(
                 context,
-                imgUrl: 'assets/images/pt-dashboard-03.png',
+                imgUrl: 'assets/images/pt-dashboard-05.png',
                 label: 'IMC',
                 value: user['enfermeria_actual'].isNotEmpty? '${user['enfermeria_actual'].last['imc']}':'No disponible'
               ),
@@ -355,8 +355,13 @@ class UserHealthData extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Image(
-                image: AssetImage(imgUrl)
+              Container(
+                width: size.width * 12 / 100,
+      height: MediaQuery.of(context).size.height * 8 / 100,
+                child: Image(
+                  fit: BoxFit.contain,
+                  image: AssetImage(imgUrl)
+                ),
               ),
               Text(label),
               Text(value),
