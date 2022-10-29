@@ -355,7 +355,7 @@ class HypertensionUser extends StatelessWidget {
           ),
           Text.rich(
             TextSpan(
-              text: "Parentezco: ",
+              text: "Parentesco: ",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),

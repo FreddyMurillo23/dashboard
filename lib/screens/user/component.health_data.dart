@@ -278,7 +278,7 @@ class UserHealthData extends StatelessWidget {
   }
 
   Widget _healtData(BuildContext context, Size size) {
-    
+    var alergias ='${user['datos_nutricionales'].isNotEmpty? user['datos_nutricionales'][0]['Alergias']:'No disponible'}';
     return Container(
       width: size.width,
       padding: EdgeInsets.symmetric(horizontal: defaultPadding),
@@ -301,7 +301,7 @@ class UserHealthData extends StatelessWidget {
                 context,
                 imgUrl: 'assets/images/pt-dashboard-06.png',
                 label: 'Alergias',
-                value: '${user['datos_nutricionales'].isNotEmpty? user['datos_nutricionales'][0]['Alergias']:'No disponible'}'
+                value: alergias == 'null' ?'No':alergias
               ),
               _healthDataCard(
                 context,
@@ -502,7 +502,7 @@ class UserHealthData extends StatelessWidget {
           ),
           Text.rich(
             TextSpan(
-              text: "Parentezco: ",
+              text: "Parentesco: ",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),

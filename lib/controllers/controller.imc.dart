@@ -89,19 +89,19 @@ class IMCController {
     // outer level is the faculty (each x-axis values) and year (x-axis value) is the inner level
     response.addAll(
       [
-        charts.Series<Map<String, dynamic>, int>(
-          id: 'Promedio',
-          domainFn: (data, _) => int.parse(data['name']),
-          measureFn: (data, _) => data['value'],
-          data: List<Map<String, dynamic>>.from(
-            data.keys.map((year){
-              return {
-                'name': year,
-                'value': data['$year'][0]['promedio_imc']
-              };
-            })
-          )
-        ),
+        // charts.Series<Map<String, dynamic>, int>(
+        //   id: 'Promedio',
+        //   domainFn: (data, _) => int.parse(data['name']),
+        //   measureFn: (data, _) => data['value'],
+        //   data: List<Map<String, dynamic>>.from(
+        //     data.keys.map((year){
+        //       return {
+        //         'name': year,
+        //         'value': data['$year'][0]['promedio_imc']
+        //       };
+        //     })
+        //   )
+        // ),
         charts.Series<Map<String, dynamic>, int>(
           id: 'Delgadez',
           domainFn: (data, _) => int.parse(data['name']),
@@ -173,7 +173,7 @@ class IMCController {
     response.addAll(
       [
         charts.Series<Map<String, dynamic>, String>(
-          id: 'Delgadéz',
+          id: 'Delgadez',
           domainFn: (data, _) => data['name'],
           measureFn: (data, _) => data['value'],
           colorFn: (_, __)=> charts.MaterialPalette.blue.shadeDefault.lighter,
@@ -189,7 +189,7 @@ class IMCController {
           ]
         ),
         charts.Series<Map<String, dynamic>, String>(
-          id: 'Peson normal',
+          id: 'Peso normal',
           domainFn: (data, _) => data['name'],
           measureFn: (data, _) => data['value'],
           colorFn: (_, __)=> charts.MaterialPalette.blue.shadeDefault,

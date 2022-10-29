@@ -135,7 +135,7 @@ class UserBasicInfo extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text('Grupo Sanguineo:'),
+                                Text('Grupo Sanguíneo:'),
                                 Text('${user['datos_personales'][0]['tipo_sangre']}'),
                               ],
                             ),
@@ -180,7 +180,14 @@ class UserBasicInfo extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ...List<Widget>.from(hist.map((hist){
-                    return _userHistTile(hist);
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        _userHistTile(hist),
+                        Divider()
+                      ],
+                    );
                   })),
                 ]
               ),
@@ -191,12 +198,13 @@ class UserBasicInfo extends StatelessWidget {
     );
   }
 
-  Card _userHistTile(Map<String, dynamic> hist) {
-    return Card(
+  Widget _userHistTile(Map<String, dynamic> hist) {
+    return Container(
       margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 3.0),
-      elevation: 2.0,
+      // elevation: 2.0,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text.rich(
             TextSpan(

@@ -75,7 +75,8 @@ class CustomLineChart extends StatelessWidget {
               behaviors: [charts.SeriesLegend()],
               defaultRenderer: charts.LineRendererConfig(
                 includeLine: true,
-                includePoints: true
+                includePoints: true,
+                includeArea: true
               )
             ),
           )

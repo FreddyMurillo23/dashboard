@@ -62,7 +62,7 @@ flutter:
   assets:
     - assets/cfg/
     - assets/images/
-    - assets/icons/
+    - assets/
     - assets/data/
     - assets/.env
   #   - images/a_dot_ham.jpeg

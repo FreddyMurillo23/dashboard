@@ -20,8 +20,8 @@ class InfoTile extends StatelessWidget {
     this.bgColor = Colors.white,
     this.fgColor = Colors.black,
     this.iconSize = 20.0,
-    this.titleSize = 18.0,
-    this.valueSize = 40.0
+    this.titleSize = 16.0,
+    this.valueSize = 30.0
   }) : super(key: key);
 
   @override

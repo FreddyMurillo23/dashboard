@@ -85,7 +85,7 @@ class MedicRecordsComponent extends StatelessWidget {
                 },
               ),
         Text(
-          "Registros Medicos${(snapshot.data is Map<String, dynamic>) ? "\nde " + snapshot.data['name'] : ""}",
+          "Registros Médicos${(snapshot.data is Map<String, dynamic>) ? "\nde " + snapshot.data['name'] : ""}",
           maxLines: 2,
           style: TextStyle(
             fontSize: 18,

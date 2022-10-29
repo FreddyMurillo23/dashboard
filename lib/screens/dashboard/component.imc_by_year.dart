@@ -41,7 +41,7 @@ class IMCByYearComponent extends StatelessWidget {
           lowerBound: _controller.lowerIMCByYearBound!,
           upperBound: _controller.upperIMCByYearBound!,
           size: size,
-          title: "Porcentaje promedio de IMC por año",
+          title: "Porcentaje de IMC por año",
           seriesList: snapshot.data!
         );
       }
