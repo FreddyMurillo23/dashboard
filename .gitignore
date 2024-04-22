@@ -29,7 +29,6 @@ windows/flutter/generated_plugins.cmake
 .flutter-plugins
 .flutter-plugins
 .flutter-plugins
-*.png
 *.dart
 macos/Flutter/GeneratedPluginRegistrant.swift
 windows/flutter/generated_plugins.cmake
