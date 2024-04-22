@@ -22,7 +22,7 @@ It works perfectly on the Web, macOS app, Tablet also on both Android and iOS ph
 
 ### Responsive Admin Panel or Dashboard Final UI
 
-![Preview](/gif.gif)
+![Preview](/imgFolio/main.png)
 
 ![App UI](/ui.png)
 
