@@ -3,17 +3,17 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-## [Live Preview](https://abuanwar072.github.io/Flutter-Responsive-Admin-Panel-or-Dashboard/#/)
+<!-- ## [Live Preview](https://abuanwar072.github.io/Flutter-Responsive-Admin-Panel-or-Dashboard/#/) -->
 
 **Packages we are using:**
 
 - flutter_svg: [link](https://pub.dev/packages/flutter_svg)
 - google_fonts: [link](https://pub.dev/packages/google_fonts)
 - provider: [link](https://pub.dev/packages/provider)
-- mvc_pattern: [link](https://pub.dev/packages/provider)
-- bloc: [link](https://pub.dev/packages/provider)
-- fl_chart: [link](https://pub.dev/packages/provider)
-- charts_flutter: [link](https://pub.dev/packages/provider)
+- mvc_pattern: [link](https://pub.dev/packages/mvc_pattern)
+- bloc: [link](https://pub.dev/packages/bloc)
+- fl_chart: [link](https://pub.dev/packages/fl_chart)
+- charts_flutter: [link](https://pub.dev/packages/community_charts_flutter)
 
 **Fonts**
 
