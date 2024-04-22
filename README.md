@@ -21,14 +21,22 @@
 
 <!-- ## [Watch it on YouTube](https://youtu.be/_uOgXpEHNbc) -->
 
-On Flutter V2.* web officially supported on a stable branch. Today I share an Admin panel or you can call it dashboard UI build with flutter.  Now you can build your app dashboard using flutter. This dashboard contains almost everything that you need like a chart, table, nice small card for showing info. 
-It works perfectly on the Web, macOS app, Tablet also on both Android and iOS phones. It's time to code once run everywhere. Yeah, Flutter web is not SEO friendly but we don't need SEO for the admin panel.
+The Technical University of Manabí requires a management system for the health data of its work staff, in the same way, it requires a systematic means for their analysis, therefore, the institution together with its main authorities does not They cannot carry out continuous and exhaustive monitoring of the health status of their workers, nor can they take adequate measures in favor of the medical well-being of each particular health case, since, lacking a tool that provides them with exact data based on filters or predictive systems, it is difficult for them to carry out this control.
 
 ### Responsive Admin Panel or Dashboard Final UI
 
 ![Preview](/imgFolio/main.png)
 
-![App UI](/ui.png)
+### Responsive Admin Panel or Dashboard Final UI
+
+![App UI](/imgFolio/main.png)
+![App UI](/imgFolio/Graficos%20interfaz%20Principal.png)
+![App UI](/imgFolio/main.png)
+![App UI](/imgFolio/main.png)
+![App UI](/imgFolio/main.png)
+![App UI](/imgFolio/main.png)
+![App UI](/imgFolio/main.png)
+<!-- ![](/ui.png) -->
 
 ## Contributors ✨
 
