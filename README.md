@@ -1,4 +1,4 @@
-# Responsive Admin Panel or Dashboard - Flutter UI
+# Responsive Health Dashboard - Flutter UI
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
@@ -10,12 +10,16 @@
 - flutter_svg: [link](https://pub.dev/packages/flutter_svg)
 - google_fonts: [link](https://pub.dev/packages/google_fonts)
 - provider: [link](https://pub.dev/packages/provider)
+- mvc_pattern: [link](https://pub.dev/packages/provider)
+- bloc: [link](https://pub.dev/packages/provider)
+- fl_chart: [link](https://pub.dev/packages/provider)
+- charts_flutter: [link](https://pub.dev/packages/provider)
 
 **Fonts**
 
 - Poppins [link](https://fonts.google.com/specimen/Poppins)
 
-## [Watch it on YouTube](https://youtu.be/_uOgXpEHNbc)
+<!-- ## [Watch it on YouTube](https://youtu.be/_uOgXpEHNbc) -->
 
 On Flutter V2.* web officially supported on a stable branch. Today I share an Admin panel or you can call it dashboard UI build with flutter.  Now you can build your app dashboard using flutter. This dashboard contains almost everything that you need like a chart, table, nice small card for showing info. 
 It works perfectly on the Web, macOS app, Tablet also on both Android and iOS phones. It's time to code once run everywhere. Yeah, Flutter web is not SEO friendly but we don't need SEO for the admin panel.
@@ -35,7 +39,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/simon1tan"><img src="https://avatars.githubusercontent.com/u/1250858?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Simon Tan</b></sub></a><br /><a href="https://github.com/abuanwar072/Flutter-Responsive-Admin-Panel-or-Dashboard/issues?q=author%3Asimon1tan" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/simon1tan"><img src="https://avatars.githubusercontent.com/u/64610867?v=4" width="100px;" alt=""/><br /><sub><b>Joel Garcia</b></sub></a><br /><a href="https://github.com/JoelGarcia99" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/gillescoolen"><img src="https://avatars.githubusercontent.com/u/31668393?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gilles</b></sub></a><br /><a href="https://github.com/abuanwar072/Flutter-Responsive-Admin-Panel-or-Dashboard/issues?q=author%3Agillescoolen" title="Bug reports">🐛</a></td>
   </tr>
 </table>
