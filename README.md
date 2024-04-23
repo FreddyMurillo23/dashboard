@@ -27,22 +27,13 @@ The Technical University of Manabí requires a management system for the health 
 
 ![Preview](/imgFolio/main.png)
 
-
-### Main Dashboard
-![App UI](/imgFolio/Graficos%20interfaz%20Principal.png)
-![App UI](/imgFolio/ICM%20Promedio%20de%20facultad.png)
-
 The main dashboard of the developed health system has six different sections 
 
-![App UI](/imgFolio/main.png)
+### Main.
 
-## Aplicaciones desarrolladas durante el curso.
-
-### Calculador IMC.
-
-|                               Pantalla principal                               |                                   Resultado                                    |
+|                               Main Dashboard                               |                                   Resultado                                    |
 |:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
-|  <img src="/imgFolio/carreras de escuela.png" style="height: 50%; width:50%;"/>  |  <img src="https://i.imgur.com/lH1NBas.png" style="height: 50%; width:50%;"/>  |
+|  <img src="/imgFolio/Graficos%20interfaz%20Principal.png" style="height: 50%; width:50%;"/>  |  <img src="/imgFolio/ICM%20Promedio%20de%20facultad.png" style="height: 50%; width:50%;"/>  |
 
 ### Organizador de tareas.
 
