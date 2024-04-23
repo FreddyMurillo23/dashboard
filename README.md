@@ -78,7 +78,7 @@ Thanks goes to these wonderful people ✨
     </td>
     <td align="center"><a href="https://github.com/mgarcia404">
     <img src="https://avatars.githubusercontent.com/u/71103640?v=4" width="100px;" alt=""/>
-    <br /><sub><b>Joel Garcia</b></sub></a><br /><a href="https://github.com/mgarcia404" title="Bug reports">🐛</a>
+    <br /><sub><b>Michael García</b></sub></a><br /><a href="https://github.com/mgarcia404" title="Bug reports">🐛</a>
     </td>
   </tr>
 </table>
