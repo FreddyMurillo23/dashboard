@@ -31,15 +31,15 @@ The main dashboard of the developed health system has six different sections
 
 ### Main.
 
-|                               Main Dashboard                               |                                   Resultado                                    |
+|                               Main Dashboard                               |                                   average ICM                                  |
 |:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
 |  <img src="/imgFolio/Graficos%20interfaz%20Principal.png" style="height: 50%; width:90%;"/>  |  <img src="/imgFolio/ICM%20Promedio%20de%20facultad.png" style="height: 50%; width:90%;"/>  |
 
-### Organizador de tareas.
+### Interfaces de Paciente.
 
-|                              Pantalla principal                              |                               Añadiendo tareas                               |
+|                              Patient details                             |                               Medical appointment history                               |
 |:----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
-| <img src="https://i.imgur.com/uvVh4Q9.png" style="height: 50%; width:50%;"/> | <img src="https://i.imgur.com/GhHuj6c.png" style="height: 50%; width:50%;"/> |
+| <img src="/imgFolio/detalles de datos de usuario.png" style="height: 50%; width:90%;"/> | <img src="/imgFolio/Historial de consultas medicas general.png" style="height: 90%; width:90%;"/> |
 
 ### Buscador de superhéroes.
 
