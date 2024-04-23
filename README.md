@@ -7,13 +7,13 @@
 
 **Packages we are using:**
 
-- flutter_svg: [link](https://pub.dev/packages/flutter_svg)
-- google_fonts: [link](https://pub.dev/packages/google_fonts)
-- provider: [link](https://pub.dev/packages/provider)
-- mvc_pattern: [link](https://pub.dev/packages/mvc_pattern)
-- bloc: [link](https://pub.dev/packages/bloc)
-- fl_chart: [link](https://pub.dev/packages/fl_chart)
 - charts_flutter: [link](https://pub.dev/packages/community_charts_flutter)
+- google_fonts: [link](https://pub.dev/packages/google_fonts)
+- mvc_pattern: [link](https://pub.dev/packages/mvc_pattern)
+- flutter_svg: [link](https://pub.dev/packages/flutter_svg)
+- provider: [link](https://pub.dev/packages/provider)
+- fl_chart: [link](https://pub.dev/packages/fl_chart)
+- bloc: [link](https://pub.dev/packages/bloc)
 
 **Fonts**
 
@@ -27,12 +27,43 @@ The Technical University of Manabí requires a management system for the health 
 
 ![Preview](/imgFolio/main.png)
 
-### Responsive Admin Panel or Dashboard Final UI
+
+### Main Dashboard
+![App UI](/imgFolio/Graficos%20interfaz%20Principal.png)
+![App UI](/imgFolio/ICM%20Promedio%20de%20facultad.png)
+
+The main dashboard of the developed health system has six different sections 
 
 ![App UI](/imgFolio/main.png)
-![App UI](/imgFolio/Graficos%20interfaz%20Principal.png)
-![App UI](/imgFolio/main.png)
-![App UI](/imgFolio/main.png)
+
+## Aplicaciones desarrolladas durante el curso.
+
+### Calculador IMC.
+
+|                               Pantalla principal                               |                                   Resultado                                    |
+|:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
+|  <img src="/imgFolio/carreras de escuela.png" style="height: 50%; width:50%;"/>  |  <img src="https://i.imgur.com/lH1NBas.png" style="height: 50%; width:50%;"/>  |
+
+### Organizador de tareas.
+
+|                              Pantalla principal                              |                               Añadiendo tareas                               |
+|:----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
+| <img src="https://i.imgur.com/uvVh4Q9.png" style="height: 50%; width:50%;"/> | <img src="https://i.imgur.com/GhHuj6c.png" style="height: 50%; width:50%;"/> |
+
+### Buscador de superhéroes.
+
+|                              Pantalla principal                              |                               Añadiendo tareas                               |
+|:----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
+| <img src="https://i.imgur.com/XNwTHjy.png" style="height: 50%; width:50%;"/> | <img src="https://i.imgur.com/xYOssJf.png" style="height: 50%; width:50%;"/> |
+
+### Pantalla de ajustes.
+
+|                              Pantalla principal                              |                               Añadiendo tareas                               |
+|:----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
+| <img src="https://i.imgur.com/HnYQIew.png" style="height: 50%; width:50%;"/> | <img src="https://i.imgur.com/p1Yn1gt.png" style="height: 50%; width:50%;"/> |
+
+---
+
 ![App UI](/imgFolio/main.png)
 ![App UI](/imgFolio/main.png)
 ![App UI](/imgFolio/main.png)
