@@ -71,8 +71,15 @@ Thanks goes to these wonderful people ✨
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/simon1tan"><img src="https://avatars.githubusercontent.com/u/64610867?v=4" width="100px;" alt=""/><br /><sub><b>Joel Garcia</b></sub></a><br /><a href="https://github.com/JoelGarcia99" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/FreddyMurillo23"><img src="https://avatars.githubusercontent.com/u/71042478?v=4" width="100px;" alt=""/><br /><sub><b>Freddy Murillo</b></sub></a><br /><a href="https://github.com/FreddyMurillo23" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/simon1tan">
+    <img src="https://avatars.githubusercontent.com/u/64610867?v=4" width="100px;" alt=""/>
+    <br /><sub><b>Joel Garcia</b></sub></a><br /><a href="https://github.com/JoelGarcia99" title="Bug reports">🐛</a>
+    </td>
+    <td align="center"><a href="https://github.com/mgarcia404">
+    <img src="https://avatars.githubusercontent.com/u/71103640?v=4" width="100px;" alt=""/>
+    <br /><sub><b>Joel Garcia</b></sub></a><br /><a href="https://github.com/mgarcia404" title="Bug reports">🐛</a>
+    </td>
   </tr>
 </table>
 
