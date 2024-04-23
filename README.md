@@ -49,15 +49,18 @@ The main dashboard of the developed health system has six different sections
 
 ### Some other Interfaces.
 
-
+|                                                            |                                                              |
 |:----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
-| <img src="/imgFolio/Escuelas de facultad.png" style="height: 50%; width:90%;"/> | <img src="/imgFolio/carreras de escuela.png" style="height: 50%; width:90%;"/> |
+| <img src="/imgFolio/Escuelas de facultad.png" style="height: 50%; width:90%;"/> |  <img src="/imgFolio/carreras de escuela.png" style="height: 50%; width:90%;"/>  |
 
 ---
+|                                                           |                                                              |
 |:----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
 | <img src="/imgFolio/graficos de escuela.png" style="height: 50%; width:90%;"/> | <img src="/imgFolio/hipertension.png" style="height: 50%; width:90%;"/> |
 
 ---
+
+
 ![App UI](/imgFolio/main.png)
 ![App UI](/imgFolio/main.png)
 ![App UI](/imgFolio/main.png)
