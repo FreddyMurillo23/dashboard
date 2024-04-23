@@ -35,26 +35,29 @@ The main dashboard of the developed health system has six different sections
 |:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
 |  <img src="/imgFolio/Graficos%20interfaz%20Principal.png" style="height: 50%; width:90%;"/>  |  <img src="/imgFolio/ICM%20Promedio%20de%20facultad.png" style="height: 50%; width:90%;"/>  |
 
-### Interfaces de Paciente.
+### Patient interfaces.
 
 |                              Patient details                             |                               Medical appointment history                               |
 |:----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
 | <img src="/imgFolio/detalles de datos de usuario.png" style="height: 50%; width:90%;"/> | <img src="/imgFolio/Historial de consultas medicas general.png" style="height: 90%; width:90%;"/> |
 
-### Buscador de superhéroes.
+### Medical Appointment
 
-|                              Medical consultation details                              |                               Medical consultation details                               |
+|                              Medical appointment details                              |                               Medical appointment details                               |
 |:----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
-| <img src="/imgFolio/detalles e consulta.png" style="height: 50%; width:50%;"/> | <img src="/imgFolio/detalles de consultas a fondo.png" style="height: 50%; width:90%;"/> |
+| <img src="/imgFolio/detalles e consulta.png" style="height: 50%; width:90%;"/> | <img src="/imgFolio/detalles de consultas a fondo.png" style="height: 50%; width:90%;"/> |
 
-### Pantalla de ajustes.
+### Some other Interfaces.
 
-|                              Pantalla principal                              |                               Añadiendo tareas                               |
+
 |:----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
-| <img src="https://i.imgur.com/HnYQIew.png" style="height: 50%; width:50%;"/> | <img src="https://i.imgur.com/p1Yn1gt.png" style="height: 50%; width:50%;"/> |
+| <img src="/imgFolio/Escuelas de facultad.png" style="height: 50%; width:90%;"/> | <img src="/imgFolio/carreras de escuela.png" style="height: 50%; width:90%;"/> |
 
 ---
+|:----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
+| <img src="/imgFolio/graficos de escuela.png" style="height: 50%; width:90%;"/> | <img src="/imgFolio/hipertension.png" style="height: 50%; width:90%;"/> |
 
+---
 ![App UI](/imgFolio/main.png)
 ![App UI](/imgFolio/main.png)
 ![App UI](/imgFolio/main.png)
