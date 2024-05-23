@@ -1,4 +1,6 @@
 # Responsive Health Dashboard - Flutter UI
+
+![Preview](/imgFolio/healthdashboard.png)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
@@ -25,7 +27,7 @@ The Technical University of Manabí requires a management system for the health 
 
 ### Responsive Admin Panel or Dashboard Final UI
 
-![Preview](/imgFolio/main.png)
+
 
 The main dashboard of the developed health system has six different sections 
 
